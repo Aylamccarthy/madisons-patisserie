@@ -2,7 +2,7 @@
 name: " <TITLE>"
 about: Describe this issue template's purpose here.
 title: 'USER STORY: <TITLE>'
-labels: bug, documentation, enhancement
+labels: ''
 assignees: Aylamccarthy
 
 ---
