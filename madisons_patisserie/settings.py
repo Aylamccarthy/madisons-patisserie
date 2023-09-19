@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-zqef#f&u@b(a&lbz+4yi-1wbv%s$ir_f!4ndt$*p+g@a&)e!1@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-aylamccarth-madisonspat-mbuzoi12mib.ws-eu104.gitpod.io', 'madisons-patisserie-8790c4325233.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-aylamccarth-madisonspat-mbuzoi12mib.ws-eu104.gitpod.io', 'madisons-patisserie-8790c4325233.herokuapp.com', 'localhost',]
 
 
 # Application definition
