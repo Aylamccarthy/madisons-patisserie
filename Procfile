@@ -1,0 +1,1 @@
+web: gunicorn madisons_patisserie.wsgi:application
