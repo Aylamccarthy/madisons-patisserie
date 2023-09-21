@@ -215,5 +215,7 @@ By using Agile methodology, I was able to stay organized and focused on deliveri
 ![agile]()
 ![agile-boards]()
 
+<details>
+<summary>Sprints Details</summary>
 
 
