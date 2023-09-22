@@ -8,6 +8,17 @@ html {
 
 a, a:hover{
     text-decoration: none;
+    cursor: pointer;
+
+}
+
+.p-side{
+    padding: 0 45px;
+}
+
+header{
+    position: sticky;   
+    background-color: purple; 
 }
 
 
@@ -17,6 +28,7 @@ body {
     height: calc(100vh - 164px);
     color: white;
     font-family: 'Poiret One';
+    font-weight: bolder;
     scroll-behavior: smooth;
 }
 
@@ -26,11 +38,6 @@ body {
 .logo {
     font-family: 'Dancing Script';
     color: white;
-}
-
-.logo img {
-    height: auto;
-    width: 25%;
 }
 
 .logo h4 {
@@ -66,13 +73,61 @@ body {
 }
 
 .dropdown-item{
-    color: #3a3a3a;
+    color: black;
+}
+
+.nav-item:focus, .nav-item:focus-visible{
+    outline: none;
+}
+
+.dropdown-menu{
+    left: auto;
+    right: 0;
 }
 
 .dropdown-item:hover{
     background-color: #ac96a98a;
     color: black;
 }
+
+/* CATEGORIES NAVBAR STYLING */
+.categories .dropdown-menu{
+    right: auto;
+    left: 0;
+}
+.categories a{
+    color: white;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease-out;
+}
+
+.categories a:hover{
+    color: white;
+    border-bottom: 2px solid #facef38a;
+}
+
+.categories .dropdown-menu a{
+    color: inherit;
+}
+
+.navbar{
+    padding: 0.5rem 0;
+}
+.navbar-toggler{
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.navbar-collapse{
+    flex-direction: column-reverse;
+}
+
+@keyframes autoplay {
+    0% {visibility: visible}
+    50% {visibility: hidden}
+  }
+
 
 @media (max-width: 991.98px) {
     .nav-item i{
