@@ -24,9 +24,8 @@ body {
 /* --------------------------------------- HEADER STYLING ------------------------------------------- */
 
 .logo {
-    font-family: 'Poiret One';
-    font-weight: bolder;
-    color: black;
+    font-family: 'Dancing Script';
+    color: white;
 }
 
 .logo img {
@@ -40,7 +39,7 @@ body {
 }
 
 .navbar {
-    background-color: skyblue;
+    background-color: purple;
 }
 
 .navbar ul{
