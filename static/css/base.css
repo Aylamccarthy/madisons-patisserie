@@ -17,76 +17,67 @@ body {
     height: calc(100vh - 164px);
     color: white;
     font-family: 'Poiret One';
+    scroll-behavior: smooth;
 }
 
 
+/* --------------------------------------- HEADER STYLING ------------------------------------------- */
 
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-
-.btn-black {
-    background: black;
+.logo {
+    font-family: 'Poiret One';
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
+.logo img {
+    height: auto;
+    width: 25%;
+}
+
+.logo h4 {
     color: white;
+    margin-bottom: 0;
 }
 
-.text-black {
-    color: #000 !important;
+.navbar {
+    background-color: purple;
 }
 
-.border-black {
-    border: 1px solid black !important;
+.navbar ul{
+    margin: 0;
+    padding: 0;
 }
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+.navbar ul li{
+    list-style: none;
 }
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
+.nav-item i{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: border 0.2s ease-out;
+}
 
-    .header-container {
-        padding-top: 164px;
+.nav-item i:hover{
+    border: 2px solid #ffffff8a;
+}
+
+.dropdown-item{
+    color: #3a3a3a;
+}
+
+.dropdown-item:hover{
+    background-color: #ac96a98a;
+    color: black;
+}
+
+@media (max-width: 991.98px) {
+    .nav-item i{
+        font-size: 25px;
     }
 }
+
+
