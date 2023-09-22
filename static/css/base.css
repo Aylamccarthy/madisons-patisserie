@@ -25,7 +25,8 @@ body {
 
 .logo {
     font-family: 'Poiret One';
-    color: white;
+    font-weight: bolder;
+    color: black;
 }
 
 .logo img {
@@ -39,7 +40,7 @@ body {
 }
 
 .navbar {
-    background-color: purple;
+    background-color: skyblue;
 }
 
 .navbar ul{
