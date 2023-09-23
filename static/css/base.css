@@ -90,6 +90,10 @@ body {
     color: black;
 }
 
+.navigation a, .navigation span{
+    color: white;
+}
+
 /* CATEGORIES NAVBAR STYLING */
 .categories .dropdown-menu{
     right: auto;
@@ -151,10 +155,42 @@ body {
 }
 
 
+/* --------------------------------- SMALL AND MEDIUM DEVICE STYLINYG ------------------------------- */
 @media (max-width: 991.98px) {
+    .p-side{
+        padding: 0;
+    }
+
+/* HEADER STYLING */
+
+    .navigation a, .navigation span{
+        color: white;
+    }
+    .navbar{
+        padding: 0.5rem 1rem;
+    }
     .nav-item i{
         font-size: 25px;
     }
-}
+    .navbar-collapse hr{
+        border-top: 1px solid rgb(255 255 255 / 60%); 
+    }
+    .navbar-collapse div:nth-of-type(3), .navbar-collapse div:nth-of-type(3) div:nth-of-type(2){
+        padding: 0px;
+    }
 
+    .dropdown-menu{
+        position: initial;
+        float: unset;
+        background-color: transparent;
+        color: white;
+        border: none;
+    }
+    .categories a{
+        border: none;
+    }
+    .categories a:focus, .categories a:hover{
+        border: none;
+    }
+}
 
