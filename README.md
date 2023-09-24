@@ -175,7 +175,7 @@ The project uses the PostgreSQL relational database for storing the data.<br>
 ### Surface<hr>
 #### Color Scheme
 All the colours were selected generated from the hero image using Coolors
-<img src=""><br>
+<img src="media/colorpalette.png"><br>
 
 #### Fonts
 * The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):<br>
