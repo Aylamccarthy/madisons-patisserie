@@ -243,19 +243,11 @@
       </nav>
     </header>
     <main class="flex-shrink-0 main-bg">
-      
+      <div class="content-container">
+        {% block content %} 
+        {% endblock %}
+      </div>
     </main>
-    <!-- LOGOUT MODAL -->
-    <!-- MESSAGES -->
-    {% if messages %}
-        <div class="message-container"></div>
-    {% endif %}
-
-    {% block page_header %}
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
 
     {% block postloadjs %}
     {% endblock %}
