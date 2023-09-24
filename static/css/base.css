@@ -6,17 +6,18 @@ html {
     height: 100%;
 }
 
-a, a:hover{
+a, 
+a:hover {
     text-decoration: none;
     cursor: pointer;
 
 }
 
-.p-side{
+.p-side {
     padding: 0 45px;
 }
 
-header{
+header {
     position: sticky;   
     background-color: purple; 
 }
@@ -49,16 +50,16 @@ body {
     background-color: purple;
 }
 
-.navbar ul{
+.navbar ul {
     margin: 0;
     padding: 0;
 }
 
-.navbar ul li{
+.navbar ul li {
     list-style: none;
 }
 
-.nav-item i{
+.nav-item i {
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -68,34 +69,36 @@ body {
     transition: border 0.2s ease-out;
 }
 
-.nav-item i:hover{
+.nav-item i:hover {
     border: 2px solid #ffffff8a;
 }
 
-.dropdown-item{
+.dropdown-item {
     color: black;
 }
 
-.nav-item:focus, .nav-item:focus-visible{
+.nav-item:focus, 
+.nav-item:focus-visible {
     outline: none;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     left: auto;
     right: 0;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     background-color: #ac96a98a;
     color: black;
 }
 
-.navigation a, .navigation span{
+.navigation a, 
+.navigation span {
     color: black;
 }
 
 /* CATEGORIES NAVBAR STYLING */
-.categories .dropdown-menu{
+.categories .dropdown-menu {
     right: auto;
     left: 0;
 }
@@ -106,30 +109,30 @@ body {
     transition: border-bottom 0.2s ease-out;
 }
 
-.categories a:hover{
+.categories a:hover {
     color: white;
     border-bottom: 2px solid #facef38a;
 }
 
-.categories .dropdown-menu a{
+.categories .dropdown-menu a {
     color: inherit;
 }
 
-.navbar{
+.navbar {
     padding: 0.5rem 0;
 }
-.navbar-toggler{
-    background-color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
 
-.navbar-collapse{
+.navbar-collapse {
     flex-direction: column-reverse;
 }
 
 @keyframes autoplay {
-    0% {visibility: visible}
-    50% {visibility: hidden}
+    0% {
+        visibility: visible
+    }
+    50% {
+        visibility: hidden
+    }
   }
 
 /* ADD-CONTAINER STYLING */
@@ -154,43 +157,94 @@ body {
     animation-delay: 3s;
 }
 
+.search-bar .form-control {
+    height: 30px;
+}
 
-/* --------------------------------- SMALL AND MEDIUM DEVICE STYLINYG ------------------------------- */
+
+.search-bar .btn {
+    background-color: #b4b3b5;
+    border: 1px solid #b4b3b5;
+    padding: 0;
+    width: 35px;
+}
+
+.search-bar i {
+    margin-top: 6px;
+}
+
+.search-bar .btn:hover {
+    background-color: #a4a4a4;
+    border: 1px solid #a4a4a4
+}
+
+.search-bar .dropdown {
+    position: initial;
+}
+
+.search-bar .dropdown-menu {
+    padding: 0px 28px 10px 28px;
+    width: 100%;
+    position: absolute;
+    top: 90%;
+    background-color: purple;
+    border-radius: 0%;
+}
+
+/* --------------------------------- SMALL AND MEDIUM DEVICE STYLING ------------------------------- */
 @media (max-width: 991.98px) {
-    .p-side{
+    .p-side {
         padding: 0;
     }
 
 /* HEADER STYLING */
 
-    .navigation a, .navigation span{
+    .navigation a, 
+    .navigation span {
         color: white;
     }
+
+    .navigation{
+        padding-left: 15px;
+    }
+
     .navbar{
         padding: 0.5rem 1rem;
     }
-    .nav-item i{
+
+    .nav-item i {
         font-size: 25px;
     }
-    .navbar-collapse hr{
+
+    .navbar-collapse hr {
         border-top: 1px solid rgb(255 255 255 / 60%); 
     }
-    .navbar-collapse div:nth-of-type(3), .navbar-collapse div:nth-of-type(3) div:nth-of-type(2){
+
+    .navbar-collapse div:nth-of-type(3), 
+    .navbar-collapse div:nth-of-type(3) div:nth-of-type(2) {
         padding: 0px;
     }
 
-    .dropdown-menu{
+    .dropdown-menu {
         position: initial;
         float: unset;
         background-color: transparent;
         color: black;
         border: none;
     }
-    .categories a{
+    .categories a {
         border: none;
     }
-    .categories a:focus, .categories a:hover{
+    .categories a:focus, .categories a:hover {
         border: none;
+    }
+}
+
+/* --------------------------------- SMALL DEVICES STYLING ------------------------------- */
+
+@media (max-width: 767.98px) {
+    .search-bar i {
+        padding-right: 12PX;
     }
 }
 
