@@ -20,6 +20,82 @@ a:hover {
 header {
     position: sticky;   
     background-color: purple; 
+    position: fixed;
+    background-color: #7c004f;
+    width: 100%;
+    z-index: 1024;
+}
+
+/* ------------BUTTON CLASSES------- */
+.button{
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-out;
+}
+
+.button a:hover{
+    color: inherit;
+}
+
+.purple-btn{
+    background-color: #7c004f;
+    border: #7c004f;
+    box-shadow: rgb(255 255 255 / 12%) 0px 2px 4px 0px, #ffffff 0px 1px 17px 0px;
+} 
+
+.purple-btn a{
+    color: white;
+}
+
+.purple-btn:hover{
+    background-color: #5f003c;
+}
+
+/* Wiggle button class and animation */
+.wiggle-btn{
+    backface-visibility: hidden;
+    transform: translateZ(0px);
+    animation-duration: 5s;
+    animation-name: wiggle;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wiggle {
+    2% {
+        transform: translateX(3px) rotate(2deg);
+    }
+    4% {
+        transform: translateX(-3px) rotate(-2deg);
+    }
+    6% {
+        transform: translateX(3px) rotate(2deg);
+    }
+    8% {
+        transform: translateX(-3px) rotate(-2deg);
+    }
+    10% {
+        transform: translateX(2px) rotate(1deg);
+    }
+    12% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    14% {
+        transform: translateX(2px) rotate(1deg);
+    }
+    16% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    18% {
+        transform: translateX(1px) rotate(0deg);
+    }
+    20% {
+        transform: translateX(-1px) rotate(0deg);
+    }
 }
 
 
