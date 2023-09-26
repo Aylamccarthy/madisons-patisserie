@@ -26,6 +26,16 @@ header {
     z-index: 1024;
 }
 
+i:focus, i:focus-visible {
+    outline: none;
+    outline-offset: 0px;
+
+}
+a:focus, a:focus-visible {
+    outline: none;
+    outline-offset: 0px;
+}
+
 /* ------------BUTTON CLASSES------- */
 .button{
     width: fit-content;
@@ -104,7 +114,7 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: black;
-    font-family: 'Poiret One';
+    font-family: 'Lato';
     font-weight: bolder;
     scroll-behavior: smooth;
 }
@@ -326,7 +336,8 @@ body {
         padding-right: 12PX;
     }
     .search-bar .dropdown-menu i{
-        margin-top: 0px;
+        margin-top: 4px;
+        font-size: 20px;
     }
 
     .home-cover {
