@@ -65,6 +65,9 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
           <div class="container-fluid p-side">
             <ul class="categories d-block d-lg-flex col-6">
+              <li class="nav-item mb-2 mb-lg-0 mr-3 mt-2 mt-lg-0">
+                <a href="{% url 'home' %}" id="navitem-home">Home</a>
+              </li>
               <li class="nav-item mr-3 mt-2 mt-lg-0">
                 <a href="#">All products</a>
               </li>
@@ -89,9 +92,6 @@
                       <a class="dropdown-item" href="#">Sweet Treats</a>
                   </div>
                 </div>
-              </li>
-              <li class="nav-item mr-3 mt-2 mt-lg-0">
-                <a href="#">Special Offers</a>
               </li>
               <div class="d-none d-lg-block col-lg-3 p-0">
                 {% include 'includes/search-box.html' %}
