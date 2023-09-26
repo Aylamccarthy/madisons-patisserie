@@ -319,8 +319,29 @@ body {
 /* --------------------------------- SMALL DEVICES STYLING ------------------------------- */
 
 @media (max-width: 767.98px) {
-    .search-bar i {
+    i {
+        font-size: 25px;
+    }
+    .search-bar .dropdown a i{
         padding-right: 12PX;
+    }
+    .search-bar .dropdown-menu i{
+        margin-top: 0px;
+    }
+
+    .home-cover {
+        padding-left: 0px;
+
+    }
+    .cover-overlay{
+        padding-left: 0px;
+        width: 80%;
+    }
+}
+/* --------------------------------- EXTRA SMALL DEVICES STYLING ------------------------------- */
+@media (max-width: 380px) {
+    .home-cover {
+        height: 45vh;
     }
 }
 
