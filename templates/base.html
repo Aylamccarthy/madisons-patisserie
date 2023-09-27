@@ -249,6 +249,32 @@
         </div>
       </nav>
     </header>
+     <!-- LOGOUT MODAL -->
+     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+            <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+            <button type="button" class="modal-close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to sign out?</p> 
+          </div>
+          <div class="modal-footer">
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+              {% endif %}
+              <button type="submit" class="button btn-secondary small-btn rounded-0">Yes</button>
+              <button type="button" class="button btn-secondary small-btn rounded-0" data-dismiss="modal">No</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <main class="flex-shrink-0 main-bg">
       <div class="content-container min-vh">
         {% block content %} 
