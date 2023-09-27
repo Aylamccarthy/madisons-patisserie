@@ -24,7 +24,7 @@ a:hover {
 
 header {
     position: sticky;   
-    background-color: rgb(221, 196, 221); 
+    background-color: purple; 
     position: fixed;
     width: 100%;
     z-index: 1024;
@@ -128,7 +128,7 @@ input:focus, input:focus-visible{
 
 .purple-btn{
     background-color: skyblue;
-    border: skyblue;
+    border: 1px solid #7c004f;
     box-shadow: rgb(255 255 255 / 12%) 0px 2px 4px 0px, #ffffff 0px 1px 17px 0px;
 } 
 
@@ -140,50 +140,35 @@ input:focus, input:focus-visible{
     background-color: #5f003c;
 }
 
-/* Wiggle button class and animation */
-.wiggle-btn{
-    backface-visibility: hidden;
-    transform: translateZ(0px);
-    animation-duration: 5s;
-    animation-name: wiggle;
-    animation-play-state: running;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.white-btn{
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    color: #3a3a3a;
+    transition: all 0.2s ease-out;
+} 
+
+.white-btn a{
+    color: #3a3a3a;
 }
 
-@keyframes wiggle {
-    2% {
-        transform: translateX(3px) rotate(2deg);
-    }
-    4% {
-        transform: translateX(-3px) rotate(-2deg);
-    }
-    6% {
-        transform: translateX(3px) rotate(2deg);
-    }
-    8% {
-        transform: translateX(-3px) rotate(-2deg);
-    }
-    10% {
-        transform: translateX(2px) rotate(1deg);
-    }
-    12% {
-        transform: translateX(-2px) rotate(-1deg);
-    }
-    14% {
-        transform: translateX(2px) rotate(1deg);
-    }
-    16% {
-        transform: translateX(-2px) rotate(-1deg);
-    }
-    18% {
-        transform: translateX(1px) rotate(0deg);
-    }
-    20% {
-        transform: translateX(-1px) rotate(0deg);
-    }
+.white-btn:hover{
+    background-color: gray;
+    color: white;
+} 
+
+/* FORM ERRORS STYLING */
+.errorlist{
+    font-size: smaller;
+    font-weight: bold;
+    list-style-type: none;
+    color: #bd2130;
+    padding-left: 0px;
 }
 
+.errorlist li::before{
+    content: "* ";
+}
 
 body {
     background: url('https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/madisons_patisserie_hero_image.png') no-repeat center center fixed;
