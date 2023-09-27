@@ -111,6 +111,11 @@ input:focus, input:focus-visible{
     box-shadow: none;
 }
 
+/* BORDER CLASSES */
+.b-light-gray{
+    border: 1px solid #80808085;
+}
+
 
 /* ------------BUTTON CLASSES------- */
 .button{
@@ -161,6 +166,31 @@ input:focus, input:focus-visible{
     background-color: #0e8814;
 }
 
+.gray-btn{
+    background-color: #bcbcbc;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border: 1px solid  gray;
+
+}
+.gray-btn:hover{
+    background-color: gray;
+    color: white;
+}
+.small-btn{
+    padding: 5px 10px;
+}
+
+/* MAILCHIMP NEWSLETTER */
+#mc_embed_signup{
+    background:transparent;
+    clear:left; 
+}
+
+#mc_embed_signup .helper_text{
+    background-color: transparent;
+}
+
+
 /* FORM ERRORS STYLING */
 .errorlist{
     font-size: smaller;
@@ -168,10 +198,6 @@ input:focus, input:focus-visible{
     list-style-type: none;
     color: #bd2130;
     padding-left: 0px;
-}
-
-.errorlist li::before{
-    content: "* ";
 }
 
 /* LOGOUT MODAL STYLING */
@@ -332,6 +358,36 @@ footer i:hover{
     border: 2px solid #fffaf08a;
 }
 
+footer .success-message{
+    color: #79f37f;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+footer .errorlist{
+    color: #ff0019;
+}
+
+footer > div > div > div:nth-child(1) form p{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+footer > div > div > div:nth-child(1) form p input{
+    width: 100%;
+}
+
+footer > div > div > div:nth-child(1) form p label::before{
+    content: "*";
+    color: #ff0019;
+}
+
+footer > div > div > div:nth-child(1) form .messages{
+    height: 20px;
+}
+
+
+/* ICON STYLING */
 i{
     font-size: 20px;
 }
@@ -404,6 +460,11 @@ i{
     .home-cover {
         height: 85vh;
     }
+
+    .button:hover{
+        background-color: initial;
+        color: initial;
+    }
 }
 
 
@@ -415,6 +476,19 @@ i{
 
     .min-vh {
         min-height: 90vh;
+    }
+    .gray-btn:hover{
+        background-color: #bcbcbc;
+        color: initial;
+    }
+
+    .white-btn:hover{
+        background-color: white;
+        color: initial;
+    }
+
+    .purple-btn:hover{
+        background-color: #7c004f;
     }
 
 
@@ -468,6 +542,29 @@ i{
 /* --------------------------------- SMALL DEVICES STYLING ------------------------------- */
 
 @media (max-width: 767.98px) {
+    footer > .col-12{
+        padding: 0px;
+    }
+
+    footer > div > div > div:nth-child(1){
+        background-color: #f0f0f0;
+        color: #3a3a3a;
+    }
+
+    footer .success-message{
+        color: #0e8814;
+        font-size: smaller;
+    }
+
+    footer .errorlist{
+        color: #bd2130;
+    }
+
+    footer > div > div > div:nth-child(1) form p label::before{
+        content: "*";
+        color:#bd2130;
+    }
+
     i {
         font-size: 25px;
     }
