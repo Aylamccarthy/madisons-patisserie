@@ -205,7 +205,7 @@ body {
 }
 
 .navbar {
-    background-color: purple;
+    background-color: skyblue;
 }
 
 .navbar ul {
@@ -348,6 +348,15 @@ body {
     background-color: purple;
     border-radius: 0%;
 }
+
+/* --------------------------------- LARGE DEVICES STYLING ------------------------------- */
+
+@media (max-width: 1200px) {
+    .home-cover {
+        height: 85vh;
+    }
+}
+
 
 /* --------------------------------- SMALL AND MEDIUM DEVICE STYLING ------------------------------- */
 @media (max-width: 991.98px) {
