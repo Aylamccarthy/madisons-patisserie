@@ -226,7 +226,7 @@ body {
 }
 
 .navbar {
-    background-color: skyblue;
+    background-color: purple;
 }
 
 .navbar ul {
@@ -359,25 +359,30 @@ i{
     animation-delay: 3s;
 }
 
+/* SEARCH BAR STYLING */
 .search-bar .form-control {
     height: 30px;
 }
 
+.search-bar label {
+    width: inherit;
+}
 
 .search-bar .btn {
     background-color: #b4b3b5;
     border: 1px solid #b4b3b5;
     padding: 0;
     width: 35px;
-}
-
-.search-bar i {
-    margin-top: 6px;
+    margin-left: -5px;
 }
 
 .search-bar .btn:hover {
     background-color: #a4a4a4;
     border: 1px solid #a4a4a4
+}
+
+.search-bar i {
+    margin-top: 5px;
 }
 
 .search-bar .dropdown {
@@ -389,7 +394,7 @@ i{
     width: 100%;
     position: absolute;
     top: 90%;
-    background-color: purple;
+    background-color: #590243;
     border-radius: 0%;
 }
 
