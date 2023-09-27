@@ -27,6 +27,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Dancing+Script:wght@700&family=Lato:ital,wght@0,300;0,400;1,300&family=Poiret+One&family=Qwigley&display=swap" rel="stylesheet">
         <link rel="icon" href="{% static 'favicon' %}favicon.ico" type="image/x-icon">
+        <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -275,6 +276,9 @@
         </div>
       </div>
     </div>
+    <!-- Messages -->
+    {% block page_header %} 
+    {% endblock %}   
     <main class="flex-shrink-0 main-bg">
       <div class="content-container min-vh">
         {% block content %} 
@@ -282,10 +286,33 @@
       </div>
     </main>
      <!-- Footer -->
-     <footer class="footer pt-4 pb-4">
+     <footer class="footer pt-md-4 pb-4">
       <div class="col-12 col-xl-11 mx-auto">
-        <div class="d-md-flex text-white">
-          <div class="col-10 col-md-6 mx-auto">
+              <div class="d-md-flex flex-row-reverse text-white">
+          <div class="col-12 pb-4 pb-md-0 col-md-6 text-center">
+            <div class="col-md-10 pt-4 p-md-0 mx-auto">
+              <h4 class="mb-4">Subscribe To Our Newsletter</h4>
+              <form method="POST" action="{% url 'subscribe_to_newsletter'%}" id="newsletter">
+                {% csrf_token %}
+                {{ add_subscriber_form.as_p }}
+                <div class="messages mb-2"> 
+                  {% if messages %}
+                    {% for message in messages %}
+                      {% if message.tags == 'form_errors error' %} 
+                        {{message}}
+                      {% elif message.tags == 'form_success success' %}
+                        <div class="success-message">
+                          {{message}}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <button type="submit" class="button small-btn gray-btn rounded-0" name="newsletter_submit_btn" value="{{request.path}}">Subscribe</button> 
+              </form>
+            </div>
+          </div>
+          <div class="col-10 pt-4 pt-md-0 col-md-6 mx-auto">
             <div class="d-lg-flex justify-content-between col-md-10 p-0 mx-auto">
               <div class="d-flex flex-column mb-3 mb-lg-0 text-center">
                 <a class="text-white" href="#">All Products</a>
