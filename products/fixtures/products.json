@@ -1,0 +1,423 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101981",
+            "name": "Carrot Cake",
+            "code": "10774",
+            "price": 15.00,
+            "type": "cake",
+            "description": "Decadent classic carrot cake",
+            "image": "2150727528.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101982",
+            "name": "Tropical Cake",
+            "code": "10775",
+            "price": 25.00,
+            "type": "cake",
+            "description": "Exotic flavoured, refreshing cake",
+            "image": "2150727740.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101983",
+            "name": "Pistachio Cake",
+            "code": "10776",
+            "price": 25.00,
+            "type": "cake",
+            "description": "Flavorful, nutty, delicious cake",
+            "image": "2150797854.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101984",
+            "name": "Black Wedding Cake",
+            "code": "10777",
+            "price": 450.00,
+            "type": "cake",
+            "description": "Show-stopping, unique,wedding cake",
+            "image": "black_wedding_cake.png"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101985",
+            "name": "Black Wedding Cake",
+            "code": "10778",
+            "price": 450.00,
+            "type": "cake",
+            "description": "Show-stopping, unique,wedding cake",
+            "image": "black_wedding_cake.png"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101986",
+            "name": "Blue Christening Cake",
+            "code": "10779",
+            "price": 250.00,
+            "type": "cake",
+            "description": "Cute and absolutely delicious cake",
+            "image": "blue_christening_cake.png"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101987",
+            "name": "Blueberry Chocolate Cake",
+            "code": "10780",
+            "price": 50.00,
+            "type": "cake",
+            "description": "12-inch, double-layered chocolate cake",
+            "image": "chocolate-cake-with-liquid-chocolate-coating-decorated-with-biscuits-blueberries-black-background-ai-generative.png"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "sku": "ca101988",
+            "name": "Chocolate Chip Muffins",
+            "code": "10782",
+            "price": 6.00,
+            "type": "everyday essential",
+            "description": "Pack of 8 delicious chocolate chip muffins",
+            "image": "chocolate-chip-muffin.png"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "sku": "ca101989",
+            "name": "Chocolate Tarts",
+            "code": "10783",
+            "price": 12.00,
+            "type": "dessert",
+            "description": "Pack of 10 delicious chocolate tarts with fruit toppings",
+            "image": "media/chocolate-tart-with-fruit-top.png"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "sku": "ca101989",
+            "name": "Chocolate Chip Cookies",
+            "code": "10784",
+            "price": 6.00,
+            "type": "everyday essential",
+            "description": "Pack of 10 delicious chocolate chip cookies",
+            "image": "chocolate_chip_cookies.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "category": 4,
+            "sku": "ca101990",
+            "name": "Deluxe Chocolate Chip Muffins",
+            "code": "10785",
+            "price": 10.00,
+            "type": "sweet treats",
+            "description": "Pack of 6 delicious chocolate chip muffins",
+            "image": "chocolate_muffins.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "category": 4,
+            "sku": "ca101990",
+            "name": "Christmas Cookies",
+            "code": "10786",
+            "price": 8.00,
+            "type": "sweet treats",
+            "description": "Pack of 6 delicious and festive Christmas cookies",
+            "image": "christmas_cookies.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "sku": "ca101991",
+            "name": "Cinnamon Rolls",
+            "code": "10787",
+            "price": 8.00,
+            "type": "everyday essential",
+            "description": "Pack of 6 delicious cinnamon rolls",
+            "image": "cinnamon_rolls.png"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "sku": "ca101992",
+            "name": "Classic Croissants",
+            "code": "10788",
+            "price": 8.00,
+            "type": "everyday essential",
+            "description": "Pack of 6 delicious buttery croissants",
+            "image": "cinnamon_rolls.png"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "sku": "ca101993",
+            "name": "Dessert Selection",
+            "code": "10789",
+            "price": 12.00,
+            "type": "dessert",
+            "description": "Pack of 6 deluxe dessert selection",
+            "image": "dessert_selection.png"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101994",
+            "name": "Fresh Cream Cake",
+            "code": "107901",
+            "price": 25.00,
+            "type": "dessert",
+            "description": "Delicious cream cake topped with berries",
+            "image": "fresh_cream_cake.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101995",
+            "name": "Fresh Fruit Cake",
+            "code": "107902",
+            "price": 25.00,
+            "type": "dessert",
+            "description": "Delicious fruit cake topped with cherries and chocolate shavings",
+            "image": "fruit-cake-with-chocolate-chips-blueberries.png"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "sku": "ca101996",
+            "name": "Apple Pie",
+            "code": "107902",
+            "price": 7.00,
+            "type": "dessert",
+            "description": "12-inch delicious apple pie",
+            "image": "high-angle-delicious-apple-pie.png"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "category": 4,
+            "sku": "ca101997",
+            "name": "Lemon Meringue Pie",
+            "code": "107903",
+            "price": 10.00,
+            "type": "dessert",
+            "description": "12-inch delicious and tangy lemon meringue pie",
+            "image": "meringue_pie.png"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "category": 4,
+            "sku": "ca101998",
+            "name": "Macaroons",
+            "code": "107904",
+            "price": 10.00,
+            "type": "sweet treats",
+            "description": "12pcs. colorful and delicious macaroons",
+            "image": "pexels-arminas-raudys-808941.jpg"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca101999",
+            "name": "1st Birthday Cake",
+            "code": "107905",
+            "price": 250.00,
+            "type": "birthday cake",
+            "description": "Beautiful three-layered chocolate birthday cake",
+            "image": "pexels-rodrigo-souza-2531546.png"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "sku": "ca1019991",
+            "name": "Puff Pastry Cake",
+            "code": "1079051",
+            "price": 15.00,
+            "type": "dessert",
+            "description": "Light and airy puff pastry with fresh cream and berry toppings",
+            "image": "puff-pastry-cake-with-custard-cream.png"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca1019992",
+            "name": "Rainbow Cake",
+            "code": "1079052",
+            "price": 60.00,
+            "type": "cake",
+            "description": "Beautiful rainbow cake that can be used to celebrate any occassion",
+            "image": "rainbow_cake.png"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "sku": "ca1019993",
+            "name": "Strawberry Tart",
+            "code": "1079053",
+            "price": 20.00,
+            "type": "tart",
+            "description": "12-inch absolutely fresh and creamy strawberry tart",
+            "image": "tart-with-strawberries-whipped-cream-decorated-with-mint-leaves-top-view 1.png"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "sku": "ca1019994",
+            "name": "Mini Strawberry Tarts",
+            "code": "1079054",
+            "price": 18.00,
+            "type": "tart",
+            "description": "12 pieces absolutely fresh and creamy strawberry mini tarts",
+            "image": "tarts-with-strawberries-currant-whipped-cream-decorated-with-mint-leaves.png"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca1019995",
+            "name": "White and Peach Wedding Cake",
+            "code": "1079055",
+            "price": 450.00,
+            "type": "wedding cake",
+            "description": "Beautiful and elegant floral wedding cake",
+            "image": "vertical-closeup-shot-beautiful-three-layered-cake-with-rose-decorations.png"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.product",
+        "fields": {
+            "category": 4,
+            "sku": "ca1019996",
+            "name": "Chocolate Mousse Cake",
+            "code": "1079056",
+            "price": 25.00,
+            "type": "sweet treats",
+            "description": "Light, airy and chocolatey mousse cake",
+            "image": "vertical-shot-chocolate-cake-with-fresh-berries-pomegranate-seeds-it 1.png"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca1019997",
+            "name": "Boho Chocolate Drip Cake",
+            "code": "1079057",
+            "price": 40.00,
+            "type": "drip cake",
+            "description": "Boho style chocolate drip cake",
+            "image": "vertical-shot-delicious-boho-cake-with-chocolate-drip-flowers-top-with-golden-decorations.png"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca1019999",
+            "name": "White Christening Cake",
+            "code": "1079059",
+            "price": 250.00,
+            "type": "christening cake",
+            "description": "Beautiful chocolate-flavoured white christening cake",
+            "image": "white_christening_cake.png"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "sku": "ca10199991",
+            "name": "White Floral Wedding Cake",
+            "code": "10790591",
+            "price": 550.00,
+            "type": "wedding cake",
+            "description": "Beautiful three-tiered red velvet wedding cake",
+            "image": "white_weddin_cake.png"
+        }
+    }
+    
+]
