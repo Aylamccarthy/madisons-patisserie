@@ -6,8 +6,6 @@ Views for Products App.
 from django.views.generic import ListView
 from .models import Product
 
-# Create your views here.
-
 
 class Products(ListView):
     """ A view to show all products, including sorting and search queries """

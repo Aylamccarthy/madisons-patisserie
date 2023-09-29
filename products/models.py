@@ -30,6 +30,7 @@ class Product(models.Model):
                                  on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
+    type = models.CharField(max_length=254)
     description = models.TextField()
     code = models.CharField(max_length=6)
     price = models.DecimalField(max_digits=6, decimal_places=2)
