@@ -5,7 +5,6 @@ Models for Products App.
 """
 from django.db import models
 
-# Create your models here.
 
 class Category(models.Model):
     """Category model"""
