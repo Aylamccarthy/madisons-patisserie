@@ -213,7 +213,7 @@ To keep track of progress, I used Github Projects(https://github.com/users/Aylam
 By using Agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me invaluable insight and lessons that I can apply to future projects.
 
 ![agile]()
-![agile-boards]()
+![agile-boards](media/pp5_kanban_board.png)
 
 <details>
 <summary>Sprints Details</summary>
