@@ -24,7 +24,8 @@
             "price": 25.00,
             "type": "cake",
             "description": "Exotic flavoured, refreshing cake",
-            "image": "2150727740.jpg"
+            "image": "2150727740.jpg",
+            "stock": 0
         }
     },
     {
@@ -38,7 +39,8 @@
             "price": 25.00,
             "type": "cake",
             "description": "Flavorful, nutty, delicious cake",
-            "image": "2150797854.jpg"
+            "image": "2150797854.jpg",
+            "stock": 1
         }
     },
     {
