@@ -454,6 +454,144 @@ i{
     border-radius: 0%;
 }
 
+/* PRODUCTS DISPLAY STYLING */
+.product-container {
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-container h6 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.product-container p:last-child {
+    font-size: larger;
+}
+
+.product-count button,
+.product-count input {
+    border: 1px solid grey;
+}
+
+.product-count input {
+    width: inherit;
+    height: 100%;
+}
+
+.product-count input:focus{
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.product-count input::-webkit-outer-spin-button,
+.product-count input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.product-count button:hover {
+    background-color: #c8c8c8b3;
+}
+
+.product-img {
+    position: relative;
+}
+
+.banner-text {
+    position: absolute;
+    z-index: 5;
+    top: 48%;
+    right: 17%;
+    text-transform: uppercase;
+    width: 60%;
+    opacity: 1;
+}
+
+.banner-text span {
+    opacity: 1;
+    background-color: #00000069;
+}
+
+.product-banner {
+    position: absolute;
+    top: -27%;
+    right: -22%;
+}
+
+.banner-hover {
+    position: absolute;
+    top: -5%;
+    right: 0%;
+    opacity: 0;
+}
+
+.banner-hover .banner-text {
+    transform: rotate(0);
+    top: 43%;
+}
+
+.product-banner img,
+.banner-text {
+    transform: rotate(35deg);
+}
+
+.product-container:hover {
+    cursor: pointer;
+    background-color: #ededed0f;
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+}
+
+.product-container img {
+    opacity: 1;
+}
+
+.product-container:hover img {
+    opacity: 0.2;
+}
+
+.product-container:hover .product-banner {
+    opacity: 0;
+}
+
+.product-container:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-container:hover .banner-hover {
+    opacity: 1;
+}
+
+.product-container:hover .banner-hover img {
+    opacity: 1;
+}
+
+.product-overlay {
+    position: absolute;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pagination {
+    font-size: large;
+}
+
+.pagination a {
+    font-weight: bold;
+    color: #590243;
+}
+
+.pagination a:hover {
+    color: #590243;
+    text-decoration: underline;
+}
+
+
 /* --------------------------------- LARGE DEVICES STYLING ------------------------------- */
 
 @media (max-width: 1200px) {
