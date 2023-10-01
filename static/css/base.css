@@ -206,7 +206,7 @@ input:focus, input:focus-visible{
 }
 
 #logoutModal .modal-header{
-    background-color: #5f003c;
+    background-color: skyblue;
     color: white;
     padding: 8px 16px;
 }
@@ -245,7 +245,7 @@ body {
     color: white;
 }
 
-.logo h3 {
+.logo h2 {
     color: white;
     margin-bottom: 0;
 }
