@@ -232,9 +232,8 @@ body {
     background: url('https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/madisons_patisserie_hero_image.png') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: black;
-    font-family: 'Poiret One';
-    font-weight: bolder;
+    color: #3a3a3a;
+    font-family: 'Alice', serif;
     scroll-behavior: smooth;
 }
 
@@ -242,11 +241,11 @@ body {
 /* --------------------------------------- HEADER STYLING ------------------------------------------- */
 
 .logo {
-    font-family: 'Dancing Script';
+    font-family: 'Yesteryear';
     color: white;
 }
 
-.logo h4 {
+.logo h3 {
     color: white;
     margin-bottom: 0;
 }
