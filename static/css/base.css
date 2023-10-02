@@ -13,6 +13,7 @@ a:hover {
 
 }
 
+/* PADDING ON LATERAL SIDES CLASS */
 .p-side {
     padding: 0 45px;
 }
@@ -21,6 +22,24 @@ a:hover {
     min-height: 100vh;
 }
 
+/* COLORS CLASSES */
+.text-yellow {
+    color: #ffc107;
+}
+
+.text-red {
+    color: #ff4456;
+}
+/* BACKGROUND CLASSES */
+.bg-floral {
+    background-color: floralwhite;
+}
+/* BOX-SHADOW CLASSES */
+.card-shadow {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+
 
 header {
     position: sticky;   
@@ -28,6 +47,7 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1024;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
 i:focus, i:focus-visible {
@@ -114,6 +134,10 @@ input:focus, input:focus-visible{
 /* BORDER CLASSES */
 .b-light-gray{
     border: 1px solid #80808085;
+}
+
+.min-vh {
+    min-height: 100vh;
 }
 
 
@@ -230,8 +254,7 @@ input:focus, input:focus-visible{
 
 body {
     background: url('https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/pp5_hero_image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
+    background-size: 100px;
     color: #3a3a3a;
     font-family: 'Alice', serif;
     scroll-behavior: smooth;
@@ -399,7 +422,7 @@ i{
     height: 25px;
 }
 
-.add-container .add{
+.add-container .add {
     width: 100%;
     visibility: hidden;
     position: absolute;
