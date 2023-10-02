@@ -2,6 +2,9 @@
 <img src="" ><br>
 <hr>
 
+<h3 align="center">Full-Stack Project- E-Commerce(HTML5, CSS3, Bootstrap, Django, Python, JavaScript, jQuery, PostgreSQL, AWS, Heroku)</h3>
+
+
 TABLE OF CONTENTS
 
   - [Overview](#overview)
@@ -214,6 +217,23 @@ By using Agile methodology, I was able to stay organized and focused on deliveri
 
 ![agile]()
 ![agile-boards](media/pp5_kanban_board.png)
+
+| Epic | Milestone | User stories |
+|------|-----------|--------------|
+| Epic 1: BASIC SITE FUNCTIONALITY| Milestone 1: Project SetUp |  [#1](https://github.com/Aylamccarthy/madisons-patisserie/issues/1) [#2](https://github.com/Aylamccarthy/madisons-patisserie/issues/2)
+|  |Milestone 2: Content and Navigation |[#3](https://github.com/users/Aylamccarthy/projects/5?pane=issue&itemId=38882996) [#4](https://github.com/users/Aylamccarthy/projects/5?pane=issue&itemId=38883390) 
+|   |Milestone 3: User Registration/Authentication   | [#5](https://github.com/users/Aylamccarthy/projects/5?pane=issue&itemId=38883534)  [#6](https://github.com/users/Aylamccarthy/projects/5?pane=issue&itemId=38884037) [#7](https://github.com/Aylamccarthy/madisons-patisserie/issues/7)
+| Epic 2: USER MANAGEMENT| Milestone 4 : Products | [#10](https://github.com/Aylamccarthy/madisons-patisserie/issues/10) [#11](https://github.com/Aylamccarthy/madisons-patisserie/issues/11)
+|   |Milestone 5: Reviews | [#12](https://github.com/Aylamccarthy/madisons-patisserie/issues/12) [#13](https://github.com/Aylamccarthy/madisons-patisserie/issues/13)
+|   |Milestone 6: Wishlist | [#14](https://github.com/Aylamccarthy/madisons-patisserie/issues/14) [#9](https://github.com/Aylamccarthy/madisons-patisserie/issues/9)
+| Epic 3: CONTENT MANAGEMENT| Milestone 8: Bag  | [#15](https://github.com/Aylamccarthy/madisons-patisserie/issues/15) [#16](https://github.com/Aylamccarthy/madisons-patisserie/issues/16)
+|   |Milestone 9: Checkout | [#17](https://github.com/Aylamccarthy/madisons-patisserie/issues/17) [#18](https://github.com/Aylamccarthy/madisons-patisserie/issues/18)
+| Epic 4: USER PROFILE and ADMIN| Milestone 9: User Profile| [#19](https://github.com/Aylamccarthy/madisons-patisserie/issues/19) [#20](https://github.com/Aylamccarthy/madisons-patisserie/issues/20)
+|   |Milestone 10:Admin Manage Orders| [#21](https://github.com/Aylamccarthy/madisons-patisserie/issues/21) [#22](https://github.com/Aylamccarthy/madisons-patisserie/issues/22) [#23](https://github.com/Aylamccarthy/madisons-patisserie/issues/23)
+| Epic 5: COMPREHENSIVE TESTING and PROJECT WRAP UP| Milestone 11: Comprehensive Testing and Code Validations| [#8](https://github.com/Aylamccarthy/madisons-patisserie/issues/8) [#24](https://github.com/Aylamccarthy/madisons-patisserie/issues/24)
+|   | Milestone 12: Refactoring and Final deployment| [#25](https://github.com/Aylamccarthy/madisons-patisserie/issues/25) #26
+|   
+
 
 <details>
 <summary>Sprints Details</summary>
