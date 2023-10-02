@@ -11,68 +11,28 @@ from .models import Product
 
 
 class Products(ListView):
-    """A view to show all products, including sorting and search queries"""
-
+    """ A view to show all products, including sorting and search queries """
     template_name = "products/products.html"
     model = Product
     paginate_by = 12
-    context_object_name = "products"
+    context_object_name = "products_list"
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context["products"] = Product.objects.all()
-
+        context['products'] = Product.objects.all()
         return context
 
-    def get(self, request):
-        products = Product.objects.all().order_by("type")
-        query = None
-        category = None
-        filters = {}
-        remove_filter = None
 
-        # CREATE DYNAMIC QUERY FOR FILTERING PRODUCTS
-        filter_options = [
-            "category",
-            "type",
-            "buttercream_cakes",
-            "drip_cakes",
-            "chocolate_cakes",
-            "occassion_cakes",
-            "desserts",
-            "sweet_treats",
-        ]
-        filter_clauses = {}
-        for key, value in request.GET.items():
-            if key in filter_options:
-                if key == "category":
-                    filter_clauses[key] = get_object_or_404(Category, name=value)
-                elif key == "cakes" or key == "everyday_essential":
-                    filter_clauses[key + "__contains"] = value
-                else:
-                    filter_clauses[key] = value
+class ProductDetail(ListView):
+    """ A view to show a product details including reviews """
+    template_name = "products/product_details.html"
 
-        if filter_clauses:
-            products = products.filter(**filter_clauses)
+    def get(self, request, product_id):
+        """Override get method"""
+        product = get_object_or_404(Product, pk=product_id)
+        current_review = None
+        current_wishlist_line = None
 
-        # HANDLE SEARCH QUERIES
-        if "q" in request.GET:
-            query = request.GET["q"]
-            if not query:
-                messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse("products"))
+        return render(request, 'products/product_detail.html', context)
 
-            queries = (
-                Q(name__icontains=query)
-                | Q(description__icontains=query)
-                | Q(type__icontains=query)
-                | Q(cakes__icontains=query)
-            )
-            products = products.filter(queries)
-
-        context = {
-            "products_list": products,
-            "search_term": query,
-            "current_categories": categories,
-        }
-        return render(request, "products/products.html", context)
+        
