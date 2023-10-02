@@ -8,26 +8,27 @@ from .models import Product, Category
 
 class ProductAdmin(admin.ModelAdmin):
     """Class for displaying products in admin panel"""
-    list_display = (
-        'sku',
-        'name',
-        'category',
-        'code',
-        'type',
-        'price',
-        'description',
-        'image',
 
+    list_display = (
+        "sku",
+        "name",
+        "category",
+        "code",
+        "type",
+        "price",
+        "description",
+        "image",
     )
 
-    ordering = ('sku',)
+    ordering = ("sku",)
 
 
 class CategoryAdmin(admin.ModelAdmin):
     """Class for displaying categories in admin panel"""
+
     list_display = (
-        'friendly_name',
-        'name',
+        "friendly_name",
+        "name",
     )
 
 
