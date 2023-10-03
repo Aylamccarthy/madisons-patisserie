@@ -31,13 +31,13 @@ class Products(ListView):
         remove_filter = None
 
         # CREATE DYNAMIC QUERY FOR FILTERING PRODUCTS
-        filter_options = ["category", "type", "cakes", "everyday_essential"]
+        filter_options = ["category", "type", "name", "description"]
         filter_clauses = {}
         for key, value in request.GET.items():
             if key in filter_options:
                 if key == "category":
                     filter_clauses[key] = get_object_or_404(Category, name=value)
-                elif key == "type" or key == "cakes":
+                elif key == "type" or key == "name":
                     filter_clauses[key + "__contains"] = value
                 else:
                     filter_clauses[key] = value
@@ -67,6 +67,12 @@ class Products(ListView):
                 "filter"
             ) < request.get_full_path().find("category"):
                 filters["category"] = "CATEGORY - " + category.get_friendly_name()
+
+        if "filter" in request.GET:
+            # ADD TYPE FILTER TO FILTER CONTEXT
+            if "type" in request.GET:
+                product_type = request.GET["type"]
+                filters["type"] = "TYPE OF PRODUCT - " + product_type
 
         # ADD FILTERS LISTS TO CONTEXT FOR FILTERS DROPDOWNS
         categories = Category.objects.filter(

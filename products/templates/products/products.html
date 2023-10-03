@@ -5,6 +5,8 @@
 <div class="main-container col-lg-12 mx-auto pt-3 bg-white">
     {% if current_category %}
         <h1 class="mb-3 mb-lg-4 text-center">{{current_category.get_friendly_name}}</h1>
+    {% elif is_cakes %}
+        <h1 class="mb-3 mb-lg-4 text-center">Cakes</h1>
     {% else %}
         <h1 class="mb-3 mb-lg-4 text-center">All Products</h1>
     {% endif %}
@@ -19,7 +21,7 @@
                     <div class="collapse navbar-collapse d-lg-flex flex-row align-items-start" id="navbarTogglerFilters">
                         <h6 class="col-lg-1 p-0 mb-0 d-none d-lg-block mr-4 text-uppercase font-weight-bold">Filter By</h6>
                         <ul class="col-lg-10 navbar-nav mr-auto mt-2 mt-lg-0 d-lg-flex flex-wrap">
-                            {% if not current_category and not filters_list.category %}
+                            {% if not current_category and not is_cake and not filters_list.category %}
                             <li class="col-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
                                 <div class="dropdown">
                                     <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
@@ -60,7 +62,7 @@
       <div class="col-12">
         <div class="col-12 p-0 mx-auto">
             <div class="d-flex flex-wrap">
-                {% for product in products_list %}
+                {% for product in products %}
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 product-container">
                     {% if product.stock == 0 %}
                     <div class="col-12">
