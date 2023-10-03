@@ -22,6 +22,11 @@ a:hover {
     min-height: 100vh;
 }
 
+.font-size-smaller{
+    font-size: smaller;
+}
+
+
 /* COLORS CLASSES */
 .text-yellow {
     color: #ffc107;

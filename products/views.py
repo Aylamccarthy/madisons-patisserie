@@ -44,6 +44,18 @@ class Products(ListView):
 
         if filter_clauses:
             products = products.filter(**filter_clauses)
+            for key, value in filter_clauses.items():
+                if key == "category":
+                    category_name = request.GET["category"]
+                    category = get_object_or_404(Category, name=category_name)
+                    # ADD CATEGORY FILTER TO FILTER CONTEXT
+                    if "filter" in request.GET and request.get_full_path().find(
+                        "filter"
+                    ) < request.get_full_path().find("category"):
+                        filters["category"] = (
+                            "CATEGORY - " + category.get_friendly_name()
+                        )
+                        category = None
 
         # HANDLE SEARCH QUERIES
         if "q" in request.GET:
