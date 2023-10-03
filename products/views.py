@@ -22,6 +22,24 @@ class Products(ListView):
         context['products'] = Product.objects.all()
         return context
 
+    def get(self, request):
+        products = Product.objects.all()
+        query = None
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(type__icontains=query) 
+            products = products.filter(queries)
+
+        context = {
+        'products_list': products,
+        'search_term': query,
+        }
+        return render(request, 'products/products.html', context)
+
 
 class ProductDetail(ListView):
     """ A view to show a product details including reviews """
