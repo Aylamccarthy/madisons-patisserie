@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     "products",
     # Other
     "storages",
-    "url_tools",
 ]
 
 MIDDLEWARE = [
@@ -89,7 +88,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.media",
                 "madisons_patisserie.context_processors.add_subscription_form_to_context",
-                "url_tools.context_processors.current_url",
             ],
         },
     },

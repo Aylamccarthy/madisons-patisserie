@@ -3,12 +3,10 @@ Products App - Views
 ----------------
 Views for Products App.
 """
-from sys import flags
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.generic import ListView
 from django.db.models import Q
 from django.contrib import messages
-from url_tools.helper import UrlHelper
 from .models import Product, Category
 
 
