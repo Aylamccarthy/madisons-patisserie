@@ -60,6 +60,35 @@ a:focus, a:focus-visible {
     outline-offset: 0px;
 }
 
+a,
+a:hover {
+    color: inherit;
+}
+
+/* STYLING FOR FILTERS SECTION */
+
+#navbarTogglerFilters a,
+#navbarTogglerFilters a:hover {
+    color: #6c757d;
+}
+
+#navbarTogglerFilters .dropdown-menu {
+    left: 0;
+    width: fit-content;
+}
+
+.filter-active {
+    background-color: #e9ecefab !important;
+    border: 1px solid #dee2e6;
+}
+
+.filter-active a {
+    right: 2%;
+    top: 20%;
+    color: gray;
+}
+
+
 /* STYLING FOR ALLAUTH CONTENT */
 .auth-content>div>div:nth-child(1){
     border-right: 1px solid #e0d9d9;
