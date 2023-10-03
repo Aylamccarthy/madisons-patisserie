@@ -84,7 +84,7 @@ class Products(ListView):
         if not "filter" in current_url:
             current_url += "filter=True&"
 
-        # REMOVE FILTERS FROM URL TO BE USED IN TEMPLATE HREFS WHEN 'CLEAR ALL' BUTOTN IS ACTIVE
+        # REMOVE FILTERS FROM URL TO BE USED IN TEMPLATE HREFS WHEN 'CLEAR ALL' BUTTON IS ACTIVE
         current_url_no_filters = request.get_full_path()
         if "filter" in current_url_no_filters:
             st = current_url_no_filters.find("filter=True&")
