@@ -13,21 +13,37 @@
     <div class="pt-lg-3">
         <div class="col-12 mb-4 mb-lg-3">
             <div class="col-12 p-0 mx-auto">
-                <p>
-                    <i class="fas fa-th-large font-size-smaller"></i>
-                    <span class="font-weight-bold">{{products|length}} products</span>
-                    {% if current_category %}
-                    <span> found in <em class="font-weight-bold">{{current_category.get_friendly_name}}</em> collection</span>
-                    {% endif %}
-                    {% if is_cakes %}
-                    <span> found in <em class="font-weight-bold"></em> Cakes </span>
-                    {% endif %}
-                    {% if search_term %}
-                    <span> found for <q class="font-weight-bold">{{search_term}}</q></span>
-                    {% endif %}
-                </p>
-                <hr class="d-none d-lg-block mb-1">
-                <div class="navbar navbar-expand-lg navbar-light">
+                <div class="d-md-flex align-items-baseline justify-content-between mb-2">
+                    <div class="col-md-6 p-0">
+                        <p class="mb-2 mb-md-1">
+                            <i class="fas fa-th-large font-size-smaller"></i>
+                            <span class="font-weight-bold">{{products|length}} items</span>
+                            {% if current_category %}
+                            <span> found in <em class="font-weight-bold">{{current_category.get_friendly_name}}</em> collection</span>
+                            {% endif %}
+                            {% if is_deluxe %}
+                            <span> found in <em class="font-weight-bold">Deluxe</em> collection</span>
+                            {% endif %}
+                            {% if search_term %}
+                            <span> found for <q class="font-weight-bold">{{search_term}}</q></span>
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-xl-2 pr-0 sort-select-container w-50 p-0">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option> 
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                            <option value="best_sellers" {% if current_sorting == 'best_sellers' %}selected{% endif %}>Best Sellers</option>
+                        </select>
+                    </div>
+                </div>
+                <hr class="d-none d-lg-block mb-1 mt-0">
+                <div class="navbar navbar-expand-lg navbar-light pl-0">
                     <button class="d-lg-none button rounded-0 small-btn" type="button" data-toggle="collapse" data-target="#navbarTogglerFilters" aria-controls="navbarTogglerFilters" aria-expanded="false" aria-label="Toggle navigation">
                       Filter
                     </button>
@@ -102,7 +118,7 @@
                         <div class="col-12">
                             <img class="img-fluid mb-4 product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                             <div class="product-banner col-9 ">
-                                <img class="img-fluid" src="../../media/product-banner.png" alt="Last {{product.stock}} items">
+                                <img class="img-fluid" src="{{ MEDIA_URL }}product-banner.png" alt="Last {{product.stock}} items">
                                 <div class="banner-text text-center text-yellow">
                                     <span>Last {{product.stock}} items</span>
                                 </div>
@@ -153,7 +169,7 @@
                         </div>
                     {% else %}
                         <div class="banner-hover">
-                            <img class="img-fluid" src="../../media/product-banner.png" alt="">
+                            <img class="img-fluid" src="{{ MEDIA_URL }}product-banner.png" alt="">
                             <div class="banner-text text-center text-red">
                                 <span>Sorry, this item is <br> Out of stock</span>
                             </div>
