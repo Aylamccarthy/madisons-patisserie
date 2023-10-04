@@ -35,23 +35,23 @@ class Products(ListView):
         sort = None
         direction = None
 
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
+        if "sort" in request.GET:
+            sortkey = request.GET["sort"]
             sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            if sortkey != 'best_sellers':
+            if sortkey == "name":
+                sortkey = "lower_name"
+                products = products.annotate(lower_name=Lower("name"))
+            if "direction" in request.GET:
+                direction = request.GET["direction"]
+                if direction == "desc":
+                    sortkey = f"-{sortkey}"
+            if sortkey != "best_sellers":
                 products = products.order_by(sortkey)
 
-        if sort == 'best_sellers':
+        if sort == "best_sellers":
             current_sorting = sort
         else:
-            current_sorting = f'{sort}_{direction}'
+            current_sorting = f"{sort}_{direction}"
 
         # CREATE DYNAMIC QUERY FOR FILTERING PRODUCTS
         filter_options = ["category", "type", "name", "description"]
@@ -79,7 +79,6 @@ class Products(ListView):
                             "CATEGORY - " + category.get_friendly_name()
                         )
                         category = None
-
 
         # HANDLE SEARCH QUERIES
         if "q" in request.GET:
@@ -131,12 +130,12 @@ class Products(ListView):
         parameters_list = json.loads(json.dumps(request.GET)).items()
         is_filter = False
         for key, value in parameters_list:
-            if key == 'filter':
+            if key == "filter":
                 is_filter = True
-                del parameters['filter']
+                del parameters["filter"]
             if is_filter is True and key in filter_clauses:
                 del parameters[key]
-        current_url_no_filters += '?' + urllib.parse.urlencode(parameters)
+        current_url_no_filters += "?" + urllib.parse.urlencode(parameters)
 
         # CHECK IF THERE IS ONLY ONE FILTER APPLIED AND CREATE BOOLEAN VALUE TO BE ADDED TO CONTEXT
         parameters = []
@@ -150,11 +149,13 @@ class Products(ListView):
                 remove_filter = True
 
             else:
-                for i in range(0, len(parameters)-2):
-                    if parameters[i] == 'filter' and \
-                       parameters[i+1] in filter_options:
+                for i in range(0, len(parameters) - 2):
+                    if (
+                        parameters[i] == "filter"
+                        and parameters[i + 1] in filter_options
+                    ):
                         one_filter = True
-                        for j in range(i+2, len(parameters)):
+                        for j in range(i + 2, len(parameters)):
                             if parameters[j] in filter_options:
                                 one_filter = False
                                 break
@@ -170,8 +171,8 @@ class Products(ListView):
             "current_url": current_url,
             "current_url_no_filters": current_url_no_filters,
             "remove_filter": remove_filter,
-            'current_sorting': current_sorting,
-        }
+            "current_sorting": current_sorting,
+            }
         return render(request, "products/products.html", context)
 
 
@@ -185,5 +186,31 @@ class ProductDetail(ListView):
         product = get_object_or_404(Product, pk=product_id)
         current_review = None
         current_wishlist_line = None
+
+        if request.user.is_authenticated and len(
+            ReviewModel.objects.filter(
+                Q(author=request.user) & Q(product=product))) == 1:
+            current_review = ReviewModel.objects.get(
+                author=self.request.user, product=product)
+
+        if self.request.user.is_authenticated and \
+            WishlistLine.objects.filter(
+                Q(user=self.request.user) & Q(product=product)).exists():
+            current_wishlist_line = WishlistLine.objects.get(
+                user=self.request.user, product=product)
+
+        # add_to_wishlist_form = SetWishlistRelation(data=request.GET)
+        context = {
+            'product': product,
+            # 'update_product_form': update_product_form,
+            # 'review_form': ReviewForm,
+            # 'update_review_form': UpdateReviewForm(instance=current_review),
+            # 'review_list': ReviewModel.objects.filter(
+            #     product=product).order_by('-date_updated_on'),
+            # 'current_review': current_review,
+            # 'add_to_wishlist_form': add_to_wishlist_form,
+            # 'current_wishlist_line': current_wishlist_line,
+            # 'product_json': serialize('json', Product.objects.filter(pk=product.pk)),
+        }
 
         return render(request, "products/product_detail.html", context)

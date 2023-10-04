@@ -8,6 +8,7 @@ Django==3.2.21
 django-allauth==0.41.0
 django-storages==1.14
 django-url-tools==0.0.8
+django-url-tools-py3==0.2.1
 gunicorn==21.2.0
 jmespath==1.0.1
 oauthlib==3.2.2
