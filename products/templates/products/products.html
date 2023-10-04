@@ -48,10 +48,10 @@
                       Filter
                     </button>
                     <div class="collapse navbar-collapse d-lg-flex flex-row align-items-start" id="navbarTogglerFilters">
-                        <h6 class="col-lg-1 p-0 mb-0 d-none d-lg-block mr-4 text-uppercase font-weight-bold">Filter By</h6>
-                        <ul class="col-lg-10 navbar-nav mr-auto mt-2 mt-lg-0 d-lg-flex flex-wrap">
+                        <h6 class="col-md-2 col-xl-1 p-0 mb-0 d-none d-lg-block mr-xl-4 text-uppercase font-weight-bold">Filter By</h6>
+                        <ul class="col-xl-10 navbar-nav mt-2 mt-lg-0 d-lg-flex flex-wrap">
                             {% if not current_category and not is_cake and not filters_list.category %}
-                            <li class="col-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
                                 <div class="dropdown">
                                     <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
                                         <span>Category</span>
@@ -70,15 +70,24 @@
                 </div>
                 <hr class="d-none d-lg-block mt-0">
                 {% if filters_list %}
-                <div class="d-flex">          
-                    <a class="col-1 p-0 pt-1 m-0 mr-4 " href="{{current_url_no_filters}}"><u>CLEAR ALL</u></a>
-                    <ul class="col-10 m-0 p-0 d-flex flex-wrap list-unstyled">
+                <div class="d-flex flex-column-reverse flex-md-row"> 
+                    <div class="d-flex flex-column-reverse flex-md-row"></div>         
+                    <a class="col-md-2 col-xl-1 p-0 pt-xl-1 m-0 mr-xl-4" href="{{current_url_no_filters}}"><u>CLEAR ALL</u></a>
+                    <ul class="col-md-10 mt-2 m-md-0 p-0 d-flex flex-wrap list-unstyled">
                         {% for key, value in filters_list.items %}
                         <li class="mr-2 mb-2">
                             <div class="d-flex p-1 pr-4 position-relative filter-active">
                                 <span>{{value}}</span>
                                 {% if remove_filter %}
-                                <a class="position-absolute" href="{{ current_url_no_filters }}"><i class="fas fa-times"></i></a>
+                                <a class="position-absolute" href="{{ current_url_no_filters }}">
+                                    <span hidden>Clear Filter</span>
+                                    <i class="fas fa-times"></i>
+                                </a>
+                                {% else %}
+                                <a class="position-absolute" href="{#}">
+                                    <span hidden>Clear Filter</span>
+                                    <i class="fas fa-times"></i>
+                                </a>
                                 {% endif %}
                             </div>
                         </li>
