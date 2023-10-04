@@ -13,13 +13,13 @@ class UpdateProductForm(forms.ModelForm):
     """Form for update product details"""
 
     category = forms.ChoiceField()
-    sku = models.CharField(max_length=254)
-    name = models.CharField(max_length=254)
-    type = models.CharField(max_length=254)
-    description = models.TextField()
-    code = models.CharField(max_length=6)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(null=True, blank=True)
+    sku = forms.CharField(max_length=254)
+    name = forms.CharField(max_length=254)
+    type = forms.CharField(max_length=254)
+    description = forms.CharField(max_length=254)
+    code = forms.CharField(max_length=6)
+    price = forms.DecimalField(max_digits=6, decimal_places=2)
+    image = forms.ImageField
     stock = forms.IntegerField(min_value=0)
 
     def __init__(self, *args, **kwargs):

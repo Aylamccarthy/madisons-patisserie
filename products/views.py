@@ -13,7 +13,7 @@ from django.contrib import messages
 from .models import Product, Category
 import urllib
 import json
-from products.forms import UpdateReviewForm
+from products.forms import UpdateProductForm
 from products.models import Product, Category
 
 
@@ -187,14 +187,7 @@ class ProductDetail(View):
     def get(self, request, product_id):
         """Override get method"""
         product = get_object_or_404(Product, pk=product_id)
-        if product.is_cake is True:
-            update_product_form = UpdateReviewForm(
-                is_cake=True, initial={
-                    'category': product.category.get_friendly_name()
-                    },
-                instance=product)
-        else:
-            update_product_form = UpdateReviewForm(instance=product, initial={
+        update_product_form = UpdateProductForm(instance=product, initial={
                     'category': product.category.get_friendly_name()
                     },)
         context = {
@@ -227,14 +220,13 @@ class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin,
             "stock",
         ]
 
-
     def post(self, request, pk):
 
         product = get_object_or_404(Product, pk=pk)
         form_error = None
         if request.method == 'POST':
 
-            update_product_form = UpdateReviewForm(
+            update_product_form = UpdateProductForm(
                 request.POST, request.FILES, instance=product)
 
             if update_product_form.is_valid():
@@ -249,7 +241,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin,
                 return redirect('/products/product_details/'
                                 + str(product.pk))
         else:
-            update_product_form = UpdateReviewForm(instance=product)
+            update_product_form = UpdateProductForm(instance=product)
 
         context = {
             'update_product_form': update_product_form,
