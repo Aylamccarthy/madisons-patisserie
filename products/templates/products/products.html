@@ -81,7 +81,7 @@
                     <div class="col-12">
                         <img class="img-fluid mb-4 product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                         <div class="product-banner col-9">
-                            <img class="img-fluid" src="../../media/product-banner.png" alt="Item out of stock">
+                            <img class="img-fluid" src="{{ MEDIA_URL }}product-banner.png" alt="Item out of stock">
                             <div class="banner-text text-center text-red">
                                 <span>Out of stock</span>
                             </div>
@@ -91,7 +91,7 @@
                     <div class="col-12">
                         <img class="img-fluid mb-4 product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                         <div class="product-banner col-9">
-                            <img class="img-fluid" src="../../media/product-banner.png" alt="Last item">
+                            <img class="img-fluid" src="{{ MEDIA_URL }}product-banner.png" alt="Last item">
                             <div class="banner-text text-center text-yellow">
                                 <span>Last item</span>
                             </div>
