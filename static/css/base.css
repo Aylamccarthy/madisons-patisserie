@@ -93,6 +93,13 @@ a:hover {
     color: gray;
 }
 
+/* SORT SELECT CONTAINER STYLING */
+
+.sort-select-container .custom-select{
+    border: 1px solid gray;
+}
+
+
 
 /* STYLING FOR ALLAUTH CONTENT */
 .auth-content>div>div:nth-child(1){
@@ -558,6 +565,7 @@ i{
 .product-count button,
 .product-count input {
     border: 1px solid grey;
+    color: #3a3a3a;
 }
 
 .product-count input {
@@ -690,6 +698,40 @@ i{
     }
 }
 
+/* --------------------------------- IPAD PRO STYLINYG ------------------------------- */
+@media only screen and (min-width: 1024px) and (max-width: 1024px) and (orientation: portrait) {
+    .min-vh {
+        min-height: 90vh;
+    }
+    .home-cover {
+        height: 36vh;
+    }
+    .product-container:hover {
+        cursor: initial;
+        background-color: initial;
+        box-shadow: none;
+    }
+    .product-container:hover img {
+        opacity: initial;
+    }
+    .product-container:hover .product-overlay {
+        opacity: 0;
+    }
+    .product-container>div:last-of-type {
+        display: block !important;
+    }
+    .product-container:hover .banner-hover {
+        opacity: 0;
+    }
+    .product-container:hover .banner-hover img {
+        opacity: 0;
+    }
+    .product-container:hover .product-banner {
+        opacity: 1;
+    }
+}
+
+
 
 /* --------------------------------- SMALL AND MEDIUM DEVICE STYLING ------------------------------- */
 @media (max-width: 991.98px) {
@@ -712,6 +754,11 @@ i{
 
     .purple-btn:hover{
         background-color: #7c004f;
+    }
+
+    #navbarTogglerFilters {
+        background-color: #e9ecefab;
+        padding-left: 5px;
     }
 
 
@@ -791,12 +838,22 @@ i{
     i {
         font-size: 25px;
     }
+
+    footer i {
+        font-size: 30px;
+    }
+
     .search-bar .dropdown a i{
         padding-right: 12PX;
     }
+
     .search-bar .dropdown-menu i{
         margin-top: 4px;
         font-size: 20px;
+    }
+
+    .search-bar i {
+        margin-top: 0px;
     }
 
     .home-cover {
@@ -807,6 +864,15 @@ i{
         padding-left: 0px;
         width: 80%;
     }
+
+    .auth-content>div>div:nth-child(1) {
+        border-right: none;
+    }
+
+    .filter-active a {
+        top: 8%;
+    }
+
 }
 /* --------------------------------- EXTRA SMALL DEVICES STYLING ------------------------------- */
 @media (max-width: 380px) {

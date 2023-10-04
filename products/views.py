@@ -57,6 +57,7 @@ class Products(ListView):
                         )
                         category = None
 
+
         # HANDLE SEARCH QUERIES
         if "q" in request.GET:
             query = request.GET["q"]
