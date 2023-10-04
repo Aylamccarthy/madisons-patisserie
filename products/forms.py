@@ -19,7 +19,9 @@ class UpdateProductForm(forms.ModelForm):
     description = forms.CharField(max_length=254)
     code = forms.CharField(max_length=6)
     price = forms.DecimalField(max_digits=6, decimal_places=2)
-    image = forms.ImageField
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
+
     stock = forms.IntegerField(min_value=0)
 
     def __init__(self, *args, **kwargs):
