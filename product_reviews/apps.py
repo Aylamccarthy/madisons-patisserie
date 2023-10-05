@@ -9,5 +9,6 @@ from django.apps import AppConfig
 
 class ProductReviewsConfig(AppConfig):
     """App configuration"""
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'product_reviews'
+
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "product_reviews"

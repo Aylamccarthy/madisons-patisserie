@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     "newsletter",
     "products",
     "product_reviews",
-    
     # Other
     "storages",
     # "url_tools",

@@ -13,16 +13,14 @@ from django.contrib.auth.models import User
 
 class Review(models.Model):
     """Model for Product Review Post"""
+
     rate = models.PositiveSmallIntegerField()
     review_text = models.TextField()
     now = datetime.datetime.now()
-    date_created_on = models.DateTimeField(
-        default=now.strftime("%Y-%m-%d %H:%M:%S"))
-    date_updated_on = models.DateTimeField(
-        default=now.strftime("%Y-%m-%d %H:%M:%S"))
+    date_created_on = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
+    date_updated_on = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
 
     class Meta:
         ordering = ["date_updated_on"]

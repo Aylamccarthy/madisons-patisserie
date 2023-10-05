@@ -10,14 +10,15 @@ from .models import Review
 
 class ProductReviewAdmin(admin.ModelAdmin):
     """Class for displaying reviews in admin panel"""
+
     list_display = (
-        'pk',
-        'rate',
-        'review_text',
-        'date_created_on',
-        'date_updated_on',
-        'author',
-        'product',
+        "pk",
+        "rate",
+        "review_text",
+        "date_created_on",
+        "date_updated_on",
+        "author",
+        "product",
     )
 
 
