@@ -242,34 +242,35 @@ class ProductAddViewAdmin(LoginRequiredMixin, UserPassesTestMixin, View):
     ]
 
     def post(self, request):
-
         form_error = None
-        if request.method == 'POST':
-
+        if request.method == "POST":
             add_product_form = AddUpdateProductForm(
-                request.POST, request.FILES, prefix='ADD')
+                request.POST, request.FILES, prefix="ADD"
+            )
 
             if add_product_form.is_valid():
                 add_product_form.save()
                 messages.success(
-                    request,
-                    'A new product was successfully added to the database')
-                return redirect('products')
+                    request, "A new product was successfully added to the database"
+                )
+                return redirect("products")
             else:
                 messages.error(
-                    request, 'There was a problem when trying to add' +
-                             ' a new product to  database. Please try again!')
-                return redirect('products')
+                    request,
+                    "There was a problem when trying to add"
+                    + " a new product to  database. Please try again!",
+                )
+                return redirect("products")
         else:
-            add_product_form = AddUpdateProductForm(request.GET, prefix='ADD')
+            add_product_form = AddUpdateProductForm(request.GET, prefix="ADD")
             context = {
-                'form_error': form_error,
+                "form_error": form_error,
             }
-        return render(request, 'products.html', context)
+        return render(request, "products.html", context)
 
     def get(self, *args, **kwargs):
         """Override GET request to redirect to products details page"""
-        return redirect('products')
+        return redirect("products")
 
     def test_func(self):
         return self.request.user.is_superuser
