@@ -5,7 +5,7 @@ Views for Products App.
 """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import ListView, DeleteView, UpdateView
+from django.views.generic import ListView, DeleteView, UpdateView, View
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -17,7 +17,6 @@ from products.forms import UpdateProductForm
 from products.models import Product, Category
 from product_reviews.forms import ReviewForm, UpdateReviewForm
 from product_reviews.models import Review as ReviewModel
-
 
 
 class Products(ListView):
@@ -189,28 +188,34 @@ class ProductDetail(ListView):
     template_name = "products/product_details.html"
 
     def get_queryset(self):
-        return ReviewModel.objects.order_by('-date_updated_on')
+        return ReviewModel.objects.order_by("-date_updated_on")
 
     def get(self, request, product_id):
         """Override get method"""
         product = get_object_or_404(Product, pk=product_id)
         current_review = None
-        if request.user.is_authenticated and len(
-            ReviewModel.objects.filter(
-                Q(author=request.user) & Q(product=product))) == 1:
+        if (
+            request.user.is_authenticated
+            and len(
+                ReviewModel.objects.filter(Q(author=request.user) & Q(product=product))
+            )
+            == 1
+        ):
             current_review = ReviewModel.objects.get(
-                author=self.request.user, product=product)
+                author=self.request.user, product=product
+            )
         update_product_form = UpdateProductForm(
             instance=product,
             initial={"category": product.category.get_friendly_name()},
+            prefix="UPDATE",
         )
         context = {
             "product": product,
             "update_product_form": update_product_form,
-            'review_form': ReviewForm,
-            'update_review_form': UpdateReviewForm(instance=current_review),
-            'review_list': ReviewModel.objects.filter(product=product),
-            'current_review': current_review,
+            "review_form": ReviewForm,
+            "update_review_form": UpdateReviewForm(instance=current_review),
+            "review_list": ReviewModel.objects.filter(product=product),
+            "current_review": current_review,
         }
 
         return render(request, "products/product_detail.html", context)
@@ -218,7 +223,7 @@ class ProductDetail(ListView):
 
 class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """
-    A view that provides a form to update the Review entry
+    A view that provides a form to update the Product entry
     coresponding to the authenticated user
     """
 
@@ -242,7 +247,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin, UpdateView
         form_error = None
         if request.method == "POST":
             update_product_form = UpdateProductForm(
-                request.POST, request.FILES, instance=product
+                request.POST, request.FILES, instance=product, prefix="UPDATE"
             )
 
             if update_product_form.is_valid():
@@ -257,7 +262,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin, UpdateView
                 )
                 return redirect("/products/product_details/" + str(product.pk))
         else:
-            update_product_form = UpdateProductForm(instance=product)
+            update_product_form = UpdateProductForm(instance=product, prefix="UPDATE")
 
         context = {
             "update_product_form": update_product_form,
