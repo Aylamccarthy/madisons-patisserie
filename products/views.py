@@ -221,6 +221,60 @@ class ProductDetail(ListView):
         return render(request, "products/product_detail.html", context)
 
 
+class ProductAddViewAdmin(LoginRequiredMixin, UserPassesTestMixin, View):
+    """
+    A view that provides a form to add a new Product entry
+    """
+
+    model = Product
+    template_name = "base.html"
+
+    fields = [
+        "category",
+        "sku",
+        "name",
+        "type",
+        "description",
+        "price",
+        "code",
+        "image",
+        "stock",
+    ]
+
+    def post(self, request):
+
+        form_error = None
+        if request.method == 'POST':
+
+            add_product_form = AddUpdateProductForm(
+                request.POST, request.FILES, prefix='ADD')
+
+            if add_product_form.is_valid():
+                add_product_form.save()
+                messages.success(
+                    request,
+                    'A new product was successfully added to the database')
+                return redirect('products')
+            else:
+                messages.error(
+                    request, 'There was a problem when trying to add' +
+                             ' a new product to  database. Please try again!')
+                return redirect('products')
+        else:
+            add_product_form = AddUpdateProductForm(request.GET, prefix='ADD')
+            context = {
+                'form_error': form_error,
+            }
+        return render(request, 'products.html', context)
+
+    def get(self, *args, **kwargs):
+        """Override GET request to redirect to products details page"""
+        return redirect('products')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
 class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """
     A view that provides a form to update the Product entry
