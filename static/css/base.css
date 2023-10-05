@@ -13,6 +13,7 @@ a:hover {
 
 }
 
+
 /* PADDING ON LATERAL SIDES CLASS */
 .p-side {
     padding: 0 45px;
@@ -26,6 +27,19 @@ a:hover {
     font-size: smaller;
 }
 
+/* WIDTH CLASSES */
+.wh-fit-content{
+    width: fit-content;
+}
+
+/* FONT SIZE CLASSES */
+.font-size-smaller {
+    font-size: smaller;
+}
+
+.font-size-larger {
+    font-size: larger;
+}
 
 /* COLORS CLASSES */
 .text-yellow {
@@ -232,14 +246,14 @@ input:focus, input:focus-visible{
 }
 
 .gray-btn{
-    background-color: #bcbcbc;
+    background-color: #e9ecef;
+    border: 1px solid #bebebe;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     border: 1px solid  gray;
 
 }
 .gray-btn:hover{
-    background-color: gray;
-    color: white;
+    background-color: #d6d6d6;
 }
 .small-btn{
     padding: 5px 10px;
@@ -265,21 +279,22 @@ input:focus, input:focus-visible{
     padding-left: 0px;
 }
 
-/* LOGOUT MODAL STYLING */
-#logoutModal .modal-content{
+/* MODAL STYLING */
+.modal-content {
     border: 2px solid white;
 }
 
-#logoutModal .modal-header{
+.modal-header {
     background-color: skyblue;
     color: white;
     padding: 8px 16px;
 }
-#logoutModal .modal-footer{
+
+.modal-footer{
     padding: 8px 16px;
 }
 
-#logoutModal .modal-close{
+.modal-close{
     background-color: transparent;
     border: none;
     font-size: 25px;
@@ -288,8 +303,27 @@ input:focus, input:focus-visible{
     padding: 0;
 }
 
-#logoutModal .modal-close span:hover{
+ .modal-close span:hover{
     color: #d0cbcb;
+}
+
+.modal form {
+    padding: 20px;
+}
+
+.modal form input:not([type=checkbox]){
+    width: 100%;
+    border: 1px solid #ced4da;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    border-radius: 0.25rem;
+    color: #3a3a3a;
+    font-size: .875rem;
+}
+
+.custom-control label:hover{
+    cursor: pointer;
 }
 
 
