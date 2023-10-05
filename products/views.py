@@ -244,7 +244,7 @@ class ProductAddViewAdmin(LoginRequiredMixin, UserPassesTestMixin, View):
     def post(self, request):
         form_error = None
         if request.method == "POST":
-            add_product_form = AddUpdateProductForm(
+            add_product_form = UpdateProductForm(
                 request.POST, request.FILES, prefix="ADD"
             )
 
