@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     });
 
+    // SCRIPT FOR SETTING PADDING TOP OF CONTENT CONTAINER TO BE EQUAL WITH HEADER HEIGHT
+    let headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
+    let contentContainer = document.getElementsByClassName('content-container')[0];
+    contentContainer.style.paddingTop= (headerHeight - 2) + 'px';
+
+
     if (window.location.pathname.includes('/products/')) {  
 
         // SCRIPT FOR PRODUCT COUNT BUTTONS FOR ADDITION AND SUBSTRACTION TO UPDATE INPUT VALUE ON CLICK
