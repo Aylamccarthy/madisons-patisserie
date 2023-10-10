@@ -132,7 +132,7 @@
         "model": "products.product",
         "fields": {
             "category": 3,
-            "sku": "ca101989",
+            "sku": "ca1019891",
             "name": "Chocolate Chip Cookies",
             "code": "10784",
             "price": 6.00,
