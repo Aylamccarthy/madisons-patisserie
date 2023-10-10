@@ -160,7 +160,7 @@
         "model": "products.product",
         "fields": {
             "category": 4,
-            "sku": "ca101990",
+            "sku": "ca1019981",
             "name": "Christmas Cookies",
             "code": "10786",
             "price": 8.00,
@@ -286,7 +286,7 @@
         "model": "products.product",
         "fields": {
             "category": 1,
-            "sku": "ca101999",
+            "sku": "ca1019990",
             "name": "1st Birthday Cake",
             "code": "107905",
             "price": 250.00,
@@ -398,7 +398,7 @@
         "model": "products.product",
         "fields": {
             "category": 1,
-            "sku": "ca1019999",
+            "sku": "ca10199991",
             "name": "White Christening Cake",
             "code": "107909",
             "price": 250.00,
@@ -412,7 +412,7 @@
         "model": "products.product",
         "fields": {
             "category": 1,
-            "sku": "ca10199991",
+            "sku": "ca10199993",
             "name": "White Floral Wedding Cake",
             "code": "109051",
             "price": 550.00,
