@@ -110,7 +110,23 @@ a:hover {
 /* SORT SELECT CONTAINER STYLING */
 
 .sort-select-container .custom-select{
-    border: 1px solid gray;
+    border: 1px solid #80808066;
+}
+
+.custom-select:focus {
+    border-color: #80808066;
+    outline: 1px solid #80808066;
+    box-shadow: none
+}
+
+select {
+    border: 1px solid #80808066;
+}
+
+select:focus {
+    border-color: #80808066;
+    outline: 1px solid #80808066;
+    box-shadow: none
 }
 
 
@@ -311,7 +327,7 @@ input:focus, input:focus-visible{
     padding: 20px;
 }
 
-.modal form input:not([type=checkbox]){
+.modal form input:not([type=checkbox]), select {
     width: 100%;
     border: 1px solid #ced4da;
     padding-top: 0.25rem;
