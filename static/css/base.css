@@ -327,7 +327,7 @@ input:focus, input:focus-visible{
     padding: 20px;
 }
 
-.modal form input:not([type=checkbox]), select {
+.modal form input:not([type=checkbox]), select, input {
     width: 100%;
     border: 1px solid #ced4da;
     padding-top: 0.25rem;
