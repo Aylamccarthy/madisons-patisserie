@@ -293,6 +293,7 @@ input:focus, input:focus-visible{
     list-style-type: none;
     color: #bd2130;
     padding-left: 0px;
+    margin-top: -12px;
 }
 
 /* MODAL STYLING */
@@ -507,7 +508,10 @@ footer .success-message{
 }
 
 footer .errorlist{
-    color: #ff0019;
+    color: #ff4456;
+    margin-top: 0;
+    
+    
 }
 
 footer > div > div > div:nth-child(1) form p{
