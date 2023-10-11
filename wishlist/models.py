@@ -13,5 +13,6 @@ from products.models import Product
 
 class WishlistLine(models.Model):
     """Model for WishlistLine object"""
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)

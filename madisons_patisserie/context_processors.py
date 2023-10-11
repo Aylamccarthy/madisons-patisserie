@@ -28,8 +28,9 @@ def add_wishlist_count_to_context(request):
     """Method to return a list of products as context"""
     if request.user.is_authenticated:
         return {
-            'wishlist_user_count': WishlistLine.objects.filter(
-                user=request.user).count()
+            "wishlist_user_count": WishlistLine.objects.filter(
+                user=request.user
+            ).count()
         }
     else:
-        return {'wishlist_user_count': None}
+        return {"wishlist_user_count": None}
