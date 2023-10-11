@@ -738,6 +738,25 @@ i{
     text-decoration: underline;
 }
 
+/* TOASTS STYLING */
+
+.message-container {
+    position: absolute;
+    top: 105%;
+    right: 45px;
+    overflow: visible;
+    z-index: 999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+
 
 /* --------------------------------- LARGE DEVICES STYLING ------------------------------- */
 
