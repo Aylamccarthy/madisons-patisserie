@@ -6,28 +6,55 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('products', '0001_initial'),
+        ("products", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Review',
+            name="Review",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rate', models.PositiveSmallIntegerField()),
-                ('review_text', models.TextField()),
-                ('date_created_on', models.DateTimeField(default='2023-10-10 18:19:01')),
-                ('date_updated_on', models.DateTimeField(default='2023-10-10 18:19:01')),
-                ('author', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('product', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='products.product')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("rate", models.PositiveSmallIntegerField()),
+                ("review_text", models.TextField()),
+                (
+                    "date_created_on",
+                    models.DateTimeField(default="2023-10-10 18:19:01"),
+                ),
+                (
+                    "date_updated_on",
+                    models.DateTimeField(default="2023-10-10 18:19:01"),
+                ),
+                (
+                    "author",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="products.product",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['date_updated_on'],
+                "ordering": ["date_updated_on"],
             },
         ),
     ]
