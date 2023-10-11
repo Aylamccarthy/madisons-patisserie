@@ -93,7 +93,7 @@ TEMPLATES = [
                 "madisons_patisserie.context_processors.add_subscription_form_to_context",
                 "madisons_patisserie.context_processors.add_create_product_form_to_context",
                 "madisons_patisserie.context_processors.add_products_list_to_context",
-                'madisons_patisserie.context_processors.add_wishlist_count_to_context',
+                "madisons_patisserie.context_processors.add_wishlist_count_to_context",
             ],
         },
     },
@@ -107,6 +107,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
