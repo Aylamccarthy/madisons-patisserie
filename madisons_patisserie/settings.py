@@ -93,7 +93,7 @@ TEMPLATES = [
                 "madisons_patisserie.context_processors.add_subscription_form_to_context",
                 "madisons_patisserie.context_processors.add_create_product_form_to_context",
                 "madisons_patisserie.context_processors.add_products_list_to_context",
-                # "url_tools.context_processors.current_url",
+                'madisons_patisserie.context_processors.add_wishlist_count_to_context',
             ],
         },
     },
