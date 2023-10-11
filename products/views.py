@@ -211,8 +211,9 @@ class ProductDetail(ListView):
             "update_product_form": update_product_form,
             "review_form": ReviewForm,
             "update_review_form": UpdateReviewForm(instance=current_review),
-            'review_list': ReviewModel.objects.filter(
-                product=product).order_by('-date_updated_on'),
+            "review_list": ReviewModel.objects.filter(product=product).order_by(
+                "-date_updated_on"
+            ),
             "current_review": current_review,
         }
 
