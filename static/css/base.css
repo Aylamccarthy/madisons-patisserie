@@ -324,11 +324,13 @@ input:focus, input:focus-visible{
     color: #d0cbcb;
 }
 
-.modal form {
+.modal-body form {
     padding: 20px;
 }
 
-.modal form input:not([type=checkbox]), select, input {
+.modal form input:not([type=checkbox]),
+select,
+input {
     width: 100%;
     border: 1px solid #ced4da;
     padding-top: 0.25rem;
@@ -769,6 +771,11 @@ i{
         background-color: initial;
         color: initial;
     }
+
+    .message-container {
+        right: 31px;
+    }
+
 }
 
 /* --------------------------------- IPAD PRO STYLINYG ------------------------------- */
@@ -944,6 +951,10 @@ i{
 
     .filter-active a {
         top: 8%;
+    }
+
+    .message-container {
+        right: 20px;
     }
 
 }
