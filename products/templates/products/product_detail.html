@@ -34,6 +34,12 @@
                 <div class="d-flex align-items-center">
                   <p class="m-0"> {{product.description}}</p>
                 </div>
+                <div>
+                  {% if product.rating %}
+                  <input type="hidden" name="rate" class="rate" value="{{product.rating}}">
+                  <div class="ratings-generated stars-big d-flex align-items-end"></div>
+                  {% endif %}
+                </div>
 
                 {% if user.is_authenticated and user.is_superuser %}
                 <!-- UPDATE PRODUCT MODAL -->
