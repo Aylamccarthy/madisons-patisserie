@@ -10,9 +10,10 @@ from wishlist.models import WishlistLine
 
 class WishlistLineAdmin(admin.ModelAdmin):
     """Class for displaying categories in admin panel"""
+
     list_display = (
-        'user',
-        'product',
+        "user",
+        "product",
     )
 
 

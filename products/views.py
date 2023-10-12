@@ -22,7 +22,6 @@ from wishlist.forms import SetWishlistRelation
 from wishlist.models import WishlistLine
 
 
-
 class Products(ListView):
     """A view to show all products, including sorting and search queries"""
 
@@ -212,11 +211,15 @@ class ProductDetail(ListView):
             prefix="UPDATE",
         )
 
-        if self.request.user.is_authenticated and \
-            WishlistLine.objects.filter(
-                Q(user=self.request.user) & Q(product=product)).exists():
+        if (
+            self.request.user.is_authenticated
+            and WishlistLine.objects.filter(
+                Q(user=self.request.user) & Q(product=product)
+            ).exists()
+        ):
             current_wishlist_line = WishlistLine.objects.get(
-                user=self.request.user, product=product)
+                user=self.request.user, product=product
+            )
 
         add_to_wishlist_form = SetWishlistRelation(data=request.GET)
         context = {
@@ -228,8 +231,8 @@ class ProductDetail(ListView):
                 "-date_updated_on"
             ),
             "current_review": current_review,
-            'add_to_wishlist_form': add_to_wishlist_form,
-            'current_wishlist_line': current_wishlist_line,
+            "add_to_wishlist_form": add_to_wishlist_form,
+            "current_wishlist_line": current_wishlist_line,
         }
 
         return render(request, "products/product_detail.html", context)
