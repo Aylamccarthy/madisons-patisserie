@@ -67,13 +67,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     }
 
-  // SCRIPT FOR UPDATING CURRENT URL WITH SORT VALUE
+    if (window.location.pathname == '/products/' || window.location.pathname == '/wishlist/') {  
+        // ---------------SCRIPT FOR UPDATING CURRENT URL WITH SORT VALUE----------------------
         let sortSelector = document.getElementById('sort-selector');
         if(sortSelector)
             sortSelector.addEventListener('change', (e) =>{
                 let selector = e.target;
                 let currentUrl = new URL(window.location);
-
+   
                 let selectedVal = selector.value;
                 if(selectedVal != "reset"){
                     if(selectedVal == 'best_sellers'){
@@ -84,20 +85,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     else{
                         let sort = selectedVal.split("_")[0];
                         let direction = selectedVal.split("_")[1];
-
+   
                         currentUrl.searchParams.set("sort", sort);
                         currentUrl.searchParams.set("direction", direction);
                     }
-
+   
                     window.location.replace(currentUrl);
                 } else {
                     currentUrl.searchParams.delete("sort");
                     currentUrl.searchParams.delete("direction");
-
+   
                     window.location.replace(currentUrl);
                 }
-
+   
             } );
+           }
+   
 
  if (window.location.pathname.includes('/product_details/')) {   
         let currentProduct = document.getElementById('currentProduct');
