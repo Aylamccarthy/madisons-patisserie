@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
+{% load urls %}
 <div class="main-container col-lg-11 mx-auto pt-3 pb-3 mt-2 mt-lg-4 mb-4 bg-white">
     <h1 class="mb-3 mb-lg-4 text-center">My Wishlist</h1>
     <div class="pt-lg-3">
@@ -9,11 +9,15 @@
         <div class="col-12 p-0 mx-auto">
             <div class="d-md-flex align-items-baseline justify-content-between mb-2">
                 <div class="col-md-6 p-0">
+                    <!-- Number of items in page element -->
                     <p class="mb-2 mb-md-1">
                         <i class="fas fa-th-large font-size-smaller"></i>
                         <span class="font-weight-bold">{{wishlist|length}} items</span>
                         {% if current_category %}
                         <span> found in <em class="font-weight-bold">{{current_category.get_friendly_name}}</em> collection</span>
+                        {% endif %}
+                        {% if is_deluxe %}
+                        <span> found in <em class="font-weight-bold">Deluxe</em> collection</span>
                         {% endif %}
                         {% if search_term %}
                         <span> found for <q class="font-weight-bold">{{search_term}}</q></span>
@@ -21,6 +25,7 @@
                     </p>
                 </div>
                 <div class="col-md-4 col-xl-2 pr-0 sort-select-container w-50 p-0">
+                    <!-- Sorting -->
                     <select id="sort-selector">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -34,6 +39,7 @@
                 </div>
             </div>
             <hr class="d-none d-lg-block mb-1 mt-0">
+            <!-- Filters -->
             <div class="navbar navbar-expand-lg navbar-light pl-0">
                 <button class="d-lg-none button rounded-0 purple-btn small-btn" type="button" data-toggle="collapse" data-target="#navbarTogglerFilters" aria-controls="navbarTogglerFilters" aria-expanded="false" aria-label="Toggle navigation">
                   Filter
@@ -41,7 +47,7 @@
                 <div class="collapse navbar-collapse d-lg-flex flex-row align-items-start" id="navbarTogglerFilters">
                     <h6 class="col-md-2 col-xl-1 p-0 mb-0 d-none d-lg-block mr-xl-4 text-uppercase font-weight-bold">Filter By</h6>
                     <ul class="col-xl-10 navbar-nav mt-2 mt-lg-0 d-lg-flex flex-wrap">
-                        {% if not current_category %}
+                        {% if not current_category and not is_deluxe and not filters_list.category %}
                         <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
                             <div class="dropdown">
                                 <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
@@ -56,10 +62,101 @@
                             </div>
                         </li>
                         {% endif %}
+                        {% if is_deluxe and not deluxe_style %}
+                        <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <div class="dropdown">
+                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                    <span>Style Of Wine</span>
+                                    <span class="dropdown-toggle"></span>
+                                </a>                                
+                                <div class="dropdown-menu dropdown-menu-lg-start">
+                                    {% for style in deluxe_styles %}
+                                    <a class="dropdown-item" href="{{current_url}}style={{style|urlencode}}">{{style}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if not filters_list.grapes %}
+                        <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <div class="dropdown">
+                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                    <span>Grape Variety</span>
+                                    <span class="dropdown-toggle"></span>
+                                </a>                                
+                                <div class="dropdown-menu dropdown-menu-lg-start">
+                                    {% for grape in grapes_list %}
+                                        <a class="dropdown-item" href="{{current_url}}grapes={{grape|urlencode}}">{{grape}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if not filters_list.year %}
+                        <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <div class="dropdown">
+                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                    <span>Year</span>
+                                    <span class="dropdown-toggle"></span>
+                                </a>                                
+                                <div class="dropdown-menu dropdown-menu-lg-start">
+                                    {% for year in years_list %}
+                                        <a class="dropdown-item" href="{{current_url}}year={{year|urlencode}}">{{year}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if not filters_list.country %}
+                        <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <div class="dropdown">
+                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                    <span>Country</span>
+                                    <span class="dropdown-toggle"></span>
+                                </a>                                
+                                <div class="dropdown-menu dropdown-menu-lg-start">
+                                    {% for country in countries_list %}
+                                        <a class="dropdown-item" href="{{current_url}}country={{country|urlencode}}">{{country}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if not filters_list.region %}
+                        <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <div class="dropdown">
+                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                    <span>Region</span>
+                                    <span class="dropdown-toggle"></span>
+                                </a>                                
+                                <div class="dropdown-menu dropdown-menu-lg-start">
+                                    {% for region in regions_list %}
+                                        <a class="dropdown-item" href="{{current_url}}region={{region|urlencode}}">{{region}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if not filters_list.food_pairing %}
+                        <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
+                            <div class="dropdown">
+                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                    <span>Food Pairing</span>
+                                    <span class="dropdown-toggle"></span>
+                                </a>                                
+                                <div class="dropdown-menu dropdown-menu-lg-start">
+                                    {% for food in food_pairing_list %}
+                                        <a class="dropdown-item" href="{{current_url}}food_pairing={{food|urlencode}}">{{food}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
             <hr class="d-none d-lg-block mt-0">
+            <!-- Active filters -->
             {% if filters_list %}
             <div class="d-flex flex-column-reverse flex-md-row"> 
                 <div class="d-flex flex-column-reverse flex-md-row"></div>         
@@ -89,10 +186,13 @@
         </div>
       </div>
       <div class="col-12">
+        <!-- Wishlist products -->
         <div class="col-12 p-0 mx-auto"> 
+            {% if wishlist|length > 0 %}
             <div class="d-flex flex-wrap">
                 {% for product in wishlist %}
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 product-container" onclick='location.href="{% url 'product_detail' product.id %}";'>
+                    <!-- Product banners -->
                     {% if product.stock == 0 %}
                     <div class="col-12">
                         {% if product.image %}
@@ -144,6 +244,7 @@
                         {% endif %}
                     </div>
                     {% endif %}
+                    <!-- Number of appearence in wihlistLine database -->
                     {% for obj in wishlist_product_count %}
                         {% if obj.id == product.pk %}
                         <div class="wishlist-count d-flex">
@@ -160,6 +261,7 @@
                         </div>
                         <p class="font-weight-bold">€{{product.price}}</p>
                     </div>
+                    <!-- Quantity input and add to bag button  -->
                     {% if product.stock != 0 %}
                         <div class="product-overlay col-10 d-none d-lg-block">
                             <div class="d-flex">
@@ -191,6 +293,7 @@
                                 </div>
                             </div>
                         </div>
+                    <!-- Info message -->
                     {% else %}
                         <div class="banner-hover">
                             <img class="img-fluid" src="{{ MEDIA_URL }}product-banner.png" alt="Out of stock banner">
@@ -199,6 +302,7 @@
                             </div>
                         </div>
                     {% endif %}
+                <!-- Delimitator -->
                 </div>
                 {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
@@ -222,6 +326,10 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            {% else %}
+            <!-- Info message -->
+            <p class="m-0 font-weight-bold">There are no products added to the wishlist yet.</p>
+            {% endif %}
         </div>
       </div>
     </div>
