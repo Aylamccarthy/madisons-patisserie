@@ -12,6 +12,7 @@ from django.http import HttpResponseRedirect
 from products.models import Product
 from .forms import ReviewForm, UpdateReviewForm
 from .models import Review as ReviewModel
+from django.db.models import Avg
 
 
 class AddReview(LoginRequiredMixin, UserPassesTestMixin, View):
