@@ -37,6 +37,10 @@ a:hover {
     font-size: smaller;
 }
 
+.font-size-small {
+    font-size: small;
+}
+
 .font-size-larger {
     font-size: larger;
 }
@@ -49,10 +53,16 @@ a:hover {
 .text-red {
     color: #ff4456;
 }
+
 /* BACKGROUND CLASSES */
 .bg-floral {
     background-color: floralwhite;
 }
+
+.bg-gray{
+    background-color: #f0f0f0;
+}
+
 /* BOX-SHADOW CLASSES */
 .card-shadow {
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -807,7 +817,7 @@ i{
 
 /* -------------------------------------BAG PAGE STYLING -------------------------------*/
 .bag-table {
-    border-collapse: collapse;
+    border-collapse: separate;
 }
 
 
