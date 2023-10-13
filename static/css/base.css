@@ -283,6 +283,7 @@ input:focus, input:focus-visible{
 }
 .small-btn{
     padding: 5px 10px;
+    font-size: smaller;
 }
 
 /* MAILCHIMP NEWSLETTER */
