@@ -54,6 +54,7 @@ class AddToBag(UserPassesTestMixin, View):
             return not self.request.user.is_superuser
         return True
 
+
 class RemoveFromBag(UserPassesTestMixin, DeleteView):
     """A view that deletes the product from the shoping bag """
     template_name = 'bag/bag.html'
