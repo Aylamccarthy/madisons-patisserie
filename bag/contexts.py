@@ -15,7 +15,7 @@ def bag_contents(request):
     bag_items = []
     total = 0
     product_count = 0
-    bag = request.session.get('bag', {})
+    bag = request.session.get("bag", {})
 
     # GET LIST OF BAG ITEMS WITH PROPERTIES: PRODUCT, QUANTITY AND SUBTOTAL
     for item_id, quantity in bag.items():
@@ -23,11 +23,13 @@ def bag_contents(request):
         subtotal = quantity * product.price
         total += subtotal
         product_count += quantity
-        bag_items.append({
-            'product': product,
-            'quantity': quantity,
-            'subtotal': subtotal,
-        })
+        bag_items.append(
+            {
+                "product": product,
+                "quantity": quantity,
+                "subtotal": subtotal,
+            }
+        )
 
     # CALCULATE DELIVERY AND FREE DELIVERY DELTA VALUE
     if total < settings.FREE_DELIVERY_THRESHOLD:
@@ -40,13 +42,13 @@ def bag_contents(request):
     grand_total = delivery + total
 
     context = {
-        'bag_items': bag_items,
-        'total': total,
-        'product_count': product_count,
-        'delivery': delivery,
-        'free_delivery_delta': free_delivery_delta,
-        'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
-        'grand_total': grand_total,
+        "bag_items": bag_items,
+        "total": total,
+        "product_count": product_count,
+        "delivery": delivery,
+        "free_delivery_delta": free_delivery_delta,
+        "free_delivery_threshold": settings.FREE_DELIVERY_THRESHOLD,
+        "grand_total": grand_total,
     }
 
     return context

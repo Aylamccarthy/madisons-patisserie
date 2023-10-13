@@ -53,12 +53,10 @@ class AddReview(LoginRequiredMixin, UserPassesTestMixin, View):
                     request, "Your review was successfully" + "added to the list"
                 )
                 # UPDATE PRODUCT RATE VALUE WITH AVERAGE MEAN OF CORESPONDING REVIEWS RATE VALUES
-                product_rates = ReviewModel.objects.filter(
-                    product=product)
-                product_rates_mean = product_rates.aggregate(
-                    Avg('rate'))['rate__avg']
+                product_rates = ReviewModel.objects.filter(product=product)
+                product_rates_mean = product_rates.aggregate(Avg("rate"))["rate__avg"]
                 product.rating = product_rates_mean
-                product.save(update_fields=['rating'])
+                product.save(update_fields=["rating"])
                 return HttpResponseRedirect(
                     "/products/product_details/" + str(product_id) + "/#reviewsSection"
                 )
@@ -110,12 +108,10 @@ class UpdateReview(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
                 messages.success(request, "Your review was successfully updated")
 
                 # UPDATE PRODUCT RATE VALUE WITH AVERAGE MEAN OF CORESPONDING REVIEWS RATE VALUES
-                product_rates = ReviewModel.objects.filter(
-                    product=product)
-                product_rates_mean = product_rates.aggregate(
-                    Avg('rate'))['rate__avg']
+                product_rates = ReviewModel.objects.filter(product=product)
+                product_rates_mean = product_rates.aggregate(Avg("rate"))["rate__avg"]
                 product.rating = product_rates_mean
-                product.save(update_fields=['rating'])
+                product.save(update_fields=["rating"])
 
                 return HttpResponseRedirect(
                     "/products/product_details/" + str(product_id) + "/#reviewsSection"
