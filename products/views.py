@@ -14,6 +14,7 @@ from django.contrib import messages
 from .models import Product, Category
 import urllib
 import json
+from django.db.models import F
 from products.forms import UpdateProductForm
 from products.models import Product, Category
 from product_reviews.forms import ReviewForm, UpdateReviewForm
@@ -54,8 +55,10 @@ class Products(ListView):
                 direction = request.GET["direction"]
                 if direction == "desc":
                     sortkey = f"-{sortkey}"
-            if sortkey != "best_sellers":
+            if sortkey != 'best_sellers' and sortkey != 'rating':
                 products = products.order_by(sortkey)
+            if sortkey == 'rating':
+                products = products.order_by(F(sortkey).asc(nulls_last=True))
 
         if sort == "best_sellers":
             current_sorting = sort

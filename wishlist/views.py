@@ -15,6 +15,7 @@ from django_countries.data import COUNTRIES
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from django.db.models import Q
+from django.db.models import F
 from django.db.models.functions import Lower
 from products.models import Category, Product
 
