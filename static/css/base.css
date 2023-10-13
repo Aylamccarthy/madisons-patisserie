@@ -347,7 +347,6 @@ input {
 
 
 body {
-    background: url('https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/pp5_hero_image.jpg') no-repeat center center fixed;
     font-family: 'Alice', serif;
     scroll-behavior: smooth;
 }
@@ -430,7 +429,8 @@ body {
 
 .categories a:hover {
     color: white;
-    border-bottom: 2px solid #facef38a;
+    border-bottom: 2px solid #e8d7e6d4;
+
 }
 
 .categories .dropdown-menu a {
@@ -721,7 +721,7 @@ i{
     opacity: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
@@ -739,6 +739,40 @@ i{
     color: #590243;
     text-decoration: underline;
 }
+
+/* REVIEW SECTION STYLING */
+#updateReviewForm {
+    display: none;
+}
+.star {
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    padding: 0;
+}
+
+.stars-big .star {
+    font-size: 30px;
+}
+
+.stars-inactive .star {
+    color: rgba(128, 128, 128, 0.4)
+}
+
+.rating button:nth-child(1) {
+    color: #590243;
+}
+.rating button:not(:nth-child(1)) {
+    color: #80808066;
+}
+.ratings-generated .star:hover {
+    cursor: default;
+}
+.review-form-container {
+    background-color: #f0f0f0;
+    box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px;
+}
+
 
 /* TOASTS STYLING */
 
