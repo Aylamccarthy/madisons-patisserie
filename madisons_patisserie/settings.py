@@ -95,6 +95,7 @@ TEMPLATES = [
                 "madisons_patisserie.context_processors.add_create_product_form_to_context",
                 "madisons_patisserie.context_processors.add_products_list_to_context",
                 "madisons_patisserie.context_processors.add_wishlist_count_to_context",
+                "bag.contexts.bag_contents",
             ],
         },
     },
@@ -220,3 +221,6 @@ else:
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
+
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
