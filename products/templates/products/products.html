@@ -3,6 +3,7 @@
 {% block content %}
 
 <div class="main-container col-lg-12 mx-auto pt-3 bg-white">
+     <!-- ADD PAGE TITLE DEPENDING ON CURRENT CATEGORY -->
     {% if current_category %}
         <h1 class="mb-3 mb-lg-4 text-center">{{current_category.get_friendly_name}}</h1>
     {% elif is_cakes %}
@@ -17,11 +18,12 @@
                     <div class="col-md-6 p-0">
                         <p class="mb-2 mb-md-1">
                             <i class="fas fa-th-large font-size-smaller"></i>
+                             <!-- ADD NUMBER OF ITEMS -->
                             <span class="font-weight-bold">{{products|length}} items</span>
                             {% if current_category %}
                             <span> found in <em class="font-weight-bold">{{current_category.get_friendly_name}}</em> collection</span>
                             {% endif %}
-                            {% if is_deluxe %}
+                            {% if is_cake %}
                             <span> found in <em class="font-weight-bold">Cakes</em> collection</span>
                             {% endif %}
                             {% if search_term %}
@@ -30,6 +32,7 @@
                         </p>
                     </div>
                     <div class="col-md-4 col-xl-2 pr-0 sort-select-container w-50 p-0">
+                          <!-- ADD SORT SELECT -->
                         <select id="sort-selector">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -50,6 +53,7 @@
                     <div class="collapse navbar-collapse d-lg-flex flex-row align-items-start" id="navbarTogglerFilters">
                         <h6 class="col-md-2 col-xl-1 p-0 mb-0 d-none d-lg-block mr-xl-4 text-uppercase font-weight-bold">Filter By</h6>
                         <ul class="col-xl-10 navbar-nav mt-2 mt-lg-0 d-lg-flex flex-wrap">
+                              <!-- ADD CATEGORY FILTER IF IT'S NOT ACTIVE -->
                             {% if not current_category and not is_cake and not filters_list.category %}
                             <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
                                 <div class="dropdown">
@@ -69,6 +73,7 @@
                     </div>
                 </div>
                 <hr class="d-none d-lg-block mt-0">
+                <!-- ADD LIST OF ACTIVE FILTERS -->
                 {% if filters_list %}
                 <div class="d-flex flex-column-reverse flex-md-row"> 
                     <div class="d-flex flex-column-reverse flex-md-row"></div>         
@@ -100,10 +105,13 @@
       <div class="col-12">
         <div class="col-12 p-0 mx-auto">
             <div class="d-flex flex-wrap">
+                 <!-- ADD LIST OF PRODUCTS -->
                 {% for product in products %}
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 product-container"  onclick='location.href="{% url "product_detail" product.id %}";' >
+                    <!-- ADD PRODUCT COVER DEPENDING ON STOCK VALUE-->
                     {% if product.stock == 0 %}
                     <div class="col-12">
+                         <!-- ADD PRODUCT IMAGE -->
                         {% if product.image %}
                         <img class="img-fluid mb-4 product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                     {% else %}
@@ -155,6 +163,7 @@
                     </div>
                     {% endif %}
                     <div class="col-12">
+                         <!-- ADD PRODUCT DETAILS -->
                         <h5><strong>{{product.name}}</strong></h5>
                         <div class="d-flex align-items-center">
                             <p class="m-0"> {{product.description}}</p>
