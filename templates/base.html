@@ -104,7 +104,7 @@
           </div>
           <hr class="d-lg-none">
           <div class="container-fluid add-container bg-light d-none d-lg-block mb-lg-2 p-lg-0">
-            <div class="add container-fluid"><p class="mx-auto">Free delivery on orders over €50</p></div>
+            <div class="add container-fluid"><p class="mx-auto">Free delivery on orders over {{ free_delivery_threshold }}€</p></div>
             <div class="add container-fluid"><p class="mx-auto">Register and enjoy <span class="text-success">20% off</span> on your first order</p></div> 
           </div>
           <div class="container-fluid d-block d-lg-flex mb-lg-1">
@@ -169,12 +169,23 @@
                         <span class="d-lg-none">Wishlist</span>
                         <i class="fas fa-heart d-none d-lg-block"></i>
                       </a>
+                      {% if wishlist_user_count %}
+                      <div class="notification d-none d-lg-block m-0 position-absolute text-white">
+                        {{wishlist_user_count}}
+                      </div>
+                      {% endif %}
                     </li>
-                    <li class="nav-item  ml-lg-4 mt-2 mt-lg-0" id="bagNav">
-                      <a href="" title="Shopping Bag">
+                    <li class="nav-item ml-lg-4 mt-2 mt-lg-0 position-relative" id="bagNav">
+                      <a href="{% url 'bag' %}" title="Shopping Bag">
                         <span class="d-lg-none">Shopping Bag</span>
                         <i class="fas fa-shopping-bag d-none d-lg-block"></i>
                       </a>
+                      {% if product_count %}
+                      <div class="notification d-none d-lg-block m-0 position-absolute text-white">
+                        {{product_count}}
+                      </div>
+                      {% endif %}
+                    </li>
                       {% if wishlist_user_count %}
                       <div class="notification d-none d-lg-block m-0 position-absolute text-white">
                         {{wishlist_user_count}}
@@ -227,7 +238,7 @@
                     </a>	
                   </li>	
                   <li class="nav-item ml-lg-4 mt-2 mt-lg-0" id="bagNav">	
-                    <a href="" title="Shopping Bag">	
+                    <a href="{% url 'bag' %}" title="Shopping Bag">
                       <span class="d-lg-none">Shopping Bag</span>	
                       <i class="fas fa-shopping-bag d-none d-lg-block"></i>	
                     </a>	
