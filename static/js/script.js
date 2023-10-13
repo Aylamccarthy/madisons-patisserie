@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             } 
     } 
 
-    if (window.location.pathname.includes('/products/')) {  
+    if (window.location.pathname == '/products/' || window.location.pathname.includes('/wishlist/')) {
 
         // SCRIPT FOR PRODUCT COUNT BUTTONS FOR ADDITION AND SUBSTRACTION TO UPDATE INPUT VALUE ON CLICK
         let productCountContainers = document.getElementsByClassName('product-count');
@@ -126,13 +126,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
    
             } );
            }
-  //---SCRIPT FOR STOPING CLICK EVENT PROPAGATION FROM PRODUCT CONTAINBER TO OVERLAY ADD TO BAG FORM---
+  //---SCRIPT FOR STOPPING CLICK EVENT PROPAGATION FROM PRODUCT CONTAINBER TO OVERLAY ADD TO BAG FORM---
   let formsOverlay = document.getElementsByClassName('overlay-form');
   for(let form of formsOverlay){
       form.addEventListener('click', (e) => { 
           e.stopPropagation();
       });
   }
+
+if (window.location.pathname.includes('/products/')) {  
 
 
  if (window.location.pathname.includes('/product_details/')) {   

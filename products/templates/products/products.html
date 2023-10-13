@@ -171,7 +171,8 @@
                         <p class="font-weight-bold">€{{product.price}}</p>
                     </div>
                     {% if product.stock != 0 %}
-                        <div class="product-overlay col-10 d-none d-lg-block">
+                     <!-- ADD PRODUCT OVERLAY -->
+                     <div class="product-overlay col-10 d-none d-xl-block">
                               <!-- ADD STARS CONTAINER WITH THE VALUE OF PRODUCT RATING -->
                               {% if product.rating %}
                               <input type="hidden" name="rate" class="rate" value="{{product.rating}}">
