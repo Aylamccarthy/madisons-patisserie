@@ -172,6 +172,21 @@
                     </div>
                     {% if product.stock != 0 %}
                         <div class="product-overlay col-10 d-none d-lg-block">
+                              <!-- ADD STARS CONTAINER WITH THE VALUE OF PRODUCT RATING -->
+                              {% if product.rating %}
+                              <input type="hidden" name="rate" class="rate" value="{{product.rating}}">
+                              <div class="ratings-generated stars-big d-flex align-items-end justify-content-around mb-3"></div>
+                              {% else %}
+                              <!-- ADD STARS CONTAINER WITH INACTIVE STARS -->
+                              <div class="stars-big stars-inactive d-flex align-items-end justify-content-around mb-3">
+                                  <button type="button" class="star">★</button>
+                                  <button type="button" class="star">★</button>
+                                  <button type="button" class="star">★</button>
+                                  <button type="button" class="star">★</button>
+                                  <button type="button" class="star">★</button>
+                                </div> 
+                              {% endif %}
+                              <!-- ADD TO BAG AND NUMBER OF ITEMS BUTTONS FOR LARGE DEVICES-->
                             <div class="d-flex">
                                 <div class="col-4 p-0 product-count d-flex">
                                     <button class="font-weight-bold col-4 p-0 button rounded-0 substraction">-</button>
@@ -186,6 +201,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- ADD TO BAG AND NUMBER OF ITEMS BUTTONS FOR MEDIUM AND SMALL DEVICES-->
                         <div class="col-12 d-block d-lg-none ">
                             <div class="d-flex">
                                 <div class="col-5 col-md-4 p-0 product-count d-flex">
@@ -202,6 +218,7 @@
                             </div>
                         </div>
                     {% else %}
+                     <!-- ADD OUT OF STOCK ITEM -->
                         <div class="banner-hover">
                             <img class="img-fluid" src="{{ MEDIA_URL }}product-banner.png" alt="">
                             <div class="banner-text text-center text-red">
@@ -210,6 +227,7 @@
                         </div>
                     {% endif %}
                 </div>
+                <!-- ADD SEPARATORS -->
                 {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
                         <hr>
