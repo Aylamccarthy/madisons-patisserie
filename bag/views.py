@@ -56,23 +56,30 @@ class AddToBag(UserPassesTestMixin, View):
 
 
 class RemoveFromBag(UserPassesTestMixin, DeleteView):
-    """A view that deletes the product from the shoping bag """
-    template_name = 'bag/bag.html'
+    """A view that deletes the product from the shoping bag"""
+
+    template_name = "bag/bag.html"
 
     def delete(self, request, product_id):
         """Override post method"""
         product = get_object_or_404(Product, pk=product_id)
-        current_url = request.POST.get('current_url')
-        bag = request.session.get('bag', {})
+        current_url = request.POST.get("current_url")
+        bag = request.session.get("bag", {})
 
         if str(product_id) in list(bag.keys()):
             del bag[str(product_id)]
-            messages.success(request, f'{product.name} was removed from your\
-                shopping bag')
+            messages.success(
+                request,
+                f"{product.name} was removed from your\
+                shopping bag",
+            )
         else:
-            messages.error(request, f'{product.name} was not found in the\
-                           shopping bag. Delete action failed')
-        request.session['bag'] = bag
+            messages.error(
+                request,
+                f"{product.name} was not found in the\
+                           shopping bag. Delete action failed",
+            )
+        request.session["bag"] = bag
         return redirect(current_url)
 
     def test_func(self):
@@ -85,24 +92,30 @@ class IncrementQuantity(UserPassesTestMixin, View):
     """A view that updates the product quantity by incrementing
     the value with 1"""
 
-    template_name = 'bag/bag.html'
+    template_name = "bag/bag.html"
 
     def post(self, request, product_id):
         """Override post method"""
         product = get_object_or_404(Product, pk=product_id)
-        current_url = request.POST.get('current_url')
-        bag = request.session.get('bag', {})
+        current_url = request.POST.get("current_url")
+        bag = request.session.get("bag", {})
 
         if str(product_id) in list(bag.keys()):
             if bag[str(product_id)] < product.stock:
                 bag[str(product_id)] += 1
             else:
-                messages.info(request, f'Limited stock. Cannot order more than\
-                    {bag[str(product_id)]} items for {product.name}.')
+                messages.info(
+                    request,
+                    f"Limited stock. Cannot order more than\
+                    {bag[str(product_id)]} items for {product.name}.",
+                )
         else:
-            messages.error(request, f'{product.name} is not in your bag.\
-                           Quantity update failed')
-        request.session['bag'] = bag
+            messages.error(
+                request,
+                f"{product.name} is not in your bag.\
+                           Quantity update failed",
+            )
+        request.session["bag"] = bag
         return redirect(current_url)
 
     def test_func(self):
@@ -115,21 +128,24 @@ class DecrementQuantity(UserPassesTestMixin, View):
     """A view that updates the product quantity by decrementing
     the value with 1"""
 
-    template_name = 'bag/bag.html'
+    template_name = "bag/bag.html"
 
     def post(self, request, product_id):
         """Override post method"""
         product = get_object_or_404(Product, pk=product_id)
-        current_url = request.POST.get('current_url')
-        bag = request.session.get('bag', {})
+        current_url = request.POST.get("current_url")
+        bag = request.session.get("bag", {})
 
         if str(product_id) in list(bag.keys()):
             if bag[str(product_id)] > 1:
                 bag[str(product_id)] -= 1
         else:
-            messages.error(request, f'{product.name} is not in your bag.\
-                        Quantity update failed')
-        request.session['bag'] = bag
+            messages.error(
+                request,
+                f"{product.name} is not in your bag.\
+                        Quantity update failed",
+            )
+        request.session["bag"] = bag
         return redirect(current_url)
 
     def test_func(self):
