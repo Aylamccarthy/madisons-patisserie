@@ -43,20 +43,7 @@
             "stock": 1
         }
     },
-    {
-        "pk": 4,
-        "model": "products.product",
-        "fields": {
-            "category": 1,
-            "sku": "ca101984",
-            "name": "Black Wedding Cake",
-            "code": "10777",
-            "price": 450.00,
-            "type": "cake",
-            "description": "Show-stopping, unique,wedding cake",
-            "image": "black_wedding_cake.png"
-        }
-    },
+   
     {
         "pk": 5,
         "model": "products.product",
@@ -279,20 +266,6 @@
             "type": "sweet treats",
             "description": "12pcs. colorful and delicious macaroons",
             "image": "pexels-arminas-raudys-808941.jpg"
-        }
-    },
-    {
-        "pk": 22,
-        "model": "products.product",
-        "fields": {
-            "category": 1,
-            "sku": "ca1019990",
-            "name": "1st Birthday Cake",
-            "code": "107905",
-            "price": 250.00,
-            "type": "birthday cake",
-            "description": "Beautiful three-layered chocolate birthday cake",
-            "image": "pexels-rodrigo-souza-2531546.png"
         }
     },
     {
