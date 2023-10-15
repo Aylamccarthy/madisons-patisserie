@@ -375,7 +375,7 @@ body {
 }
 
 .navbar {
-    background-color: white;
+    background-color: purple;
 }
 
 .navbar ul {
@@ -427,6 +427,7 @@ body {
 
 /* CATEGORIES NAVBAR STYLING */
 .categories .dropdown-menu {
+    background-color: white;
     right: auto;
     left: 0;
 }
