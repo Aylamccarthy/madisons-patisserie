@@ -3,6 +3,5 @@
 {% if user.is_superuser %}
     {% blocktrans %}Successfully signed in as Admin.{% endblocktrans %}
 {% else %}
-    {% user_display user.email as name %}
     {% blocktrans %}Successfully signed in as {{name}}.{% endblocktrans %}
 {% endif %}
