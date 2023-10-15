@@ -13,7 +13,6 @@ a:hover {
 
 }
 
-
 /* PADDING ON LATERAL SIDES CLASS */
 .p-side {
     padding: 0 45px;
@@ -376,7 +375,7 @@ body {
 }
 
 .navbar {
-    background-color: purple;
+    background-color: white;
 }
 
 .navbar ul {
