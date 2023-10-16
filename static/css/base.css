@@ -58,7 +58,11 @@ a:hover {
     background-color: floralwhite;
 }
 
-.bg-gray{
+.text-purple{
+    color: #590243;
+}
+
+.bg-gray {
     background-color: #f0f0f0;
 }
 
@@ -831,6 +835,28 @@ i{
     font-size: smaller;
 }
 
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 71px;
+}
+
+.bag-notification-wrapper{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
 /* -------------------------------------BAG PAGE STYLING -------------------------------*/
 .bag-table {
     border-collapse: separate;
@@ -916,6 +942,21 @@ i{
     #navbarTogglerFilters {
         background-color: #e9ecefab;
         padding-left: 5px;
+    }
+
+    .message-container {
+        right: 31px;
+    }
+
+    .message-container:has(> div.toast-bag) {
+        top: 103%;
+        right: auto;
+        left: 2%;
+    }
+    .arrow-up {
+        top: -10px;
+        right: auto;
+        left: 18px;
     }
 
 
