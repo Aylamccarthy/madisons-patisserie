@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         closeButton.addEventListener('click',()  => {
             toast.classList.remove('show');
             toast.style.display = 'none';
-        })
+        });
     }
 
   // -------SCRIPT FOR ADDING VALIDATION TO ADD PRODUCT FORM AVAILABLE IN BASE.HTML--------
