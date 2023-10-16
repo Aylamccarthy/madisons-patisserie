@@ -55,9 +55,9 @@ class Products(ListView):
                 direction = request.GET["direction"]
                 if direction == "desc":
                     sortkey = f"-{sortkey}"
-            if sortkey != 'best_sellers' and sortkey != 'rating':
+            if sortkey != "best_sellers" and sortkey != "rating":
                 products = products.order_by(sortkey)
-            if sortkey == 'rating':
+            if sortkey == "rating":
                 products = products.order_by(F(sortkey).asc(nulls_last=True))
 
         if sort == "best_sellers":
