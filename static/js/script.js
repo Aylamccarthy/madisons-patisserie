@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
     // SCRIPT FOR NAVBAR SEARCH BOX TO BE DISPLAYED ONLY WHEN THE COLLAPSIBLE NAV IS OFF
-
+    
     let navbarToggler = document.getElementById('navbarToggler');
     let navbarTogglerButton = document.getElementById('navbarTogglerButton');
-
+    
     navbarTogglerButton.addEventListener('click', () => {
         let searchElements = document.getElementsByClassName('search-bar');
         if (!navbarToggler.classList.contains('show')){
             for(let el of searchElements){
                 el.style.display = 'none';
-            }           
+            }
         }
         else{
             setTimeout(() => {
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }, 350);
         }
     });
+}
 
     // SCRIPT FOR SETTING PADDING TOP OF CONTENT CONTAINER TO BE EQUAL WITH HEADER HEIGHT
     let headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
@@ -30,11 +31,104 @@ document.addEventListener("DOMContentLoaded", function(event) {
     for(let toast of toasts){
         toast.style.display = 'block';
         toast.classList.add('show');
-        setTimeout(() => {
+        closeButton = toast.getElementsByClassName('close')[0];
+        closeButton.addEventListener('click',()  => {
             toast.classList.remove('show');
             toast.style.display = 'none';
-        }, 3000);
+        })
     }
+
+  // -------SCRIPT FOR ADDING VALIDATION TO ADD PRODUCT FORM AVAILABLE IN BASE.HTML--------
+   
+  let addModal =  document.getElementById('addProductModal');
+  let addModalContent = addModal.getElementsByClassName('modal-content')[0];
+  let addForm = addModal.getElementsByTagName('form')[0];
+  let add_sku = document.getElementById('id_ADD-sku');
+  let add_code = document.getElementById('id_ADD-code');
+
+  // METHOD TO CHECK IF STRING CONTAINS ONLY LETTERS, COMMAS AND SPACES
+  const only_letters_comma_space_valid = (string) => {
+      return /^[a-zA-Z, ]+$/.test(string);
+  };
+  // METHOD TO CHECK IF STRING CONTAINS ONLY LETTERS AND SPACES
+  const only_letters_space_valid = (string) => {
+      return /^[a-zA-Z ]+$/.test(string);
+  };
+  // METHOD TO CHECK IF STRING CONTAINS ONLY LETTERS
+  const only_letters_valid = (string) => {
+      return /^[a-zA-Z]+$/.test(string);
+  };
+  // METHOD TO CHECK IF SKU IS UNIQUE
+  const sku_is_not_unique = (sku) => {
+      for(let product of productsData){
+          if(product.fields.sku == sku)
+              return true;
+      }
+  };
+  // METHOD TO CHECK IF code IS UNIQUE
+  const code_is_not_unique = (code) => {
+      for(let product of productsData){
+          if(product.fields.code == code)
+              return true;
+      }
+  };
+  let productsData = JSON.parse(JSON.parse(document.getElementById('products_data').textContent));
+  // DISPLAY ERROR
+  const showError = (input, message) => {
+      // get the form-field element
+      const formField = input.parentElement.parentElement;
+  
+      // show the error message
+      const error = formField.querySelector('small');
+      error.textContent = message;
+  };
+
+  // METHOD TO CHECK IF SKU VALUE IS VALID
+  const checkSku = (sku) => {
+      let valid = false;
+      const skuValue = sku.value.trim();
+      if (sku_is_not_unique(skuValue)) {
+          showError(sku, 'Sku value is already registered');
+      } else {
+          valid = true;
+      }
+      return valid;
+  };
+
+    // METHOD TO PREVENT FORM FOR SUBMITING IF FIELDS ARE NOT VALID
+    const validateAddModalForm = () => {
+        
+        addForm.addEventListener('submit', (e) => {
+            let isSkuValid = checkSku(add_sku);
+            let isCodeValid = checkCode(add_code);
+            let isFormValid = isSkuValid && isCodeValid;
+            if(!isFormValid){
+                e.preventDefault();
+                if (! isSkuValid)
+                    addModal.scrollTo(0, add_sku.offsetTop);
+                else if (! isCodeValid)
+                    addModal.scrollTo(0, add_code.offsetTop);
+                addModalContent.style.border = '2px solid red';
+            }
+        });
+        
+    };
+    validateAddModalForm();
+
+    // CREATE A MUTATION OBSERVER TO DETECT IF FORM MODAL CLASSLIST HAS CHANGED
+    // CALL A METHOD TO RELOAD THE PAGE WHEN MODAL IS CLOSED TO CLEAR FORM INPUTS
+    const reloadPageOnClassChange = (modal) => {
+        if (!modal.classList.contains('show'))
+            window.location.reload();
+    };
+    var obAdd = new MutationObserver(() => {
+        reloadPageOnClassChange(addModal);
+    });
+    obAdd.observe(addModal, {
+    attributes: true,
+    attributeFilter: ["class"]
+    });
+
 
     if (window.location.pathname.includes('/products/') || window.location.pathname.includes('/wishlist/')) {
         const generateStarsContainers = document.getElementsByClassName('ratings-generated');
@@ -43,28 +137,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for(let container of generateStarsContainers){
             const rateHidden = container.previousElementSibling;
 
-
             for(let i=0; i<rateHidden.value; i++){
                 let star = document.createElement("button");
                 star.textContent = '★';
                 star.classList.add('star');
                 star.style.color = "#590243";
                 container.appendChild(star);
+            }
 
-                }
+            for(let i=0; i<5-rateHidden.value; i++){
+            let star = document.createElement("button");
+            star.textContent = '★';
+            star.classList.add('star');
+            star.style.color = "#80808066";
+            container.appendChild(star);
 
-                for(let i=0; i<5-rateHidden.value; i++){
-                let star = document.createElement("button");
-                star.textContent = '★';
-                star.classList.add('star');
-                star.style.color = "#80808066";
-                container.appendChild(star);
-
-                }
-            } 
-    } 
-
-    if (window.location.pathname == '/products/' || window.location.pathname.includes('/wishlist/')) {
+            }
+        } 
+    }
 
         // SCRIPT FOR PRODUCT COUNT BUTTONS FOR ADDITION AND SUBSTRACTION TO UPDATE INPUT VALUE ON CLICK
         let productCountContainers = document.getElementsByClassName('product-count');
@@ -91,7 +181,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         }
 
-    }
 
     if (window.location.pathname == '/products/' || window.location.pathname == '/wishlist/') {  
         // ---------------SCRIPT FOR UPDATING CURRENT URL WITH SORT VALUE----------------------
