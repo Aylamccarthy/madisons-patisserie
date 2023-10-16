@@ -795,12 +795,27 @@ i{
     z-index: 999999999;
 }
 
+.message-container:has(> div.toast-bag) {
+    top: 52%;
+}
+
+.toast {
+    width: 350px;
+}
+
 .custom-toast {
     overflow: visible;
 }
 
 .toast-capper {
     height: 2px;
+}
+
+/* WISHLIST STYLING */
+.wishlist-count {
+    position: absolute;
+    top: 5%;
+    left: 5%;
 }
 
 /* NOTIFICATION STYLING */
