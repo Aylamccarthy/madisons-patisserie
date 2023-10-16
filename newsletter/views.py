@@ -5,7 +5,7 @@ Views for Newsletter App.
 """
 from django.views.generic import CreateView
 
-from django.http import HttpResponseRedirect,
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib import messages
 
