@@ -5,7 +5,7 @@ Views for Newsletter App.
 """
 from django.views.generic import CreateView
 
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect,
 from django.shortcuts import render
 from django.contrib import messages
 
@@ -13,7 +13,6 @@ from newsletter.forms import AddSubscriber
 from newsletter.models import Subscription
 
 
-# Create your views here.
 class SubscribeToNewsletter(CreateView):
     """A view that provides a form for users to subscribe for newsletter"""
 
