@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     for(let toast of toasts){
         toast.style.display = 'block';
         toast.classList.add('show');
-        closeButton = toast.getElementsByClassName('close')[0];
+        let closeButton = toast.getElementsByClassName('close')[0];
         closeButton.addEventListener('click',()  => {
             toast.classList.remove('show');
             toast.style.display = 'none';
