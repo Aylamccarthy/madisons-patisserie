@@ -23,7 +23,11 @@
                                     <div class="d-flex">
                                         <!-- ADD PRODUCT IMAGE -->
                                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-0">
-                                            <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                            {% if item.product.image %}
+                                                <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                            {% else %}
+                                                <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            {% endif %}
                                         </div>
                                         <!-- ADD PRODUCT DETAILS FOR MEDIUM AND SMALL DEVICES -->
                                         <div class="col-6 col-md-8 col-lg-6 col-xl-8 p-0 d-flex flex-column justify-content-between">
