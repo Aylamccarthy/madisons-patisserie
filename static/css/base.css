@@ -124,7 +124,7 @@ a:hover {
 
 /* SORT SELECT CONTAINER STYLING */
 
-.sort-select-container .custom-select{
+.sort-select-container .custom-select { 
     border: 1px solid #80808066;
 }
 
@@ -157,15 +157,15 @@ select:focus {
     align-items: flex-start;
 }
 
-.auth-content form p input{
+.auth-content form p input {
     width: 100%;
 }
 
-#id_remember{
+#id_remember {
     width: auto;
 }
 
-.auth-content button{
+.auth-content button {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -181,7 +181,7 @@ select:focus {
     animation: pulse 3s infinite;
 }
 
-.auth-link:hover{
+.auth-link:hover {
     color: #7c004f;
     text-decoration: underline;
 }
@@ -207,18 +207,18 @@ h1{
     font-weight: bold;
 }
 
-input:focus, input:focus-visible{
+input:focus, input:focus-visible {
     outline: 1px solid gray;
 }
 
-.form-control:focus{
+.form-control:focus {
     border: initial;
     border-color: unset;
     box-shadow: none;
 }
 
 /* BORDER CLASSES */
-.b-light-gray{
+.b-light-gray {
     border: 1px solid #80808085;
 }
 
@@ -235,8 +235,6 @@ input:focus,
 textarea:focus {
     outline: 1px solid #80808066;
 }
-
-
 
 /* ------------BUTTON CLASSES------- */
 .button{
