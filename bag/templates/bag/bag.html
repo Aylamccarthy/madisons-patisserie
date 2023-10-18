@@ -35,12 +35,12 @@
                                             <a class="d-lg-none font-size-larger mb-3" href="{% url 'product_detail' item.product.id %}"><u><b>{{ item.product.name }}</b></u></a>
                                             <p class="d-md-none mb-1"><b>Quantity</b></p>
                                             <!-- ADD FORMS FOR UPDATING QUANTITY -->
-                                            <div class="d-block d-md-none col-xl-8 p-0 mx-auto">
+                                            <div class="d-block d-md-none col-xl-8 p-0 mb-2 mx-auto">
                                                 <form method="POST" action="{% url 'update_quantity' item.product.id %}">
                                                     {% csrf_token %}
-                                                    <div class="product-count bag-count d-flex mb-3 mb-md-2 justify-content-center">
-                                                        <button type="button" class="font-weight-bold col-4 col-xl-2 p-0 button purple-btn small-btn rounded-0 substraction">-</button>
-                                                        <label class="col-6 p-0 m-0">
+                                                    <div class="product-count bag-count d-flex mb-2 mb-md-2 font-size-larger">
+                                                        <button type="button" class="font-weight-bold col-3 col-xl-2 p-0 button purple-btn rounded-0 substraction">-</button>
+                                                        <label class="col-5 col-xl-6 p-0 m-0">
                                                             <span hidden>Product count</span>
                                                             <input class="p-0 text-center rounded-0" name="quantity" type="number" value="{{item.quantity}}" min="1" max="{{item.product.stock}}">
                                                         </label>

@@ -154,9 +154,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             }
         } 
-            // SCRIPT FOR PRODUCT COUNT BUTTONS FOR ADDITION AND SUBSTRACTION TO UPDATE INPUT VALUE ON CLICK
-            let productCountContainers = document.getElementsByClassName('product-count');
+    }
 
+    if (window.location.pathname.includes('/products/') || window.location.pathname.includes('/wishlist/') || 
+        window.location.pathname.includes('/bag/')) {
+            // ----SCRIPT FOR PRODUCT COUNT BUTTONS FOR ADDITION AND SUBSTRACTION TO UPDATE INPUT VALUE ON CLICK----
+            let productCountContainers = document.getElementsByClassName('product-count');
             for(let container of productCountContainers){
                 let buttons = container.getElementsByTagName('button');
                 for (let btn of buttons){
@@ -177,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     });
                 }
             }
-    }
+        }
      
     if (window.location.pathname == '/products/' || window.location.pathname == '/wishlist/') {  
         // ---------------SCRIPT FOR UPDATING CURRENT URL WITH SORT VALUE----------------------
@@ -212,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
    
             } );
            }
+           
   //---SCRIPT FOR STOPPING CLICK EVENT PROPAGATION FROM PRODUCT CONTAINBER TO OVERLAY ADD TO BAG FORM---
   let formsOverlay = document.getElementsByClassName('overlay-form');
   for(let form of formsOverlay){
