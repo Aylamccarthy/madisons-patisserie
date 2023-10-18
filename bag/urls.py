@@ -14,14 +14,6 @@ urlpatterns = [
         views.RemoveFromBag.as_view(),
         name="remove_from_bag",
     ),
-    path(
-        "increment/<int:product_id>/",
-        views.IncrementQuantity.as_view(),
-        name="increment_quantity",
-    ),
-    path(
-        "decrement/<int:product_id>/",
-        views.DecrementQuantity.as_view(),
-        name="decrement_quantity",
-    ),
+    path('update_quantity/<int:product_id>/',
+         views.UpdateBagQuantity.as_view(), name='update_quantity'),
 ]
