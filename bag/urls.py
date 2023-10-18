@@ -14,6 +14,9 @@ urlpatterns = [
         views.RemoveFromBag.as_view(),
         name="remove_from_bag",
     ),
-    path('update_quantity/<int:product_id>/',
-         views.UpdateBagQuantity.as_view(), name='update_quantity'),
+    path(
+        "update_quantity/<int:product_id>/",
+        views.UpdateBagQuantity.as_view(),
+        name="update_quantity",
+    ),
 ]

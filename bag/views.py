@@ -36,36 +36,49 @@ class AddToBag(UserPassesTestMixin, View):
         current_url = request.POST.get("current_url")
         bag = request.session.get("bag", {})
 
-        quantity = request.POST.get('quantity')
+        quantity = request.POST.get("quantity")
         try:
             quantity = int(quantity)
-            if quantity in range(1, product.stock+1):
+            if quantity in range(1, product.stock + 1):
                 if str(product_id) in list(bag.keys()):
                     bag[str(product_id)] += quantity
-                    messages.success(request, f'Updated <b>{product.name}</b>\
-                        quantity to {bag[str(product_id)]}',
-                                     extra_tags="bag_add safe")
+                    messages.success(
+                        request,
+                        f"Updated <b>{product.name}</b>\
+                        quantity to {bag[str(product_id)]}",
+                        extra_tags="bag_add safe",
+                    )
                 else:
                     bag[product_id] = quantity
-                    messages.success(request, f'Added <b>{product.name}</b>\
-                        to your bag', extra_tags="bag_add safe")
-                request.session['bag'] = bag
+                    messages.success(
+                        request,
+                        f"Added <b>{product.name}</b>\
+                        to your bag",
+                        extra_tags="bag_add safe",
+                    )
+                request.session["bag"] = bag
             elif quantity < 0:
                 messages.error(
-                    request, f'Quantity input value for <b>{product.name}</b>\
-                        cannot be negative',
-                    extra_tags='safe')
+                    request,
+                    f"Quantity input value for <b>{product.name}</b>\
+                        cannot be negative",
+                    extra_tags="safe",
+                )
             else:
                 messages.error(
-                    request, f'The quantity chosen for <b>{product.name}</b>\
-                        exceeds the stock. Please choose a smaller value.',
-                    extra_tags='safe')
+                    request,
+                    f"The quantity chosen for <b>{product.name}</b>\
+                        exceeds the stock. Please choose a smaller value.",
+                    extra_tags="safe",
+                )
             return redirect(current_url)
         except Exception as e:
             messages.error(
-                    request, f'Quantity input type for <b>{product.name}</b>\
-                        is not correct <span hidden>{e}</span>',
-                    extra_tags='safe')
+                request,
+                f"Quantity input type for <b>{product.name}</b>\
+                        is not correct <span hidden>{e}</span>",
+                extra_tags="safe",
+            )
             return redirect(current_url)
 
     def test_func(self):
@@ -117,40 +130,49 @@ class RemoveFromBag(UserPassesTestMixin, DeleteView):
 class UpdateBagQuantity(UserPassesTestMixin, View):
     """A view that updates the product quantity"""
 
-    template_name = 'bag/bag.html'
+    template_name = "bag/bag.html"
 
     def post(self, request, product_id):
         """Override post method"""
         product = get_object_or_404(Product, pk=product_id)
-        current_url = request.POST.get('current_url')
-        bag = request.session.get('bag', {})
-        quantity = request.POST.get('quantity')
+        current_url = request.POST.get("current_url")
+        bag = request.session.get("bag", {})
+        quantity = request.POST.get("quantity")
 
         try:
             quantity = int(quantity)
-            if quantity in range(1, product.stock+1):
+            if quantity in range(1, product.stock + 1):
                 bag[str(product_id)] = quantity
                 messages.success(
-                    request, f'The quantity for <b>{product.name}</b>\
-                     was updated to {bag[str(product_id)]}', extra_tags="safe")
-                request.session['bag'] = bag
+                    request,
+                    f"The quantity for <b>{product.name}</b>\
+                     was updated to {bag[str(product_id)]}",
+                    extra_tags="safe",
+                )
+                request.session["bag"] = bag
             elif quantity < 0:
                 messages.error(
-                    request, f'Quantity input value for <b>{product.name}</b>\
-                        cannot be negative',
-                    extra_tags='safe')
+                    request,
+                    f"Quantity input value for <b>{product.name}</b>\
+                        cannot be negative",
+                    extra_tags="safe",
+                )
             else:
                 messages.error(
-                    request, f'The quantity chosen for <b>{product.name}</b>\
+                    request,
+                    f"The quantity chosen for <b>{product.name}</b>\
                         exceeds the stock. Please choose a value smaller than\
-                            {product.stock}.',
-                    extra_tags='safe')
+                            {product.stock}.",
+                    extra_tags="safe",
+                )
             return redirect(current_url)
         except Exception as e:
             messages.error(
-                    request, f'Quantity input type for <b>{product.name}</b>\
-                        is not correct <span hidden>{e}</span>',
-                    extra_tags='safe')
+                request,
+                f"Quantity input type for <b>{product.name}</b>\
+                        is not correct <span hidden>{e}</span>",
+                extra_tags="safe",
+            )
             return redirect(current_url)
 
     def test_func(self):
