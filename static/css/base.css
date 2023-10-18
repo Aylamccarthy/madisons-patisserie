@@ -40,6 +40,10 @@ a:hover {
     font-size: small;
 }
 
+.font-size-medium {
+    font-size: medium;
+}
+
 .font-size-larger {
     font-size: larger;
 }
@@ -71,10 +75,14 @@ a:hover {
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
-
+input:not([type=checkbox]),
+textarea {
+    border: 1px solid #80808066;
+    width: 100%;
+}
 
 header {
-    position: sticky;   
+    position: fixed;   
     background-color: purple; 
     position: fixed;
     width: 100%;
