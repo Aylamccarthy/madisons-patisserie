@@ -75,12 +75,6 @@ a:hover {
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
-input:not([type=checkbox]),
-textarea {
-    border: 1px solid #80808066;
-    width: 100%;
-}
-
 header {
     position: fixed;   
     background-color: purple; 
@@ -232,6 +226,17 @@ input:focus, input:focus-visible{
     min-height: 100vh;
 }
 
+input:not([type=checkbox]),
+textarea {
+    border: 1px solid #80808066;
+    width: 100%;
+}
+input:focus,
+textarea:focus {
+    outline: 1px solid #80808066;
+}
+
+
 
 /* ------------BUTTON CLASSES------- */
 .button{
@@ -352,7 +357,7 @@ input:focus, input:focus-visible{
 
 .modal form input:not([type=checkbox]),
 select,
-input {
+input:not([type=checkbox]) {
     width: 100%;
     border: 1px solid #ced4da;
     padding-top: 0.25rem;
@@ -865,6 +870,13 @@ i{
     border-bottom-color: #28a745 !important;
 }
 
+.scroll-h{
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+
 /* -------------------------------------BAG PAGE STYLING -------------------------------*/
 .bag-table {
     border-collapse: separate;
@@ -933,17 +945,17 @@ i{
     .min-vh {
         min-height: 90vh;
     }
-    .gray-btn:hover{
+    .gray-btn:hover {
         background-color: #bcbcbc;
         color: initial;
     }
 
-    .white-btn:hover{
+    .white-btn:hover {
         background-color: white;
         color: initial;
     }
 
-    .purple-btn:hover{
+    .purple-btn:hover {
         background-color: #7c004f;
     }
 
@@ -967,6 +979,13 @@ i{
         left: 18px;
     }
 
+    .scroll-h {
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 35vh;
+    }
+
+}
 
 /* HEADER STYLING */
 
@@ -975,7 +994,7 @@ i{
         color: white;
     }
 
-    .navigation{
+    .navigation {
         padding-left: 15px;
     }
 
@@ -1009,11 +1028,10 @@ i{
     .categories a:focus, .categories a:hover {
         border: none;
     }
-}
 
-.auth-content>div>div:nth-child(1){
+    .auth-content>div>div:nth-child(1){
     border-right: none;
-}
+    }
 
 /* --------------------------------- SMALL DEVICES STYLING ------------------------------- */
 
@@ -1027,12 +1045,12 @@ i{
         color: #3a3a3a;
     }
 
-    footer .success-message{
+    footer .success-message {
         color: #0e8814;
         font-size: smaller;
     }
 
-    footer .errorlist{
+    footer .errorlist {
         color: #bd2130;
     }
 
@@ -1049,11 +1067,11 @@ i{
         font-size: 30px;
     }
 
-    .search-bar .dropdown a i{
+    .search-bar .dropdown a i {
         padding-right: 12PX;
     }
 
-    .search-bar .dropdown-menu i{
+    .search-bar .dropdown-menu i {
         margin-top: 4px;
         font-size: 20px;
     }
@@ -1066,7 +1084,7 @@ i{
         padding-left: 0px;
 
     }
-    .cover-overlay{
+    .cover-overlay {
         padding-left: 0px;
         width: 80%;
     }
@@ -1081,6 +1099,16 @@ i{
 
     .message-container {
         right: 20px;
+    }
+
+    .arrow-up {
+        left: 28px;
+    }
+
+    .scroll-h {
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 50vh;
     }
 
 }
