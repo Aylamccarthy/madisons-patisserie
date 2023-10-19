@@ -49,11 +49,13 @@ a:hover {
 }
 
 /* COLORS CLASSES */
-.text-yellow {
+.text-yellow,
+.text-yellow:hover {
     color: #ffc107;
 }
 
-.text-red {
+.text-red,
+.text-red:hover {
     color: #ff4456;
 }
 
@@ -62,7 +64,8 @@ a:hover {
     background-color: floralwhite;
 }
 
-.text-purple{
+.text-purple,
+.text-purple:hover {
     color: #590243;
 }
 
@@ -73,6 +76,12 @@ a:hover {
 .bg-skyblue {
     background-color: skyblue;
 }
+
+/* HOVER CLASSES */
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
 
 /* BOX-SHADOW CLASSES */
 .card-shadow {
@@ -578,6 +587,13 @@ i{
     height: 25px;
 }
 
+.add-container span {
+    background: black;
+    padding: 0px 3px 1px 3px;
+    color: wheat;
+}
+
+
 .add-container .add {
     width: 100%;
     visibility: hidden;
@@ -637,6 +653,7 @@ i{
     padding: 15px;
     position: relative;
     overflow: hidden;
+    min-height: 400px;
 }
 
 .product-container h6 {
@@ -648,8 +665,8 @@ i{
     font-size: larger;
 }
 
-.product-count button,
-.product-count input {
+.product-count:not(.bag-count) button,
+.product-product-count:not(.bag-count) input {
     border: 1px solid grey;
     color: #3a3a3a;
 }
@@ -670,7 +687,7 @@ i{
   margin: 0;
 }
 
-.product-count button:hover {
+.product-count:not(.bag-count) button:hover {
     background-color: #c8c8c8b3;
 }
 
@@ -726,12 +743,8 @@ i{
     opacity: 1;
 }
 
-.product-container:hover img {
+.product-container:hover .product-img {
     opacity: 0.2;
-}
-
-.product-container:hover .product-banner {
-    opacity: 0;
 }
 
 .product-container:hover .product-overlay {
@@ -749,12 +762,20 @@ i{
 .product-overlay {
     position: absolute;
     opacity: 0;
-    position: absolute;
-    top: 50%;
+    top: 30%;
     left: 45%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     text-align: center;
 }
+
+.product-overlay div:nth-child(1) {
+    position: relative;
+}
+
+.product-overlay form:nth-child(2) {
+    position: relative;
+}
+
 
 .pagination {
     font-size: large;
