@@ -36,7 +36,8 @@ class UpdateProductForm(forms.ModelForm):
             'sku': 'Sku',
             'name': 'Product Name',
             'code': 'Code',
-            'type': 'Type'
+            'type': 'Type',
+            'description': 'Description',
             'price': 'Price',
             'stock': 'Stock',
         }
