@@ -182,4 +182,28 @@
         </div>
     </div>
 </div>
+<!-- LOADING SPINNER -->
+<div id="loading-overlay">
+    <div class="loading-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- SECRET KEYS -->
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
 {% endblock %}
