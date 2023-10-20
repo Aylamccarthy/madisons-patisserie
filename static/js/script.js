@@ -363,7 +363,8 @@ if (window.location.pathname.includes('/products/')) {
       }  
  }
 }
-);
+)
+
 
 
 
