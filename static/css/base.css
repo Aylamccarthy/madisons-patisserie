@@ -147,18 +147,6 @@ a:hover {
     box-shadow: none
 }
 
-select {
-    border: 1px solid #80808066;
-}
-
-select:focus {
-    border-color: #80808066;
-    outline: 1px solid #80808066;
-    box-shadow: none
-}
-
-
-
 /* STYLING FOR ALLAUTH CONTENT */
 .auth-content>div>div:nth-child(1){
     border-right: 1px solid #e0d9d9;
@@ -240,13 +228,15 @@ input:focus, input:focus-visible {
 }
 
 input:not([type=checkbox]),
-textarea {
-    border: 1px solid #80808066;
+textarea, select {
+    font-family: sans-serif;
+    border: none;
     width: 100%;
 }
 input:focus,
-textarea:focus {
-    outline: 1px solid #80808066;
+textarea:focus, select:focus {
+    outline: none;
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 /* ------------BUTTON CLASSES------- */
@@ -970,7 +960,7 @@ i{
     border-color: #adb5bd;
 }
 
-/* STRIPE ELEMENTS STYLING */
+/*---------------------- STRIPE ELEMENTS STYLING-------------------------------------*/
 
 .StripeElement {
     width: 100%;
