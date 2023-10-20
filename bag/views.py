@@ -84,7 +84,7 @@ class AddToBag(UserPassesTestMixin, View):
 
     def get(self, request, product_id):
         """Override get method to redirect to bag page"""
-        return redirect('/bag/')
+        return redirect("/bag/")
 
     def test_func(self):
         if self.request.user.is_authenticated:

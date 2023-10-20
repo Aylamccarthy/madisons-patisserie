@@ -12,8 +12,9 @@ from .widgets import CustomClearableFileInput
 class UpdateProductForm(forms.ModelForm):
     """Form for update product details"""
 
-    category = forms.ModelChoiceField(queryset=Category.objects.all(),
-                                      empty_label='Category*')
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(), empty_label="Category*"
+    )
     sku = forms.CharField(max_length=254)
     name = forms.CharField(max_length=254)
     type = forms.CharField(max_length=254)
@@ -33,23 +34,22 @@ class UpdateProductForm(forms.ModelForm):
             self.fields["is_cake"].initial = True
 
         placeholders = {
-            'sku': 'Sku',
-            'name': 'Product Name',
-            'code': 'Code',
-            'type': 'Type',
-            'description': 'Description',
-            'price': 'Price',
-            'stock': 'Stock',
+            "sku": "Sku",
+            "name": "Product Name",
+            "code": "Code",
+            "type": "Type",
+            "description": "Description",
+            "price": "Price",
+            "stock": "Stock",
         }
 
         for field in self.fields:
-            if field != 'category'\
-                 and field != 'is_cake' and field != 'image':
+            if field != "category" and field != "is_cake" and field != "image":
                 if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
+                    placeholder = f"{placeholders[field]} *"
                 else:
                     placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs["placeholder"] = placeholder
 
     def clean_category(self):
         """Method for assinging the correponding Category object to category
