@@ -10,7 +10,8 @@
                     {% if bag_items %}
                         <div class="col-md-10 col-lg-6">
                             <h6 class="mb-3"><b>Fill out the details to finish your order</b></h6>
-                            <form method="POST" enctype="multipart/form-data">
+                            <!-- ADD ORDER FORM FIELDS -->
+                            <form method="POST" action="{% url 'checkout' %}" enctype="multipart/form-data" id="payment-form">
                                 {% csrf_token %}
                                 <fieldset class="rounded mb-4">
                                     <legend class="fieldset-label pl-2 small text-black"><b>Personal Details</b></legend>
