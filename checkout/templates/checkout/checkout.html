@@ -87,19 +87,21 @@
                                 </fieldset>
                                 <fieldset>
                                     <legend class="fieldset-label pl-2 small text-black"><b>Payment</b></legend>
-                                    <!-- A Stripe card element will go here -->
+                                     <!-- STRIPE CARD -->
                                     <div class="mb-3" id="card-element"></div>
-                                    <!-- Used to display form errors -->
+                                    <!-- CARD ERRORS -->
                                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                                     <!-- PASS THE CLIENT SECRET TO THE VIEW FOR GETTING THE PAYMENT INTENT-->
                                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                                 </fieldset>
+                                <!-- CARD CHARGING AMOUNT -->
                                 <p class="small text-danger my-0 mb-4">
                                     <span class="icon">
                                         <i class="fas fa-exclamation-circle"></i>
                                     </span>
                                     <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
                                 </p>
+                                <!-- BACK TO BAG BUTTON -->
                                 <div class="col-12 col-xl-8 p-0 d-flex flex-column align-items-center flex-lg-row mx-auto justify-content-around">
                                     <button type="submit" class="button purple-btn small-btn rounded-0 mb-3 mb-lg-0">Complete order</button>
                                     <a class="button gray-btn small-btn rounded-0" href="{% url 'bag' %}">Back to bag</a>
@@ -108,6 +110,7 @@
                         </div>
                         <div class="col-md-10 col-lg-6 mb-4 mb-lg-0">
                             <h6 class="mb-3"><b>Order Summary</b></h6>
+                             <!-- LIST OF ORDER PRODUCTS -->
                             <div class="border p-3 p-lg-2 mb-2 scroll-h">
                                 <table>
                                     <tr>
@@ -138,6 +141,7 @@
                                     {% endfor %}
                                 </table>   
                             </div>
+                            <!-- ORDER COST DETAILS -->
                             <div class="d-flex justify-content-end">
                                 <div class="col-12 col-md-6 col-lg-8 col-xl-6 p-0 text-muted">
                                     <div class="w-100 d-flex justify-content-between">
