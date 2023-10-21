@@ -5,15 +5,18 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0001_initial'),
+        ("checkout", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='orderline',
-            name='order',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='lineitems', to='checkout.order'),
+            model_name="orderline",
+            name="order",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="lineitems",
+                to="checkout.order",
+            ),
         ),
     ]
