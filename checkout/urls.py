@@ -13,4 +13,7 @@ urlpatterns = [
         views.CheckoutSuccess.as_view(),
         name="checkout_success",
     ),
+    path('cache_checkout_data/', views.CacheCheckoutData.as_view(),
+         name='cache_checkout_data'),
+    path('wh/', webhook, name='webhook'),
 ]

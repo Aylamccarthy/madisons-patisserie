@@ -983,7 +983,7 @@ i{
 }
 
 input::placeholder {
-    color: #84898e;
+    color: #5f6468;
 } 
 
 .fieldset-label {
@@ -998,7 +998,7 @@ select option {
 
 select:invalid,
 select option[value=""] {
-    color: #84898e !important;
+    color: #5f6468;
 }
 
 #loading-overlay {
