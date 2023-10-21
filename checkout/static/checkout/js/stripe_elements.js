@@ -107,3 +107,11 @@ form.addEventListener('submit', function(ev) {
         location.reload();
     });
 }); 
+
+let countrySelected = document.getElementById('id_country');
+// PREVENT COUNTRY SELECT OPENING
+countrySelected.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    e.target.blur();
+    window.focus();
+});
