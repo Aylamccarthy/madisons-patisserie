@@ -47,6 +47,7 @@ class OrderAdmin(admin.ModelAdmin):
 
     list_display = (
         "order_number",
+        "user",
         "date",
         "full_name",
         "order_total",
