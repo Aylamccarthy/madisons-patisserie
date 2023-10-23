@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }, 350);
         }
     });
-}
+})
 
     // SCRIPT FOR SETTING PADDING TOP OF CONTENT CONTAINER TO BE EQUAL WITH HEADER HEIGHT
     let headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
@@ -362,13 +362,4 @@ if (window.location.pathname.includes('/products/')) {
           });
       }  
  }
-
-
-
-
-
-
-        
-
-    
-           
+}           
