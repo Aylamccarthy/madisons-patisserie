@@ -474,6 +474,11 @@ body {
     flex-direction: column-reverse;
 }
 
+.nav-item-active{
+    border-bottom: 2px solid #e8d7e6d4 !important;
+}
+
+
 @keyframes autoplay {
     0% {
         visibility: visible
@@ -1357,6 +1362,11 @@ select option[value=""] {
         overflow-x: hidden;
         overflow-y: auto;
         max-height: 50vh;
+    }
+    
+    .toast{
+        width: 90vw;
+        max-width: auto;
     }
 
 }
