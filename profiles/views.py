@@ -13,7 +13,7 @@ from django.contrib import messages
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from checkout.models import Order
-from users.models import User
+from django.contrib.auth.models import User
 
 
 class Profile(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
