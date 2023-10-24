@@ -11,6 +11,7 @@ django-storages==1.14
 django-url-tools==0.0.8
 django-url-tools-py3==0.2.1
 gunicorn==21.2.0
+humanhash3==0.0.6
 jmespath==1.0.1
 oauthlib==3.2.2
 pathspec==0.11.2
