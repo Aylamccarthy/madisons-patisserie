@@ -12,7 +12,7 @@ from django.dispatch import receiver
 from django.contrib import messages
 from allauth.account.signals import email_confirmed
 
-from users.models import User
+from django.contrib.auth.models import User
 import os
 import base64
 import humanhash
