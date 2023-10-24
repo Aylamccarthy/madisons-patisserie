@@ -1141,7 +1141,7 @@ select option[value=""] {
     transform: rotate(330deg);
     animation-delay: 0s;
   }
-  
+
   @keyframes lds-spinner {
     0% {
       opacity: 1;
@@ -1150,6 +1150,18 @@ select option[value=""] {
       opacity: 0;
     }
   }
+
+
+/* PROFILE PAGE STYLING */
+
+.profile-container-shadow {
+    box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+        rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+}
+
+.table-separate{
+    border-collapse: separate;
+}
 
 
 
