@@ -19,7 +19,9 @@ import datetime
 class Order(models.Model):
     now = datetime.datetime.now()
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL, null=True, blank=True
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)

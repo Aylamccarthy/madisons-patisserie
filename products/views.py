@@ -33,7 +33,7 @@ class Products(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['products'] = Product.objects.all().order_by('type')
+        context["products"] = Product.objects.all().order_by("type")
         return context
 
     def get(self, request):
@@ -55,15 +55,13 @@ class Products(ListView):
                 direction = request.GET["direction"]
                 if direction == "desc":
                     sortkey = f"-{sortkey}"
-            if sortkey != 'best_sellers' and 'rating' not in sortkey:
+            if sortkey != "best_sellers" and "rating" not in sortkey:
                 products = products.order_by(sortkey)
-            elif 'rating' in sortkey:
-                if direction == 'asc':
-                    products = products.order_by(
-                        F('rating').asc(nulls_last=True))
-                elif direction == 'desc':
-                    products = products.order_by(
-                        F('rating').desc(nulls_last=True))
+            elif "rating" in sortkey:
+                if direction == "asc":
+                    products = products.order_by(F("rating").asc(nulls_last=True))
+                elif direction == "desc":
+                    products = products.order_by(F("rating").desc(nulls_last=True))
 
         if sort == "best_sellers":
             current_sorting = sort
@@ -153,7 +151,7 @@ class Products(ListView):
             if is_filter is True and key in filter_options:
                 del parameters[key]
         if parameters:
-            current_url_no_filters += '?' + urllib.parse.urlencode(parameters)
+            current_url_no_filters += "?" + urllib.parse.urlencode(parameters)
 
         # CHECK IF THERE IS ONLY ONE FILTER APPLIED AND CREATE BOOLEAN VALUE TO BE ADDED TO CONTEXT
         parameters = []

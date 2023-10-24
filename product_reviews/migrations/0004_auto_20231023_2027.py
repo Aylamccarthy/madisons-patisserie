@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('product_reviews', '0003_auto_20231016_0926'),
+        ("product_reviews", "0003_auto_20231016_0926"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='review',
-            name='date_created_on',
-            field=models.DateTimeField(default='2023-10-23 20:27:43'),
+            model_name="review",
+            name="date_created_on",
+            field=models.DateTimeField(default="2023-10-23 20:27:43"),
         ),
         migrations.AlterField(
-            model_name='review',
-            name='date_updated_on',
-            field=models.DateTimeField(default='2023-10-23 20:27:43'),
+            model_name="review",
+            name="date_updated_on",
+            field=models.DateTimeField(default="2023-10-23 20:27:43"),
         ),
     ]
