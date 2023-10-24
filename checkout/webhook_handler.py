@@ -7,7 +7,6 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-from django.utils.html import strip_tags
 
 from .models import Order, OrderLine
 from products.models import Product
