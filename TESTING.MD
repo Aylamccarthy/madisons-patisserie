@@ -5,4 +5,10 @@
      Solution:
      After research and tutor and mentor consultation, I reset my database. Make migrations again. Create a new superuser. And reload data again.
 
+* ** Stripe Element not working as expected.
+     When I implemented stripe payments and try to check that everything works, I could only go as far as 'Complete Order' but it wouldn't bring me to success checkout page as expected.
+     Solution:
+     It turns out that I am using the slim version of JQuery which doesn't support fadeToggle. By switching to normal minified version, the issue was fixed.
+
+
 ### Unsolved
