@@ -35,7 +35,7 @@ class CacheCheckoutData(View):
                 metadata={
                     "bag": json.dumps(request.session.get("bag", {})),
                     "save_info": request.POST.get("save_info"),
-                    "username": request.user,
+                    "email": request.user,
                 },
             )
             return HttpResponse(status=200)
