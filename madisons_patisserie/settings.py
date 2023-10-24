@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "profiles",
     "product_reviews",
     # Other
+    "mathfilters",
     "storages",
     # "url_tools",
 ]
