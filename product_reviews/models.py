@@ -10,7 +10,7 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.db.models import Avg
 
-from users.models import User
+from django.contrib.auth.models import User
 from products.models import Product
 
 
@@ -23,7 +23,7 @@ class Review(models.Model):
     date_created_on = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
     date_updated_on = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, to_field="email", blank=True
+        User, on_delete=models.CASCADE, blank=True
     )
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
 
