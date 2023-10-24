@@ -14,9 +14,9 @@ class VouchersAdmin(admin.ModelAdmin):
     """Class for displaying vouchers in admin panel"""
 
     list_display = (
-        'voucher_code',
-        'percentage',
-        'user',
+        "voucher_code",
+        "percentage",
+        "user",
     )
 
 

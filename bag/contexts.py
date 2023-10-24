@@ -19,8 +19,8 @@ def bag_contents(request):
     total = 0
     product_count = 0
     discount_value = 0
-    voucher_id = request.session.get('voucher_id', None)
-    discount = request.session.get('discount', None)
+    voucher_id = request.session.get("voucher_id", None)
+    discount = request.session.get("discount", None)
     bag = request.session.get("bag", {})
 
     # GET LIST OF BAG ITEMS WITH PROPERTIES: PRODUCT, QUANTITY AND SUBTOTAL
@@ -56,9 +56,11 @@ def bag_contents(request):
         discount_value = total * Decimal(discount / 100)
         if (total - discount_value) < settings.FREE_DELIVERY_THRESHOLD:
             delivery = (total - discount_value) * Decimal(
-                settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+                settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            )
             free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - (
-                total - discount_value)
+                total - discount_value
+            )
         else:
             delivery = 0
             free_delivery_delta = 0
@@ -82,8 +84,8 @@ def bag_contents(request):
         "bag_items": bag_items,
         "total": total,
         "product_count": product_count,
-        'voucher': voucher,
-        'discount_value': discount_value,
+        "voucher": voucher,
+        "discount_value": discount_value,
         "delivery": delivery,
         "free_delivery_delta": free_delivery_delta,
         "free_delivery_threshold": settings.FREE_DELIVERY_THRESHOLD,

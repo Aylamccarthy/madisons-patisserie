@@ -27,11 +27,13 @@ class StripeWH_Handler:
         """Send the user a confirmation email"""
         customer_email = order.email
         subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
+            "checkout/confirmation_emails/confirmation_email_subject.txt",
+            {"order": order},
+        )
         body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.html',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            "checkout/confirmation_emails/confirmation_email_body.html",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
 
         send_mail(
             subject,
@@ -72,17 +74,15 @@ class StripeWH_Handler:
         profile = None
         profile = None
         email = intent.metadata.email
-        if email != 'AnonymousUser':
+        if email != "AnonymousUser":
             profile = UserProfile.objects.get(user__email=email)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 =\
-                    shipping_details.address.line1
-                profile.default_street_address2 =\
-                    shipping_details.address.line2
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
 
