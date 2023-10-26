@@ -4,7 +4,7 @@ Bag App - Views
 Views for Bag App.
 """
 
-from django.shortcuts import get_object_or_404, redirectt, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import TemplateView, View, DeleteView
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib import messages
