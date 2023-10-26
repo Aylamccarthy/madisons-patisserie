@@ -343,7 +343,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin,
                 messages.error(
                     request,
                     "There was a problem when trying to update"
-                    + "product details. Please try again!",
+                    + " product details. Please try again!",
                 )
                 return redirect("/products/product_details/" + str(product.pk))
         else:
