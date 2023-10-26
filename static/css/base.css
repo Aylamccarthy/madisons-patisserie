@@ -904,6 +904,10 @@ i {
 
 
 /* -------------------------------------BAG PAGE STYLING -------------------------------*/
+.voucher-close{
+    top: 9%;
+    right: 0;
+}
 .bag-table {
     border-collapse: separate;
 }
