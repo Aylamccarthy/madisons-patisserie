@@ -77,6 +77,11 @@ a:hover {
     background-color: skyblue;
 }
 
+.bg-transparent{
+    background-color: transparent;
+}
+
+
 /* HOVER CLASSES */
 .hover-underline:hover {
     text-decoration: underline;
