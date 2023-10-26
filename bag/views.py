@@ -22,15 +22,15 @@ class Bag(UserPassesTestMixin, TemplateView):
 
     def get(self, request):
         """Overide get method"""
-        bag = request.session.get('bag', {})
+        bag = request.session.get("bag", {})
         if not bag:
-            request.session['discount'] = None
-            request.session['voucher_id'] = None
+            request.session["discount"] = None
+            request.session["voucher_id"] = None
 
         context = {
-                'add_voucher_form': AddVoucherForm,
-            }
-        return render(request, 'bag/bag.html', context)
+            "add_voucher_form": AddVoucherForm,
+        }
+        return render(request, "bag/bag.html", context)
 
     def test_func(self):
         if self.request.user.is_authenticated:
