@@ -130,7 +130,7 @@ class Checkout(TemplateView):
 
                     # Update product stock
                     product.stock = product.stock - quantity
-                    product.save(update_fields=['stock'])
+                    product.save(update_fields=["stock"])
 
                 except Product.DoesNotExist:
                     messages.error(

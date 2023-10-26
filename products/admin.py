@@ -21,6 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
         "rating",
     )
 
+    readonly_fields = ("rating",)
     ordering = ("sku",)
 
 

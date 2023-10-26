@@ -4,25 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0005_alter_order_date'),
+        ("checkout", "0005_alter_order_date"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='discount',
+            model_name="order",
+            name="discount",
             field=models.PositiveIntegerField(blank=True, default=0, null=True),
         ),
         migrations.AddField(
-            model_name='order',
-            name='discount_value',
+            model_name="order",
+            name="discount_value",
             field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='date',
-            field=models.DateTimeField(default='2023-10-26 18:47:09'),
+            model_name="order",
+            name="date",
+            field=models.DateTimeField(default="2023-10-26 18:47:09"),
         ),
     ]
