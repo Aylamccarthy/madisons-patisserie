@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load mathfilters %}
 {% block content %}
 <div class="main-container col-lg-11 mx-auto pt-3 pb-3 mt-2 mt-lg-4 mb-4 bg-white">
     <h1 class="mb-3 mb-lg-4 text-center">My Bag</h1>
@@ -88,11 +89,11 @@
                                       {% elif not user.is_authenticated %}
                                     <div class="d-flex d-md-none d-lg-flex align-items-center mt-1 font-size-small">
                                         <i class="far fa-heart mr-1 text-muted"></i>
-                                        <span class="text-muted">Authenticate to add product to wishlist</span>
+                                        <span>Authenticate to add product to wishlist</span>
                                     </div>
                                     <div class="d-none d-md-flex d-lg-none align-items-center mt-1 font-size-small">
                                         <i class="far fa-heart mr-1 text-muted"></i>
-                                        <span class="text-muted">Authenticate to add product to wishlist</span>
+                                        <span>Authenticate to add product to wishlist</span>
                                     </div>
                                     {% endif %}  
                                 </td>
