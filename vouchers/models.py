@@ -42,7 +42,7 @@ def send_discount_voucher_on_email_confirmed_(request, email_address, **kwargs):
     customer_email = email_address.email
     subject = render_to_string("profiles/discount_emails/discount_email_subject.txt")
     body = render_to_string(
-        "profiles/discount_emails/discount_email_body.txt",
+        "profiles/discount_emails/discount_email_body.html",
         {
             "user": user,
             "contact_email": settings.DEFAULT_FROM_EMAIL,
@@ -55,5 +55,6 @@ def send_discount_voucher_on_email_confirmed_(request, email_address, **kwargs):
         body,
         settings.DEFAULT_FROM_EMAIL,
         [customer_email],
+        html_message=body,
     )
     messages.info(request, "A voucher code was sent to " + email_address.email)
