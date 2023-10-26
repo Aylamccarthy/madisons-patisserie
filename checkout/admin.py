@@ -21,6 +21,8 @@ class OrderAdmin(admin.ModelAdmin):
         "delivery_cost",
         "order_total",
         "grand_total",
+        "discount",
+        "discount_value",
         "original_bag",
         "stripe_pid",
     )
@@ -40,6 +42,8 @@ class OrderAdmin(admin.ModelAdmin):
         "county",
         "delivery_cost",
         "order_total",
+        "discount",
+        "discount_value",
         "grand_total",
         "original_bag",
         "stripe_pid",
@@ -51,6 +55,8 @@ class OrderAdmin(admin.ModelAdmin):
         "date",
         "full_name",
         "order_total",
+        "discount",
+        "discount_value",
         "delivery_cost",
         "grand_total",
     )
