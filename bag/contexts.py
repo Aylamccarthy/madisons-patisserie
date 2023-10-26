@@ -6,9 +6,9 @@ Context for Bag App.
 
 from decimal import Decimal
 from django.conf import settings
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from products.models import Product
-from django.db.models import Q
 from wishlist.models import WishlistLine
 from vouchers.models import Voucher
 
@@ -65,7 +65,6 @@ def bag_contents(request):
             delivery = 0
             free_delivery_delta = 0
         grand_total = (total - discount_value) + delivery
-
     # CALCULATE DELIVERY AND FREE DELIVERY DELTA VALUE
     elif total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -74,12 +73,12 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
+        grand_total = delivery + total
 
     if voucher_id:
         voucher = Voucher.objects.get(pk=voucher_id)
     else:
         voucher = None
-
     context = {
         "bag_items": bag_items,
         "total": total,
