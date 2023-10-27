@@ -1308,16 +1308,76 @@ select option[value=""] {
 
 }
 
-
 /* --------------------------------- SMALL AND MEDIUM DEVICE STYLING ------------------------------- */
 @media (max-width: 991.98px) {
+    .min-vh {
+        min-height: 90vh;
+    }
+
     .p-side {
         padding: 0;
     }
 
-    .min-vh {
-        min-height: 90vh;
+    /* HEADER STYLING */
+
+    .navigation a,
+    .navigation span {
+        color: white;
     }
+
+    .navigation {
+        padding-left: 15px;
+    }
+
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-item i {
+        font-size: 25px;
+    }
+
+    .navbar-collapse hr {
+        border-top: 1px solid rgb(255 255 255 / 60%);
+    }
+
+    .navbar-collapse div:nth-of-type(3),
+    .navbar-collapse div:nth-of-type(3) div:nth-of-type(2) {
+        padding: 0px;
+    }
+
+    .dropdown-menu {
+        position: initial;
+        float: unset;
+        background-color: transparent;
+        color: white;
+        border: none;
+
+    }
+
+    .dropdown-btn{
+        padding-left: 0;
+    }
+
+    .categories a, .categories .dropdown-btn {
+        border: none;
+    }
+
+    .categories a:focus,
+    .categories a:hover,
+    .categories .dropdown-btn:focus,
+    .categories .dropdown-btn:hover {
+        border: none;
+    }
+
+    .home-cover {
+        height: 36vh;
+    }
+
+    button:active {
+        transform: translateY(4px);
+    }
+
     .gray-btn:hover {
         background-color: #bcbcbc;
         color: initial;
@@ -1329,7 +1389,7 @@ select option[value=""] {
     }
 
     .purple-btn:hover {
-        background-color: #7c004f;
+        background-color: #3a012c;
     }
 
     #navbarTogglerFilters {
@@ -1346,6 +1406,7 @@ select option[value=""] {
         right: auto;
         left: 2%;
     }
+
     .arrow-up {
         top: -10px;
         right: auto;
@@ -1358,53 +1419,85 @@ select option[value=""] {
         max-height: 35vh;
     }
 
+    .StripeElement {
+        width: 100%;
+        border: 1px solid #ced4da;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        padding-left: 0.6rem;
+        border-radius: 0.25rem;
+        color: #000;
+    }
+
+    .modal form input:not([type=checkbox]),
+    select,
+    input:not([type=checkbox]) {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+        font-size: inherit;
+    }
+
+    select{
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .responsive-pad{
+        padding: 10px 20px !important;
+    }
+
+    .no-hover-rating {
+        display: block;
+    }
+
+    .add-to-bag-no-hover {
+        display: block;
+    }
+
+    .product-overlay {
+        display: none;
+    }
+
+    .product-overlay>* {
+        display: none;
+    }
+
+    .product-container:hover {
+        cursor: initial;
+        background-color: initial;
+        box-shadow: none;
+    }
+
+    .product-container:hover .product-img {
+        opacity: 1;
+    }
+
+    .product-container:hover img {
+        opacity: initial;
+    }
+
+    .product-container:hover .product-overlay {
+        opacity: 0;
+    }
+
+    .product-container>div:last-of-type {
+        display: block !important;
+    }
+
+    .product-container:hover .banner-hover {
+        opacity: 0;
+    }
+
+    .product-container:hover .banner-hover img {
+        opacity: 0;
+    }
+
+    .product-container:hover .product-banner {
+        opacity: 1;
+    }
 }
 
-/* HEADER STYLING */
-
-    .navigation a, 
-    .navigation span {
-        color: white;
-    }
-
-    .navigation {
-        padding-left: 15px;
-    }
-
-    .navbar{
-        padding: 0.5rem 1rem;
-    }
-
-    .nav-item i {
-        font-size: 25px;
-    }
-
-    .navbar-collapse hr {
-        border-top: 1px solid rgb(255 255 255 / 60%); 
-    }
-
-    .navbar-collapse div:nth-of-type(3), 
-    .navbar-collapse div:nth-of-type(3) div:nth-of-type(2) {
-        padding: 0px;
-    }
-
-    .dropdown-menu {
-        position: initial;
-        float: unset;
-        background-color: transparent;
-        color: black;
-        border: none;
-    }
-    .categories a {
-        border: none;
-    }
-    .categories a:focus, .categories a:hover {
-        border: none;
-    }
-
-    .auth-content>div>div:nth-child(1){
-    border-right: none;
-    }
 
 /* --------------------------------- SMALL DEVICES STYLING ------------------------------- */
 
