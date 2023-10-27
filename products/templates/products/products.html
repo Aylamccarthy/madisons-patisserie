@@ -190,6 +190,7 @@
                             </div>
                             <p class="font-weight-bold">€{{product.price}}</p>
                         </div>
+                            
                         <!-- ADD PRODUCT OVERLAY FOR DEVICES WITH HOVER MECHANISM -->
                         <div class="product-overlay col-10 ">
                             <!-- ADD STARS CONTAINER WITH THE VALUE OF PRODUCT RATING -->
@@ -209,7 +210,7 @@
                             {% if product.stock != 0 %}
                                 {% if not request.user.is_authenticated or not request.user.is_superuser %}
                                     <!-- ADD TO BAG AND NUMBER OF ITEMS BUTTONS -->
-                                    <form action="{% url 'add_to_bag' product.id %}" class="overlay-form " method="POST">
+                                    <form action="{% url 'add_to_bag' product.id %}" class="overlay-form" method="POST">
                                         {% csrf_token %}
                                         <div class="d-flex">
                                             <div class="col-4 p-0 product-count d-flex">
@@ -236,7 +237,7 @@
                     <div class="add-to-bag-no-hover">
                         <form action="{% url 'add_to_bag' product.id %}" method="POST">
                             {% csrf_token %}
-                            <div class="d-flex">
+                            <div class="col-12 d-flex">
                                 <div class="col-5 p-0 product-count d-flex">
                                     <button type="button" class="font-weight-bold col-4 p-0 button rounded-0 substraction">-</button>
                                     <label class="col-4 p-0 m-0">
