@@ -714,9 +714,9 @@ i {
     position: absolute;
     z-index: 5;
     top: 48%;
-    right: 17%;
+    right: 16%;
     text-transform: uppercase;
-    width: 60%;
+    width: 63%;
     opacity: 1;
 }
 
@@ -727,8 +727,8 @@ i {
 
 .product-banner {
     position: absolute;
-    top: -27%;
-    right: -22%;
+    top: -30%;
+    right: -25%;
 }
 
 .banner-hover {
@@ -746,49 +746,6 @@ i {
 .product-banner img,
 .banner-text {
     transform: rotate(35deg);
-}
-
-.product-container:hover {
-    cursor: pointer;
-    background-color: #ededed0f;
-    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-}
-
-.product-container img {
-    opacity: 1;
-}
-
-.product-container:hover .product-img {
-    opacity: 0.2;
-}
-
-.product-container:hover .product-overlay {
-    opacity: 1;
-}
-
-.product-container:hover .banner-hover {
-    opacity: 1;
-}
-
-.product-container:hover .banner-hover img {
-    opacity: 1;
-}
-
-.product-overlay {
-    position: absolute;
-    opacity: 0;
-    top: 30%;
-    left: 45%;
-    transform: translateX(-50%);
-    text-align: center;
-}
-
-.product-overlay div:nth-child(1) {
-    position: relative;
-}
-
-.product-overlay form:nth-child(2) {
-    position: relative;
 }
 
 .pagination {
@@ -818,6 +775,10 @@ i {
 
 .stars-big .star {
     font-size: 30px;
+}
+
+.stars-disabled .star {
+    pointer-events: none;
 }
 
 .stars-inactive .star {
