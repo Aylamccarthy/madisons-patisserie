@@ -1286,6 +1286,27 @@ select option[value=""] {
 
 }
 
+/* --------------------------------- LARGE DEVICES STYLING ------------------------------- */
+
+@media (max-width: 1200px) {
+    .home-cover {
+        height: 85vh;
+    }
+}
+
+/* --------------------------------- IPAD PRO STYLING ------------------------------- */
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px) and (orientation: portrait) {
+
+    .min-vh {
+        min-height: 90vh;
+    }
+
+    .home-cover {
+        height: 36vh;
+    }
+
+}
 
 
 /* --------------------------------- SMALL AND MEDIUM DEVICE STYLING ------------------------------- */
