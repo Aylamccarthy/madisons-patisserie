@@ -363,4 +363,25 @@ if (window.location.pathname.includes('/products/')) {
           });
       }  
  }
-}           
+}  
+
+// SCRIPT FOR SETTING NAV ITEM ACTIVE
+    let path_info = window.location.pathname + window.location.search;
+    if (path_info.includes('/products/?category=')) 
+        document.getElementById('navitem-cakes').classList.add('nav-item-active');
+    else if (path_info == '/products/?is_cake=True') 
+        document.getElementById('navitem-cake').classList.add('nav-item-active');
+    else if (path_info.includes('/products/')) 
+        document.getElementById('navitem-products').classList.add('nav-item-active');
+    else if (path_info.includes('/manage_orders/')) 
+        document.getElementById('navitem-admin').classList.add('nav-item-active');
+    else if (path_info.includes('/bag/')) 
+        document.getElementById('navitem-bag').classList.add('nav-item-active');
+    else if (path_info.includes('/wishlist/')) 
+        document.getElementById('navitem-wishlist').classList.add('nav-item-active');
+    else if (path_info.includes('/profile/')) 
+        document.getElementById('navitem-profile').classList.add('nav-item-active');
+    else if (path_info.includes('/login/')) 
+        document.getElementById('navitem-login').classList.add('nav-item-active');
+    else if (path_info.includes('/signup/')) 
+        document.getElementById('navitem-signup').classList.add('nav-item-active');
