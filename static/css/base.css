@@ -1502,13 +1502,15 @@ select option[value=""] {
 /* --------------------------------- SMALL DEVICES STYLING ------------------------------- */
 
 @media (max-width: 767.98px) {
-    footer > .col-12{
+
+    footer>.col-12 {
         padding: 0px;
     }
 
-    footer > div > div > div:nth-child(1){
+    footer>div>div>div:nth-child(1) {
         background-color: #f0f0f0;
         color: #3a3a3a;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     }
 
     footer .success-message {
@@ -1520,17 +1522,17 @@ select option[value=""] {
         color: #bd2130;
     }
 
-    footer > div > div > div:nth-child(1) form p label::before{
+    footer>div>div>div:nth-child(1) form p label::before {
         content: "*";
-        color:#bd2130;
-    }
-
-    i {
-        font-size: 25px;
+        color: #bd2130;
     }
 
     footer i {
         font-size: 30px;
+    }
+
+    i {
+        font-size: 25px;
     }
 
     .search-bar .dropdown a i {
@@ -1543,13 +1545,14 @@ select option[value=""] {
     }
 
     .search-bar i {
-        margin-top: 0px;
+        margin-top: 2px;
     }
 
     .home-cover {
         padding-left: 0px;
 
     }
+
     .cover-overlay {
         padding-left: 0px;
         width: 80%;
@@ -1576,12 +1579,27 @@ select option[value=""] {
         overflow-y: auto;
         max-height: 50vh;
     }
-    
+
     .toast {
         width: 90vw;
-        max-width: auto;
     }
 
+    .wh-sm-max-content {
+        width: max-content;
+    }
+
+    .bg-floral-responsive{
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .dropdown-toggle::after {
+        border-top: 0.4em solid;
+        border-right: 0.4em solid transparent;
+        border-left: 0.4em solid transparent;
+        margin-bottom: -3px;
+        margin-left: 8px;
+    }
 }
 /* --------------------------------- EXTRA SMALL DEVICES STYLING ------------------------------- */
 @media (max-width: 380px) {
