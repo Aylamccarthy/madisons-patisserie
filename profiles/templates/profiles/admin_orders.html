@@ -57,7 +57,7 @@
                                                 {% if order.lineitems.all|length == 1 %} item {% else %} items {% endif %}
                                             </td>
                                             <!-- ORDER TOTAL-->
-                                            <td class="p-2">${{ order.grand_total }}</td>
+                                            <td class="p-2">€{{ order.grand_total }}</td>
                                             <!-- ORDER DELTE BUTTON AND MODAL-->
                                             <td class="text-center">
                                                 <button class="btn btn-secondary rounded-0 small-btn" data-toggle="modal" data-target="#deleteOrderModal{{ product.pk }}">Delete</button>
