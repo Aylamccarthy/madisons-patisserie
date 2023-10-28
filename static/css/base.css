@@ -88,6 +88,11 @@ a:hover {
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
+.img-shadow {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
 header {
     position: fixed;   
     background-color: purple; 
@@ -1281,14 +1286,6 @@ select option[value=""] {
 
 }
 
-/* --------------------------------- LARGE DEVICES STYLING ------------------------------- */
-
-@media (max-width: 1200px) {
-    .home-cover {
-        height: 85vh;
-    }
-}
-
 /* --------------------------------- IPAD PRO STYLING ------------------------------- */
 
 @media only screen and (min-width: 1024px) and (max-width: 1024px) and (orientation: portrait) {
@@ -1299,6 +1296,21 @@ select option[value=""] {
 
     .home-cover {
         height: 36vh;
+    }
+
+    .home-container {
+        display: block !important;
+
+    }
+
+    .home-container>div:nth-child(1) {
+        margin-bottom: 25px !important;
+    }
+
+    .home-container>div {
+        flex: 0 0 75%;
+        max-width: 75%;
+        margin: 0 auto !important;
     }
 
 }
