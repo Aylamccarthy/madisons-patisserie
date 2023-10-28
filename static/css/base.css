@@ -64,6 +64,10 @@ a:hover {
     background-color: floralwhite;
 }
 
+.bg-floral-responsive{
+    background-color: floralwhite;
+}
+
 .text-purple,
 .text-purple:hover {
     color: #590243;
@@ -322,6 +326,36 @@ select:focus {
     padding: 5px 10px;
     font-size: smaller;
 }
+
+/* ----------------------TEXT DECORATION----------------------------- */
+.decorated {
+    overflow: hidden;
+    text-align: center;
+}
+
+.decorated>span {
+    position: relative;
+    display: inline-block;
+}
+
+.decorated>span:before,
+.decorated>span:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    border-bottom: 2px solid;
+    width: 591px;
+    margin: 0 20px;
+}
+
+.decorated>span:before {
+    right: 100%;
+}
+
+.decorated>span:after {
+    left: 100%;
+}
+
 
 /* MAILCHIMP NEWSLETTER */
 #mc_embed_signup{
