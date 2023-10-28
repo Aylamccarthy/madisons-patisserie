@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }, 350);
         }
     });
-})
+});
 
     // SCRIPT FOR SETTING PADDING TOP OF CONTENT CONTAINER TO BE EQUAL WITH HEADER HEIGHT
     let headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             for(let container of generateStarsContainers){
                 let rateHidden = container.previousElementSibling.value;
-                rateHidden = Math.ceil(parseFloat(rateHidden))
+                rateHidden = Math.ceil(parseFloat(rateHidden));
 
             for(let i=0; i<rateHidden; i++){
                 let star = document.createElement("button");
@@ -171,13 +171,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         if (e.target.classList.contains('substraction')){
                             if(parseInt(input.value) > min){
                                 input.setAttribute('value', parseInt(input.value) - 1);
-                                input.value = parseInt(input.getAttribute('value')) 
+                                input.value = parseInt(input.getAttribute('value'));
                             }
                         }  
                         else if (e.target.classList.contains('addition')){
                             if(parseInt(input.value) < parseInt(max)){
                                 input.setAttribute('value', parseInt(input.value) + 1);  
-                                input.value = parseInt(input.getAttribute('value'))          
+                                input.value = parseInt(input.getAttribute('value'));       
                             }
                         }    
                     });
@@ -389,3 +389,22 @@ if (window.location.pathname.includes('/products/')) {
         document.getElementById('navitem-signup').classList.add('nav-item-active');
     else if (path_info == '/')
         document.getElementById('navitem-home').classList.add('nav-item-active');
+    
+
+ // ADD SCRIPT FOR SETING IMAGE INPUT FIELD INFO TEXT
+ let updateImageInput = document.getElementById('id_UPDATE-image');
+ let addImageInput = document.getElementById('id_ADD-image');
+
+ if(updateImageInput){
+     updateImageInput.addEventListener('input', (e) => {
+         let file = e.target.files[0];
+         document.getElementById('UPDATE-image-filename').textContent = `Image will be set to: ${file.name}`;
+     });
+ }
+
+ if(addImageInput){
+     addImageInput.addEventListener('input', (e) => {
+         let file = e.target.files[0];
+         document.getElementById('ADD-image-filename').textContent = `Image will be set to: ${file.name}`;
+     });
+ }
