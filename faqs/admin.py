@@ -9,7 +9,7 @@ from faqs.models import FAQ
 
 admin.site.register(FAQ)
 
-
+ 
 class FAQAdmin(admin.ModelAdmin):
     """Class for displaying FAQs in admin panel"""
 
