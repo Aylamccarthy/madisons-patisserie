@@ -566,7 +566,7 @@ body {
 
 /* HOME COVER STYLING */
 .home-cover {
-    background: url('https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/pp5_hero_image.jpg') no-repeat center center fixed;
+    background: url('https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/madisons_patisserie_hero_image.webp') no-repeat center center fixed;
     background-size: cover;
     background-repeat: repeat-y;
     background-position: right;
