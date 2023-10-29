@@ -3,19 +3,18 @@
 
 {% block content %}
 
-<div class="col-12 container-fluid  bg-succes">
-    <h3>Frequently Asked Questions</h3>
-    <ul>
+<div class="col-12 container-fluid faq-list bg-succes">
+    <h3 class="faq_title">Frequently Asked Questions</h3>
+    <div class="faq-list">
         {% for faq in faqs %}
-        <li>
-            <strong>{{ faq.question }}</strong><br>
-            {{ faq.answer }}
-        </li>
+        <div class="faq-item">
+            <div class="question">{{ faq.question }}</div>
+            <div class="answer">{{ faq.answer }}</div>
+        </div>
         {% empty %}
-        <li>No FAQs available.</li>
+        <p>No FAQs available.</p>
         {% endfor %}
-    </ul>
-
+    </div>
 </div>
 
 

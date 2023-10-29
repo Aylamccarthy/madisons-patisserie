@@ -1200,6 +1200,27 @@ select option[value=""] {
     border-collapse: separate;
 }
 
+/* FAQs PAGE STYLING */
+
+.faq_title {
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.question {
+    font-weight: bold;
+}
+
+.answer {
+    margin-top: 10px;
+}
+
 /* --------------------------------- DEVICES WITH HOVER MECHANISM ------------------------------- */
 @media (hover: hover) {
     .no-hover-rating {
