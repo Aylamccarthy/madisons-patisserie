@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "vouchers",
     "profiles",
     "product_reviews",
+    "faqs",
     # Other
     "mathfilters",
     "storages",
