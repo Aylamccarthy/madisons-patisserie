@@ -8,7 +8,7 @@
     <div class="faq-list">
         {% for faq in faqs %}
         <div class="faq-item">
-            <div class="question">{{ faq.question }}</div>
+            <div class="question"><strong>{{ faq.question }}</strong></div>
             <div class="answer">{{ faq.answer }}</div>
         </div>
         {% empty %}
