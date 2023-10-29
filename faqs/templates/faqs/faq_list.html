@@ -3,19 +3,26 @@
 
 {% block content %}
 
-<div class="col-12 container-fluid faq-list bg-succes">
-    <h3 class="faq_title">Frequently Asked Questions</h3>
-    <div class="faq-list">
-        {% for faq in faqs %}
-        <div class="faq-item">
-            <div class="question"><strong>{{ faq.question }}</strong></div>
-            <div class="answer">{{ faq.answer }}</div>
+<div class="main-container col-lg-11 mx-auto pt-3 pb-3 mt-2 mt-lg-4 mb-4 bg-white">
+    <h1 class="mb-3 text-center">Frequently Asked Questions</h1>
+    <div class="pt-3">
+        <div class="col-12 mb-4 mb-lg-3">
+            <div class="col-12 col-xl-10  p-0 mx-auto">
+                    {% for faq in faqs %}
+                    <div class="faq-item">
+                        <div class="question"><strong>{{ faq.question }}</strong></div>
+                        <div class="answer pt-3">{{ faq.answer }}</div>
+                    </div>
+                    <hr>
+                    {% empty %}
+                    <p>No FAQs available.</p>
+                    {% endfor %}
+                
+            </div>
         </div>
-        {% empty %}
-        <p>No FAQs available.</p>
-        {% endfor %}
     </div>
 </div>
+
 
 
 {% endblock %}
