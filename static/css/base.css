@@ -322,8 +322,10 @@ select:focus {
 .gray-btn:hover{
     background-color: #d6d6d6;
 }
-.small-btn{
+.small-pad{
     padding: 5px 10px;
+}
+.small-btn {
     font-size: smaller;
 }
 
@@ -910,7 +912,7 @@ i {
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
-    right: 71px;
+    right: 11px;
 }
 
 .bag-notification-wrapper{
@@ -1579,6 +1581,10 @@ select option[value=""] {
 
     .product-container:hover .product-banner {
         opacity: 1;
+    }
+
+    .responsive-pad{
+        padding: 10px 20px !important;
     }
 }
 
