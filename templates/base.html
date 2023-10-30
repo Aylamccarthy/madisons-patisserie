@@ -261,24 +261,28 @@
        <!-- Messages -->
        {% if messages %}
        <div class="message-container">
-           {% for message in messages %}
-               {% with message.level as level %}
-                   {% if level == 40 %}
-                       {% include 'includes/toasts/toast_error.html' %}
-                   {% elif level == 30 %}
-                       {% include 'includes/toasts/toast_warning.html' %}
-                   {% elif level == 25 %}
-                     {% if 'bag' in message.tags %} 
-                       {% include 'includes/toasts/toast_bag_success.html' %}
-                   {% else %}
-                     {% include 'includes/toasts/toast_success.html' %}
-                   {% endif %}
-                   {% else %}
-                       {% include 'includes/toasts/toast_info.html' %}
-                   {% endif %}
-               {% endwith %}
-           {% endfor %}
-       </div>
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                  {% if 'form_errors' not in message.tags %} 
+                    {% include 'includes/toasts/toast_error.html' %}
+                  {% endif %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                  {% if 'form_success' not in message.tags %} 
+                    {% if 'bag' in message.tags %} 
+                      {% include 'includes/toasts/toast_bag_success.html' %}
+                    {% else %}
+                      {% include 'includes/toasts/toast_success.html' %}
+                    {% endif %}
+                  {% endif %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
    {% endif %}
     </header>
      <!-- LOGOUT MODAL -->
@@ -369,7 +373,7 @@
               <div class="d-md-flex flex-row-reverse text-white">
           <div class="col-12 pb-4 pb-md-0 col-md-6 text-center">
             <div class="col-md-10 pt-4 p-md-0 mx-auto">
-              <h4 class="mb-4">Subscribe To Our Newsletter</h4>
+              <h5 class="mb-4">Subscribe To Our Newsletter</h5>
               <form method="POST" action="{% url 'subscribe_to_newsletter'%}" id="newsletter">
                 {% csrf_token %}
                 {{ add_subscriber_form.as_p }}
