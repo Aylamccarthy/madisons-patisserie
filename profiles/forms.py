@@ -5,18 +5,21 @@ Forms for Profiles App.
 """
 from django import forms
 from datetime import date
+from phonenumber_field.formfields import PhoneNumberField
 from .models import UserProfile
 
 
-class UserProfileForm(forms.ModelForm):
+class UserProfileForm(ModelForm):
+    default_phone_number = PhoneNumberField(region="IE", required=False)
+
     class Meta:
         model = UserProfile
         exclude = ("user",)
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+         Add placeholders and classes, set delivery fields to readonly,
+        remove auto-generated labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
         placeholders = {
@@ -28,6 +31,9 @@ class UserProfileForm(forms.ModelForm):
             "default_county": "County, State or Locality",
         }
 
+        self.fields['default_county'].widget.attrs['readonly'] = True
+        self.fields['default_town_or_city'].widget.attrs['readonly'] = True
+
         for field in self.fields:
             if field != "default_country":
                 if self.fields[field].required:
@@ -36,6 +42,38 @@ class UserProfileForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].label = False
+
+    def clean(self):
+        """Add validation"""
+        cleaned_data = super().clean()
+        country = cleaned_data.get('default_country')
+        county = cleaned_data.get('default_county')
+        town_or_city = cleaned_data.get('default_town_or_city')
+
+        if country != 'IE':
+            self._errors["default_country"] = self.error_class(
+                ['Deliveries only for country Ireland at the moment'])
+        if not all(x.isalpha() or x.isspace() for x in county):
+            self._errors["default_county"] = self.error_class(
+                ['The format is invalid'])
+        else:
+            if str(county).lower() != 'cork':
+                self._errors["default_county"] = self.error_class(
+                    ['Deliveries only for county Cork at the moment'])
+            else:
+                cleaned_data['default_county'] = 'Cork'
+
+        if not all(x.isalpha() or x.isspace() for x in town_or_city):
+            self._errors["default_town_or_city"] = self.error_class(
+                ['The format is invalid'])
+        else:
+            if str(town_or_city).lower() != 'cork':
+                self._errors["default_town_or_city"] = self.error_class(
+                    ['Deliveries only for Cork city at the moment'])
+            else:
+                cleaned_data['default_town_or_city'] = 'Cork'
+
+        return cleaned_data
 
 
 class DateOrdersForm(forms.Form):
