@@ -57,6 +57,10 @@ class Products(ListView):
                     sortkey = f"-{sortkey}"
             if sortkey != "best_sellers" and "rating" not in sortkey:
                 products = products.order_by(sortkey)
+            elif sortkey == 'best_sellers':
+                # SORT PRODUCTS BY SUM OF PRODUCTS QUANTITY IN ORDERLINES
+                products = products.annotate(orders_products=Sum(
+                    ('orderline__quantity'))).order_by('-orders_products')
             elif "rating" in sortkey:
                 if direction == "asc":
                     products = products.order_by(F("rating").asc(nulls_last=True))
