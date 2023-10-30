@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /checkout/
+Sitemap: https://madisons-patisserie-8790c4325233.herokuapp.com/sitemap.xml
