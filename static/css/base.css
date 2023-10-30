@@ -578,7 +578,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: white;
+    color: #3a3a3a;
 }
 
 .overlay-content {
