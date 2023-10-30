@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     # Other
     "mathfilters",
     "storages",
+    "phonenumber_field",
     # "url_tools",
 ]
 
