@@ -42,11 +42,14 @@ class DateOrdersForm(forms.Form):
     """
     Form for filtering the orders in admin manage orders page
     """
-    date = forms.DateField(widget=forms.DateInput(
-        attrs={'type': 'date', 'class': 'px-2', 'value': date.today}))
+
+    date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={"type": "date", "class": "px-2", "value": date.today}
+        )
+    )
 
     def __init__(self, *args, **kwargs):
-
         super().__init__(*args, **kwargs)
-        self.fields['date'].required = False
-        self.fields['date'].label = "Filter By Date:"
+        self.fields["date"].required = False
+        self.fields["date"].label = "Filter By Date:"

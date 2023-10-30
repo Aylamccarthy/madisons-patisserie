@@ -103,16 +103,17 @@ class OrderDetails(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
 class AdminOrdersList(LoginRequiredMixin, UserPassesTestMixin, ListView):
     """A view for rendering orders filtered by date"""
+
     model = Order
     template_name = "profiles/admin_orders.html"
     context_object_name = "orders"
 
     def get(self, request):
-        if request.method == 'GET':
+        if request.method == "GET":
             today = date.today()
             date_form = DateOrdersForm(data=request.GET)
             if date_form.is_valid():
-                orders_date = date_form.cleaned_data['date']
+                orders_date = date_form.cleaned_data["date"]
                 if orders_date:
                     orders_date = orders_date
                 if orders_date:
@@ -120,11 +121,9 @@ class AdminOrdersList(LoginRequiredMixin, UserPassesTestMixin, ListView):
                 else:
                     orders_date = today
                 query = Order.objects.filter(date__date=orders_date)
-                context = {'date_form': date_form,
-                           'date': orders_date,
-                           'orders': query}
+                context = {"date_form": date_form, "date": orders_date, "orders": query}
 
-        return render(request, 'profiles/admin_orders.html', context)
+        return render(request, "profiles/admin_orders.html", context)
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -132,9 +131,10 @@ class AdminOrdersList(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 class AdminDeleteOrder(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """A view for removing order object"""
+
     model = Order
     template_name = "profiles/admin_orders.html"
-    success_url = reverse_lazy('admin_manage_orders')
+    success_url = reverse_lazy("admin_manage_orders")
     success_message = "Order was successfully deleted."
 
     def delete(self, request, *args, **kwargs):
@@ -145,9 +145,12 @@ class AdminDeleteOrder(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         """Create success url to keep current date filtering"""
         orders_date = self.get_object().date
         csrf = base64.b64encode(os.urandom(64))
-        return '/profile/manage_orders/?csrfmiddlewaretoken=' +\
-               csrf.decode("utf-8") + '&date=' + \
-               orders_date.strftime("%Y-%m-%d")
+        return (
+            "/profile/manage_orders/?csrfmiddlewaretoken="
+            + csrf.decode("utf-8")
+            + "&date="
+            + orders_date.strftime("%Y-%m-%d")
+        )
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -155,15 +158,16 @@ class AdminDeleteOrder(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class AdminOrderDetails(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """A view for rendering order details page"""
+
     template_name = "checkout/checkout_success.html"
 
     def get(self, request, order_number):
         order = get_object_or_404(Order, order_number=order_number)
 
-        template = 'checkout/checkout_success.html'
+        template = "checkout/checkout_success.html"
         context = {
-            'order': order,
-            'from_admin': True,
+            "order": order,
+            "from_admin": True,
         }
 
         return render(request, template, context)

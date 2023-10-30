@@ -2,5 +2,4 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
-urlpatterns = [
-    path("", views.faq_list, name="faq_list")]
+urlpatterns = [path("", views.faq_list, name="faq_list")]

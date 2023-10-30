@@ -57,10 +57,11 @@ class Products(ListView):
                     sortkey = f"-{sortkey}"
             if sortkey != "best_sellers" and "rating" not in sortkey:
                 products = products.order_by(sortkey)
-            elif sortkey == 'best_sellers':
+            elif sortkey == "best_sellers":
                 # SORT PRODUCTS BY SUM OF PRODUCTS QUANTITY IN ORDERLINES
-                products = products.annotate(orders_products=Sum(
-                    ('orderline__quantity'))).order_by('-orders_products')
+                products = products.annotate(
+                    orders_products=Sum(("orderline__quantity"))
+                ).order_by("-orders_products")
             elif "rating" in sortkey:
                 if direction == "asc":
                     products = products.order_by(F("rating").asc(nulls_last=True))
@@ -209,8 +210,7 @@ class ProductDetail(ListView):
         if (
             request.user.is_authenticated
             and len(
-                ReviewModel.objects.filter(
-                    Q(author=request.user) & Q(product=product))
+                ReviewModel.objects.filter(Q(author=request.user) & Q(product=product))
             )
             == 1
         ):
@@ -239,8 +239,7 @@ class ProductDetail(ListView):
             "update_product_form": update_product_form,
             "review_form": ReviewForm,
             "update_review_form": UpdateReviewForm(instance=current_review),
-            "review_list": ReviewModel.objects.filter(
-                product=product).order_by(
+            "review_list": ReviewModel.objects.filter(product=product).order_by(
                 "-date_updated_on"
             ),
             "current_review": current_review,
@@ -281,8 +280,9 @@ class ProductAddViewAdmin(LoginRequiredMixin, UserPassesTestMixin, View):
             if add_product_form.is_valid():
                 add_product_form.save()
                 messages.success(
-                    request, "A new product was successfully added to \
-                         the database"
+                    request,
+                    "A new product was successfully added to \
+                         the database",
                 )
                 return redirect("products")
             else:
@@ -307,8 +307,7 @@ class ProductAddViewAdmin(LoginRequiredMixin, UserPassesTestMixin, View):
         return self.request.user.is_superuser
 
 
-class ProductUpdateViewAdmin(LoginRequiredMixin,
-                             UserPassesTestMixin, UpdateView):
+class ProductUpdateViewAdmin(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     """
     A view that provides a form to update the Product entry
@@ -340,8 +339,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin,
 
             if update_product_form.is_valid():
                 update_product_form.save()
-                messages.success(
-                    request, "Your product was successfully updated")
+                messages.success(request, "Your product was successfully updated")
                 return redirect("/products/product_details/" + str(product.pk))
             else:
                 messages.error(
@@ -351,8 +349,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin,
                 )
                 return redirect("/products/product_details/" + str(product.pk))
         else:
-            update_product_form = UpdateProductForm(
-                instance=product, prefix="UPDATE")
+            update_product_form = UpdateProductForm(instance=product, prefix="UPDATE")
 
         context = {
             "update_product_form": update_product_form,
@@ -374,8 +371,7 @@ class ProductUpdateViewAdmin(LoginRequiredMixin,
         return self.request.user.is_staff
 
 
-class ProductDeleteViewAdmin(LoginRequiredMixin,
-                             UserPassesTestMixin, DeleteView):
+class ProductDeleteViewAdmin(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     A view that deletes a product entry from the database.
     The action is performed only if the authenticated user

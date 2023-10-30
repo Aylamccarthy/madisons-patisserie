@@ -36,8 +36,9 @@ class UpdateProductForm(forms.ModelForm):
         if is_cake:
             self.fields["is_cake"].initial = True
 
-        self.fields['category'].choices = [('', 'Category*')] +\
-            [(cat.id, cat.friendly_name) for cat in Category.objects.all()]
+        self.fields["category"].choices = [("", "Category*")] + [
+            (cat.id, cat.friendly_name) for cat in Category.objects.all()
+        ]
 
         placeholders = {
             "sku": "Sku",
@@ -60,7 +61,7 @@ class UpdateProductForm(forms.ModelForm):
     def clean_category(self):
         """Method for assinging the correponding Category object to category
         field"""
-        category_id = self.cleaned_data['category']
+        category_id = self.cleaned_data["category"]
         category = Category.objects.get(pk=category_id)
         return category
 
