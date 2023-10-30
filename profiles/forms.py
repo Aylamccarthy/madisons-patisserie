@@ -3,6 +3,7 @@ Profiles App - Forms
 ----------------
 Forms for Profiles App.
 """
+from django.forms import ModelForm
 from django import forms
 from datetime import date
 from phonenumber_field.formfields import PhoneNumberField
