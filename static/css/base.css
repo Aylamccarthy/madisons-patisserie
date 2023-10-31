@@ -1223,6 +1223,52 @@ select option[value=""] {
     margin-top: 10px;
 }
 
+/* CONTACT PAGE */
+.timetable{
+    margin: 0 20px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgb(74, 90, 92);
+    color: white;
+}
+
+.timetable h4 {
+    margin: 0 auto;
+}
+
+.timetable>div {
+    width: 100%;
+}
+
+.timetable>div>div:nth-child(1) {
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+.timetable>div>div:nth-child(1)>span::after {
+    position: absolute;
+    padding-left: .25ch;
+    content: " . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . "
+        ". . . . . . . . . . . . . . . . . . . . . . . ";
+    text-align: right;
+} 
+
+#map{
+    height: 327px;
+    width: 95%;
+}
+
+.contact h3 {
+    margin-top: 30px;
+}
+
+
 /* --------------------------------- DEVICES WITH HOVER MECHANISM ------------------------------- */
 @media (hover: hover) {
     .no-hover-rating {
