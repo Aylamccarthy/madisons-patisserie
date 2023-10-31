@@ -50,78 +50,80 @@ class TestViews(TestCase):
         )
 
     def test_profile_page_neauthenticated(self):
-        """ Test if profile page redirects to login page when user is
+        """Test if profile page redirects to login page when user is
         neauthenticated"""
         self.client.logout()
-        response = self.client.get('/profile/')
+        response = self.client.get("/profile/")
         self.assertEqual(response.status_code, 302)
-        self.assertIn('/accounts/login/', response['location'])
+        self.assertIn("/accounts/login/", response["location"])
 
     def test_profile_page_for_admin(self):
-        """ Test if profile page returns 403 forbidden for admin"""
+        """Test if profile page returns 403 forbidden for admin"""
 
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
         # Set user as admin
         self.user.is_staff = True
         self.user.is_admin = True
         self.user.save()
 
-        response = self.client.get('/profile/')
+        response = self.client.get("/profile/")
         self.assertEqual(response.status_code, 200)
 
     def test_profile_page(self):
-        """ Test if profile page renders correct page when user is
+        """Test if profile page renders correct page when user is
         authenticated as client user"""
-        response = self.client.get('/profile/')
+        response = self.client.get("/profile/")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/profile.html')
+        self.assertTemplateUsed(response, "profiles/profile.html")
 
     def test_profile_page_context(self):
-        """ Test if profile page renders correct context """
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        """Test if profile page renders correct context"""
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
 
         # Set bag session
         session = self.client.session
-        session['bag'] = {str(self.product.id): 5}
+        session["bag"] = {str(self.product.id): 5}
         session.save()
 
         # Create order object
-        response = self.client.get('/checkout/')
+        response = self.client.get("/checkout/")
         self.assertEqual(response.status_code, 200)
 
         data = {
-            'client_secret': response.context['client_secret'],
-            'full_name': 'Test User',
-            'email': 'testuser@yahoo.com',
-            'phone_number': '0896754834',
-            'country': 'IE',
-            'postcode': 'd38p3c4',
-            'town_or_city': 'Cork',
-            'street_address1': '77 Rushbrooke Manor',
-            'street_address2': '',
-            'county': 'Cork',
-            }
+            "client_secret": response.context["client_secret"],
+            "full_name": "Test User",
+            "email": "testuser@yahoo.com",
+            "phone_number": "0896754834",
+            "country": "IE",
+            "postcode": "d38p3c4",
+            "town_or_city": "Cork",
+            "street_address1": "77 Rushbrooke Manor",
+            "street_address2": "",
+            "county": "Cork",
+        }
 
         # Create order
         response = self.client.post(
-            reverse('checkout'), data,)
+            reverse("checkout"),
+            data,
+        )
 
         order = Order.objects.first()
         # Get checkout success page where the user
         # profile will be attached to order
         response = self.client.get(
-            reverse('checkout_success',
-                    kwargs={'order_number': order.order_number}))
+            reverse("checkout_success", kwargs={"order_number": order.order_number})
+        )
         self.assertTrue(response.status_code, 200)
 
-        response = self.client.get('/profile/')
+        response = self.client.get("/profile/")
         self.assertEqual(response.status_code, 200)
 
-        self.assertTrue('delivery_details_form' in response.context)
+        self.assertTrue("delivery_details_form" in response.context)
         # Test if orders context get the created order
-        self.assertTrue('orders' in response.context)
-        self.assertTrue(len(response.context['orders']), 1)
-        self.assertTrue(response.context['orders'][0], order)
+        self.assertTrue("orders" in response.context)
+        self.assertTrue(len(response.context["orders"]), 1)
+        self.assertTrue(response.context["orders"][0], order)
 
     def test_update_delivery(self):
         """Test post method for ProfileDeliveryUpdate view"""
@@ -130,140 +132,144 @@ class TestViews(TestCase):
         self.assertIsNone(current_profile.default_street_address1)
 
         delivery = {
-            'default_phone_number': '',
-            'default_country': 'IE',
-            'default_postcode': '',
-            'default_town_or_city': 'Cork',
-            'default_street_address1': '90 Square',
-            'default_street_address2': '',
-            'default_county': 'Cork',
-            }
+            "default_phone_number": "",
+            "default_country": "IE",
+            "default_postcode": "",
+            "default_town_or_city": "Cork",
+            "default_street_address1": "90 Square",
+            "default_street_address2": "",
+            "default_county": "Cork",
+        }
 
         self.client.post(
-            reverse('profile_delivery_update',
-                    kwargs={'user_pk': self.user.pk}),
-            delivery,)
+            reverse("profile_delivery_update", kwargs={"user_pk": self.user.pk}),
+            delivery,
+        )
 
         # Test if value was updated
         current_profile = UserProfile.objects.get(user=self.user)
-        self.assertTrue(current_profile.default_street_address1, '90 Square')
+        self.assertTrue(current_profile.default_street_address1, "90 Square")
 
     def test_order_details_page(self):
-        """ Test if order details page renders correct template"""
+        """Test if order details page renders correct template"""
 
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
 
         # Set bag session
         session = self.client.session
-        session['bag'] = {str(self.product.id): 5}
+        session["bag"] = {str(self.product.id): 5}
         session.save()
 
         # Create order object
-        response = self.client.get('/checkout/')
+        response = self.client.get("/checkout/")
         self.assertEqual(response.status_code, 200)
 
         data = {
-            'client_secret': response.context['client_secret'],
-            'full_name': 'Test User',
-            'email': 'testuser@yahoo.com',
-            'phone_number': '0896754834',
-            'country': 'IE',
-            'postcode': 'd38p3c4',
-            'town_or_city': 'Cork',
-            'street_address1': '77 Rushbrooke Manor',
-            'street_address2': '',
-            'county': 'Cork',
-            }
+            "client_secret": response.context["client_secret"],
+            "full_name": "Test User",
+            "email": "testuser@yahoo.com",
+            "phone_number": "0896754834",
+            "country": "IE",
+            "postcode": "d38p3c4",
+            "town_or_city": "Cork",
+            "street_address1": "77 Rushbrooke Manor",
+            "street_address2": "",
+            "county": "Cork",
+        }
 
         # Create order
         response = self.client.post(
-            reverse('checkout'), data,)
+            reverse("checkout"),
+            data,
+        )
         # Get checkout success page where the user
         # profile will be attached to order
         order = Order.objects.first()
         response = self.client.get(
-            reverse('checkout_success',
-                    kwargs={'order_number': order.order_number}))
+            reverse("checkout_success", kwargs={"order_number": order.order_number})
+        )
 
         response = self.client.get(
-            reverse('order_details',
-                    kwargs={'order_number': order.order_number}))
+            reverse("order_details", kwargs={"order_number": order.order_number})
+        )
         self.assertTrue(response.status_code, 200)
 
         # Test context
-        self.assertTemplateUsed(response, 'checkout/checkout_success.html')
-        self.assertTrue('order' in response.context)
-        self.assertTrue(response.context['order'], order)
+        self.assertTemplateUsed(response, "checkout/checkout_success.html")
+        self.assertTrue("order" in response.context)
+        self.assertTrue(response.context["order"], order)
 
     def test_admin_orders_page_neauthenticated(self):
-        """ Test if admin orders page redirects to login page when user is
+        """Test if admin orders page redirects to login page when user is
         neauthenticated"""
         self.client.logout()
-        response = self.client.get(reverse('admin_manage_orders'))
+        response = self.client.get(reverse("admin_manage_orders"))
         self.assertEqual(response.status_code, 302)
-        self.assertIn('/accounts/login/', response['location'])
+        self.assertIn("/accounts/login/", response["location"])
 
     def test_admin_orders_page_for_admin(self):
-        """ Test if admin orders page use the correct template
+        """Test if admin orders page use the correct template
         for rendering the page"""
 
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
         # Set user as admin
         self.user.is_staff = True
         self.user.is_admin = True
         self.user.save()
 
-        response = self.client.get(reverse('admin_manage_orders'))
+        response = self.client.get(reverse("admin_manage_orders"))
         self.assertEqual(response.status_code, 403)
-        self.assertTemplateUsed(response, 'profiles/admin_orders.html')
+        self.assertTemplateUsed(response, "profiles/admin_orders.html")
 
     def test_admin_orders_page(self):
-        """ Test if admin orders page return
+        """Test if admin orders page return
         403 forbidden for client user"""
 
         self.user.is_staff = False
         self.user.is_admin = False
         self.user.save()
 
-        response = self.client.get(reverse('admin_manage_orders'))
+        response = self.client.get(reverse("admin_manage_orders"))
         self.assertEqual(response.status_code, 403)
 
     def test_admin_orders_page_context(self):
-        """ Test if admin orders page renders correct context """
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        """Test if admin orders page renders correct context"""
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
 
         # Set bag session
         session = self.client.session
-        session['bag'] = {str(self.product.id): 5}
+        session["bag"] = {str(self.product.id): 5}
         session.save()
 
         # Create order object
-        response = self.client.get('/checkout/')
+        response = self.client.get("/checkout/")
         self.assertEqual(response.status_code, 200)
 
         data = {
-            'client_secret': response.context['client_secret'],
-            'full_name': 'Test User',
-            'email': 'testuser@yahoo.com',
-            'phone_number': '0896754834',
-            'country': 'IE',
-            'postcode': 'd38p3c4',
-            'town_or_city': 'Cork',
-            'street_address1': '77 Rushbrooke Manor',
-            'street_address2': '',
-            'county': 'Cork',
-            }
+            "client_secret": response.context["client_secret"],
+            "full_name": "Test User",
+            "email": "testuser@yahoo.com",
+            "phone_number": "0896754834",
+            "country": "IE",
+            "postcode": "d38p3c4",
+            "town_or_city": "Cork",
+            "street_address1": "77 Rushbrooke Manor",
+            "street_address2": "",
+            "county": "Cork",
+        }
 
         # Create order
         response = self.client.post(
-            reverse('checkout'), data,)
+            reverse("checkout"),
+            data,
+        )
 
         order = Order.objects.first()
         # Get checkout success page where the user
         # profile will be attached to order
         response = self.client.get(
-            reverse('checkout_success',
-                    kwargs={'order_number': order.order_number}))
+            reverse("checkout_success", kwargs={"order_number": order.order_number})
+        )
         self.assertTrue(response.status_code, 200)
 
         # Set user as staff
@@ -271,53 +277,55 @@ class TestViews(TestCase):
         self.user.is_admin = True
         self.user.save()
 
-        response = self.client.get(reverse('admin_manage_orders'))
+        response = self.client.get(reverse("admin_manage_orders"))
         self.assertEqual(response.status_code, 200)
 
-        self.assertTrue('date_form' in response.context)
+        self.assertTrue("date_form" in response.context)
         # Test if orders context get the created order
-        self.assertTrue('date' in response.context)
-        self.assertTrue('orders' in response.context)
+        self.assertTrue("date" in response.context)
+        self.assertTrue("orders" in response.context)
 
-        self.assertTrue(len(response.context['orders']), 1)
-        self.assertTrue(response.context['orders'][0], order)
+        self.assertTrue(len(response.context["orders"]), 1)
+        self.assertTrue(response.context["orders"][0], order)
 
     def test_admin_order_details_page(self):
-        """ Test if admin order details page renders correct template"""
+        """Test if admin order details page renders correct template"""
 
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
 
         # Set bag session
         session = self.client.session
-        session['bag'] = {str(self.product.id): 5}
+        session["bag"] = {str(self.product.id): 5}
         session.save()
 
         # Create order object
-        response = self.client.get('/checkout/')
+        response = self.client.get("/checkout/")
         self.assertEqual(response.status_code, 200)
 
         data = {
-            'client_secret': response.context['client_secret'],
-            'full_name': 'Test User',
-            'email': 'testuser@yahoo.com',
-            'phone_number': '0896754834',
-            'country': 'IE',
-            'postcode': 'd38p3c4',
-            'town_or_city': 'Cork',
-            'street_address1': '77 Rushbrooke Manor',
-            'street_address2': '',
-            'county': 'Cork',
-            }
+            "client_secret": response.context["client_secret"],
+            "full_name": "Test User",
+            "email": "testuser@yahoo.com",
+            "phone_number": "0896754834",
+            "country": "IE",
+            "postcode": "d38p3c4",
+            "town_or_city": "Cork",
+            "street_address1": "77 Rushbrooke Manor",
+            "street_address2": "",
+            "county": "Cork",
+        }
 
         # Create order
         response = self.client.post(
-            reverse('checkout'), data,)
+            reverse("checkout"),
+            data,
+        )
         # Get checkout success page where the user
         # profile will be attached to order
         order = Order.objects.first()
         response = self.client.get(
-            reverse('checkout_success',
-                    kwargs={'order_number': order.order_number}))
+            reverse("checkout_success", kwargs={"order_number": order.order_number})
+        )
 
         # Set user as staff
         self.user.is_staff = True
@@ -325,51 +333,53 @@ class TestViews(TestCase):
         self.user.save()
 
         response = self.client.get(
-            reverse('admin_order_details',
-                    kwargs={'order_number': order.order_number}))
+            reverse("admin_order_details", kwargs={"order_number": order.order_number})
+        )
         self.assertTrue(response.status_code, 200)
 
         # Test context
-        self.assertTrue('from_admin' in response.context)
-        self.assertTrue('order' in response.context)
-        self.assertTrue(response.context['order'], order)
+        self.assertTrue("from_admin" in response.context)
+        self.assertTrue("order" in response.context)
+        self.assertTrue(response.context["order"], order)
 
     def test_admin_orders_delete(self):
-        """ Test AdminDeleteOrder view """
-        self.client.login(email='testuser@yahoo.com', password='T12345678.')
+        """Test AdminDeleteOrder view"""
+        self.client.login(email="testuser@yahoo.com", password="T12345678.")
 
         # Set bag session
         session = self.client.session
-        session['bag'] = {str(self.product.id): 5}
+        session["bag"] = {str(self.product.id): 5}
         session.save()
 
         # Create order object
-        response = self.client.get('/checkout/')
+        response = self.client.get("/checkout/")
         self.assertEqual(response.status_code, 200)
 
         data = {
-            'client_secret': response.context['client_secret'],
-            'full_name': 'Test User',
-            'email': 'testuser@yahoo.com',
-            'phone_number': '0896754834',
-            'country': 'IE',
-            'postcode': 'd38p3c4',
-            'town_or_city': 'Cork',
-            'street_address1': '77 Rushbrooke Manor',
-            'street_address2': '',
-            'county': 'Cork',
-            }
+            "client_secret": response.context["client_secret"],
+            "full_name": "Test User",
+            "email": "testuser@yahoo.com",
+            "phone_number": "0896754834",
+            "country": "IE",
+            "postcode": "d38p3c4",
+            "town_or_city": "Cork",
+            "street_address1": "77 Rushbrooke Manor",
+            "street_address2": "",
+            "county": "Cork",
+        }
 
         # Create order
         response = self.client.post(
-            reverse('checkout'), data,)
+            reverse("checkout"),
+            data,
+        )
 
         order = Order.objects.first()
         # Get checkout success page where the user
         # profile will be attached to order
         response = self.client.get(
-            reverse('checkout_success',
-                    kwargs={'order_number': order.order_number}))
+            reverse("checkout_success", kwargs={"order_number": order.order_number})
+        )
         self.assertTrue(response.status_code, 200)
 
         # Set user as staff
@@ -378,8 +388,8 @@ class TestViews(TestCase):
         self.user.save()
 
         response = self.client.get(
-            reverse('admin_delete_order',
-                    kwargs={'pk': order.pk}))
+            reverse("admin_delete_order", kwargs={"pk": order.pk})
+        )
         self.assertTrue(response.status_code, 200)
 
         # Check if order has been deleted

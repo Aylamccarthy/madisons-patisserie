@@ -1,4 +1,3 @@
-
 """
 Product App - Tests
 ----------------
@@ -49,95 +48,95 @@ class TestViews(TestCase):
             price=25.00,
             image="fresh_cream_cake.jpg",
             stock=100,
-
         )
 
     def test_products_page(self):
-        """ Test if products page renders correct page when user is
+        """Test if products page renders correct page when user is
         authenticated as client user"""
-        response = self.client.get('/products/')
+        response = self.client.get("/products/")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/products.html')
+        self.assertTemplateUsed(response, "products/products.html")
 
     def test_products_page_neauthenticated(self):
-        """ Test if products page renders correct page
-        without user authentication """
+        """Test if products page renders correct page
+        without user authentication"""
         self.client.logout()
-        response = self.client.get('/products/')
+        response = self.client.get("/products/")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/products.html')
+        self.assertTemplateUsed(response, "products/products.html")
 
     def test_products_context(self):
-        """ Test if context is rendered to create products page"""
-        response = self.client.get('/products/')
+        """Test if context is rendered to create products page"""
+        response = self.client.get("/products/")
         self.assertEqual(response.status_code, 200)
-        self.assertTrue('products' in response.context)
-        self.assertTrue('search_term' in response.context)
-        self.assertTrue('current_category' in response.context)
-        self.assertTrue('categories' in response.context)
-        self.assertTrue('current_url' in response.context)
-        self.assertTrue('current_url_no_filters' in response.context)
-        self.assertTrue('remove_filter' in response.context)
-        self.assertTrue('current_sorting' in response.context)
+        self.assertTrue("products" in response.context)
+        self.assertTrue("search_term" in response.context)
+        self.assertTrue("current_category" in response.context)
+        self.assertTrue("categories" in response.context)
+        self.assertTrue("current_url" in response.context)
+        self.assertTrue("current_url_no_filters" in response.context)
+        self.assertTrue("remove_filter" in response.context)
+        self.assertTrue("current_sorting" in response.context)
 
     def test_product_detail_page(self):
-        """ Test if product detail page renders correct template when user is
+        """Test if product detail page renders correct template when user is
         authenticated as client user"""
         response = self.client.get(
-            '/products/product_details/' + str(self.product.id) + '/')
+            "/products/product_details/" + str(self.product.id) + "/"
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/product_detail.html')
+        self.assertTemplateUsed(response, "products/product_detail.html")
 
     def test_product_detail_page_neauthenticated(self):
-        """ Test if product detail page renders correct template
-        without user authentication """
+        """Test if product detail page renders correct template
+        without user authentication"""
         self.client.logout()
         response = self.client.get(
-            '/products/product_details/' + str(self.product.id) + '/')
+            "/products/product_details/" + str(self.product.id) + "/"
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/product_detail.html')
+        self.assertTemplateUsed(response, "products/product_detail.html")
 
     def test_product_detail_page_context(self):
-        """ Test if context is rendered to create products page"""
+        """Test if context is rendered to create products page"""
         response = self.client.get(
-            '/products/product_details/' + str(self.product.id) + '/')
+            "/products/product_details/" + str(self.product.id) + "/"
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertTrue('product' in response.context)
-        self.assertTrue('update_product_form' in response.context)
-        self.assertTrue('review_form' in response.context)
-        self.assertTrue('update_review_form' in response.context)
-        self.assertTrue('review_list' in response.context)
-        self.assertTrue('current_review' in response.context)
-        self.assertTrue('add_to_wishlist_form' in response.context)
-        self.assertTrue('current_wishlist_line' in response.context)
+        self.assertTrue("product" in response.context)
+        self.assertTrue("update_product_form" in response.context)
+        self.assertTrue("review_form" in response.context)
+        self.assertTrue("update_review_form" in response.context)
+        self.assertTrue("review_list" in response.context)
+        self.assertTrue("current_review" in response.context)
+        self.assertTrue("add_to_wishlist_form" in response.context)
+        self.assertTrue("current_wishlist_line" in response.context)
 
     def test_product_add_for_user_not_superuser(self):
-        """ Test if post method for add product fails
+        """Test if post method for add product fails
         for not admin users"""
         new_product = {
-            'ADD-category': self.category.id,
-            'ADD-sku': "ca101994",
-            'ADD-name': "Fresh Cream Cake",
-            'ADD-type': 'dessert',
-            'ADD-code': "107901",
-            'ADD-price': 25.00,
-            'ADD-image': '"fresh_cream_cake.jpg"',
-            'ADD-stock': 100
+            "ADD-category": self.category.id,
+            "ADD-sku": "ca101994",
+            "ADD-name": "Fresh Cream Cake",
+            "ADD-type": "dessert",
+            "ADD-code": "107901",
+            "ADD-price": 25.00,
+            "ADD-image": '"fresh_cream_cake.jpg"',
+            "ADD-stock": 100,
         }
 
         # Call post method for client use
         response = self.client.post(
-            reverse('product_add'),
-            new_product,)
+            reverse("product_add"),
+            new_product,
+        )
         # Test if the user gets 403 forbidden on post
         self.assertEqual(response.status_code, 403)
 
         self.client.logout()
         # Call post method for neauthenticated user
-        response = self.client.post(
-            reverse('product_add'),
-            new_product)
+        response = self.client.post(reverse("product_add"), new_product)
         # Test if the neauthenticated user is redirected to login page
         self.assertEqual(response.status_code, 302)
-        self.assertIn('/accounts/login/', response['location'])
-
+        self.assertIn("/accounts/login/", response["location"])
