@@ -420,7 +420,7 @@ if (window.location.pathname.includes('/products/')) {
     });
     // The marker, positioned at Cork
     const marker = new google.maps.Marker({
-      position: cobh,
+      position: cork,
       map: map,
     });
   }

@@ -9,6 +9,7 @@ from django.shortcuts import redirect, render, get_object_or_404, HttpResponse
 from django.contrib import messages
 from django.urls import reverse
 from django.conf import settings
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 from .models import Order, OrderLine
@@ -49,7 +50,7 @@ class CacheCheckoutData(View):
             return HttpResponse(content=e, status=400)
 
 
-class Checkout(TemplateView):
+class Checkout(UserPassesTestMixin, TemplateView):
     """View for displaying order forms and
     creating Order and OrderLine objects"""
 
@@ -162,12 +163,15 @@ class Checkout(TemplateView):
             )
         return redirect(reverse("checkout"))
 
+    def test_func(self):
+        if self.request.user.is_authenticated:
+            return not self.request.user.is_superuser
+        return True
 
-class CheckoutSuccess(View):
+class CheckoutSuccess(UserPassesTestMixin, View):
     """
     Handle successful checkouts
     """
-
     def get(self, request, order_number):
         """Override get method"""
         order = get_object_or_404(Order, order_number=order_number)
@@ -187,3 +191,8 @@ class CheckoutSuccess(View):
         }
 
         return render(request, template, context)
+
+    def test_func(self):
+        if self.request.user.is_authenticated:
+            return not self.request.user.is_superuser
+        return True
