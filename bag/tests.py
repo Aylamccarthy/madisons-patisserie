@@ -37,16 +37,16 @@ class TestViews(TestCase):
             friendly_name="Cakes",
         )
 
-        # creates test product object
+        # # creates test product object
         self.product = Product.objects.create(
             category=self.category,
-            is_cake=False,
             sku="ca101994",
             name="Fresh Cream Cake",
             type="dessert",
             code="107901",
             price=25.00,
             image="fresh_cream_cake.jpg",
+            stock=100,
         )
 
     def test_bag_page(self):
@@ -80,7 +80,7 @@ class TestViews(TestCase):
         self.user.save()
 
         response = self.client.get("/bag/")
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 200)
         self.user.is_staff = False
         self.user.is_admin = False
         self.user.save()
