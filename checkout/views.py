@@ -168,10 +168,12 @@ class Checkout(UserPassesTestMixin, TemplateView):
             return not self.request.user.is_superuser
         return True
 
+
 class CheckoutSuccess(UserPassesTestMixin, View):
     """
     Handle successful checkouts
     """
+
     def get(self, request, order_number):
         """Override get method"""
         order = get_object_or_404(Order, order_number=order_number)

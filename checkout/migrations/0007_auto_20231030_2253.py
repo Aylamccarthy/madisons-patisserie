@@ -5,20 +5,21 @@ import phonenumber_field.modelfields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0006_auto_20231026_1847'),
+        ("checkout", "0006_auto_20231026_1847"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='date',
-            field=models.DateTimeField(default='2023-10-30 22:53:12'),
+            model_name="order",
+            name="date",
+            field=models.DateTimeField(default="2023-10-30 22:53:12"),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='phone_number',
-            field=phonenumber_field.modelfields.PhoneNumberField(max_length=20, region=None),
+            model_name="order",
+            name="phone_number",
+            field=phonenumber_field.modelfields.PhoneNumberField(
+                max_length=20, region=None
+            ),
         ),
     ]

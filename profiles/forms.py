@@ -32,8 +32,8 @@ class UserProfileForm(ModelForm):
             "default_county": "County, State or Locality",
         }
 
-        self.fields['default_county'].widget.attrs['readonly'] = True
-        self.fields['default_town_or_city'].widget.attrs['readonly'] = True
+        self.fields["default_county"].widget.attrs["readonly"] = True
+        self.fields["default_town_or_city"].widget.attrs["readonly"] = True
 
         for field in self.fields:
             if field != "default_country":
@@ -47,32 +47,35 @@ class UserProfileForm(ModelForm):
     def clean(self):
         """Add validation"""
         cleaned_data = super().clean()
-        country = cleaned_data.get('default_country')
-        county = cleaned_data.get('default_county')
-        town_or_city = cleaned_data.get('default_town_or_city')
+        country = cleaned_data.get("default_country")
+        county = cleaned_data.get("default_county")
+        town_or_city = cleaned_data.get("default_town_or_city")
 
-        if country != 'IE':
+        if country != "IE":
             self._errors["default_country"] = self.error_class(
-                ['Deliveries only for country Ireland at the moment'])
+                ["Deliveries only for country Ireland at the moment"]
+            )
         if not all(x.isalpha() or x.isspace() for x in county):
-            self._errors["default_county"] = self.error_class(
-                ['The format is invalid'])
+            self._errors["default_county"] = self.error_class(["The format is invalid"])
         else:
-            if str(county).lower() != 'cork':
+            if str(county).lower() != "cork":
                 self._errors["default_county"] = self.error_class(
-                    ['Deliveries only for county Cork at the moment'])
+                    ["Deliveries only for county Cork at the moment"]
+                )
             else:
-                cleaned_data['default_county'] = 'Cork'
+                cleaned_data["default_county"] = "Cork"
 
         if not all(x.isalpha() or x.isspace() for x in town_or_city):
             self._errors["default_town_or_city"] = self.error_class(
-                ['The format is invalid'])
+                ["The format is invalid"]
+            )
         else:
-            if str(town_or_city).lower() != 'cork':
+            if str(town_or_city).lower() != "cork":
                 self._errors["default_town_or_city"] = self.error_class(
-                    ['Deliveries only for Cork city at the moment'])
+                    ["Deliveries only for Cork city at the moment"]
+                )
             else:
-                cleaned_data['default_town_or_city'] = 'Cork'
+                cleaned_data["default_town_or_city"] = "Cork"
 
         return cleaned_data
 
