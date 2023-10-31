@@ -408,3 +408,19 @@ if (window.location.pathname.includes('/products/')) {
          document.getElementById('ADD-image-filename').textContent = `Image will be set to: ${file.name}`;
      });
  }
+
+   // Google Map Initialization //
+   function initMap() {
+    // The location of Cork
+    const cork = { lat: 51.89868, lng: -8.47137 }; 
+    // The map, centered at Cork
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: cork,
+    });
+    // The marker, positioned at Cork
+    const marker = new google.maps.Marker({
+      position: cobh,
+      map: map,
+    });
+  }
