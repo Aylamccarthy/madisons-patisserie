@@ -1268,6 +1268,37 @@ select option[value=""] {
     margin-top: 30px;
 }
 
+.min-h-100 {
+    min-height: 100vh;
+}
+
+.sp-between {
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.review-page{
+    background-color: #140c08b0;
+
+    color: antiquewhite;
+    box-shadow: #ffffff 0px 0px 0px 2px,
+            rgb(70 42 28) 0px 0px 0px 6px,
+            #482b1d 0px 0px 0px 9px,
+            rgb(70 42 29) 0px 0px 0px 12px,
+            #ffffff 0px 0px 0px 14px;
+    
+    position: relative;
+    overflow: auto;
+    
+}
+
+.a-start {
+    align-items: flex-start;
+}
+
+.f-column {
+    flex-direction: column;
+}
 
 /* --------------------------------- DEVICES WITH HOVER MECHANISM ------------------------------- */
 @media (hover: hover) {
