@@ -18,7 +18,8 @@ urlpatterns = [
         views.OrderDetails.as_view(),
         name="order_details",
     ),
-    path("manage_orders/", views.AdminOrdersList.as_view(), name="admin_manage_orders"),
+    path("manage_orders/", 
+         views.AdminOrdersList.as_view(), name="admin_manage_orders"),
     path(
         "delete_order/<pk>/",
         views.AdminDeleteOrder.as_view(),
