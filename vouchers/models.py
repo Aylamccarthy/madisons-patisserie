@@ -40,9 +40,9 @@ def send_discount_voucher_on_email_confirmed_(request, email_address, **kwargs):
     voucher.save()
 
     customer_email = email_address.email
-    subject = render_to_string("profiles/discount_emails/discount_email_subject.txt")
+    subject = render_to_string("vouchers/discount_emails/discount_email_subject.txt")
     body = render_to_string(
-        "profiles/discount_emails/discount_email_body.html",
+        "vouchers/discount_emails/discount_email_body.html",
         {
             "user": user,
             "contact_email": settings.DEFAULT_FROM_EMAIL,
