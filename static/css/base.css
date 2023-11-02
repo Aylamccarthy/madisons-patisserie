@@ -726,7 +726,7 @@ i {
     padding: 15px;
     position: relative;
     overflow: hidden;
-    min-height: 400px;
+    max-height: 400px;
 }
 
 .product-container h6 {
