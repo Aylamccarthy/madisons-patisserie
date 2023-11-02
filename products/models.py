@@ -4,6 +4,7 @@ Products App - Models
 Models for Products App.
 """
 from django.db import models
+from django_resized import ResizedImageField
 
 
 class Category(models.Model):
