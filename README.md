@@ -239,3 +239,205 @@ By using Agile methodology, I was able to stay organized and focused on deliveri
 <summary>Sprints Details</summary>
 
 
+## Deployment
+
+The app was deployed to heroku for the first time as soon as  django 
+installation was completed to make sure that everything is working correctly.
+
+## Database (ElephangSQL)
+
+1. Navitate to [ElephantSQL website](https://www.elephantsql.com/), log in to your account
+2. In top-right corner click on green button "Create New Instance".
+3. Enter database name, leave plan field as is, optionaly enter tags.
+4. Select region, click on "Review" and then on "Create instance".
+5. Go to your dashboard, find newly created database instance, click on it.
+6. Copy URL starting with "postgress://"
+7. Paste this URL into env.py file as DATABASE_URL value and save the file.
+
+  ```python
+  os.environ["DATABASE_URL"] = "postgres://yourLinkFromDatabaseDashboard"
+  ```
+
+## AWS
+
+Amazon web services are used to store all static and media files. 
+
+#### S3
+1. First you will need to sign up to AWS which you can do [here](https://aws.amazon.com/).
+2. Once you have created an account and logged in, under the All Services>Storage menu, click the link that says S3.
+3. On the S3 page you will need to create a new bucket. To do this click the orange button that says 'Create Bucket'.
+4. Name the bucket and select the closest region to you. To keep things simple I recommend naming the bucket after your project's name.
+5. Under 'Object Ownership' select 'ACLs enabled' and leave the Object Ownership as Bucket owner preferred. 
+6. Uncheck the 'Block all public access' checkbox and check the warning box to acknowledge that the bucket will be made public, then click create bucket. 
+7. Once created, click the bucket's name and navigate to the properties tab. Scroll to the bottom and under 'Static website hosting' click 'edit' and change the Static website hosting option to 'enabled'. Copy the default values for the index and error documents and click 'save changes'.
+8. Now navigate to the permissions tab, scroll down to the Cross-origin resource sharing (CORS) section, click edit and paste in the following code:  
+    ```
+    [
+        {
+            "AllowedHeaders": [
+            "Authorization"
+            ],
+            "AllowedMethods": [
+            "GET"
+            ],
+            "AllowedOrigins": [
+            "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]
+    ```
+9. Then scroll back up to the 'Bucket Policy' section. Click 'edit' and then 'Policy generator'. This should open the AWS policy generator page.
+10. From here under the 'select type of policy' dropdown menu, select 'S3 Bucket Policy'. Then inside 'Principle' allow all principals by typing a *.
+11. From the 'Actions dropdown menu select 'Get object'. Then head back to the previous tab and locate the Bucket ARN number. Copy that, return to the policy generator and paste it in the field labelled Amazon Resource Name (ARN).
+12. Once that's completed click 'Add statement', then 'Generate Policy'. Copy the policy that's been generated and paste it into the bucket policy editor.
+13. Before you click save, add a '/*' at the end of your resource key. This is to allow access to all resources in this bucket.
+14. Once those changes are saved, scroll down to the Access control list (ACL) section and click 'edit'.
+15. Next to 'Everyone (public access)', check the 'list' checkbox. This will pop up a warning box that you will also have to check. Once that's done click 'save'. 
+
+
+
+## Django secret key
+
+In order to protect django app secret key it was set as anviroment variable and stored in env.py. Please change your password accordingly.
+
+```python
+os.environ["SECRET_KEY"] = "yourSecretKey"
+```
+
+## GitHub and Gitpod
+
+Note: Repository was created using Code Institute template: [https://github.com/Code-Institute-Org/gitpod-full-template](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+1. Login to Github and navigate to repository: [https://github.com/Aylamccarthy/madisons-patisserie](https://github.com/Aylamccarthy/madisons-patisserie)
+
+2. Click on "Fork button" in upper-right corner and create a new form in your own account.
+
+3. Open your repository in local IDE or using Gitpod. Preferred way is to used [Chrome Gitpod Extension](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki). When you install extension, green "Gitpod" button appears in your repository. Click on it to cread new workspace.
+
+4. Go to workspace terminal and install all requirements using command: "pip install -r requirements.txt". All te packages will be installed. requirements.txt content:
+
+```python
+asgiref==3.7.2
+black==23.9.1
+boto3==1.28.50
+botocore==1.31.50
+click==8.1.7
+coverage==7.3.2
+dj-database-url==0.5.0
+Django==3.2.21
+django-allauth==0.41.0
+django-countries==7.5.1
+django-mathfilters==1.0.0
+django-phonenumber-field==7.2.0
+django-phonenumbers==1.0.1
+django-resized==1.0.2
+django-storages==1.14
+django-url-tools==0.0.8
+django-url-tools-py3==0.2.1
+gunicorn==21.2.0
+humanhash3==0.0.6
+jmespath==1.0.1
+oauthlib==3.2.2
+pathspec==0.11.2
+phonenumbers==8.13.23
+Pillow==10.0.1
+psycopg2==2.9.7
+python3-openid==3.2.0
+requests-oauthlib==1.3.1
+s3transfer==0.6.2
+sqlparse==0.4.4
+stripe==7.0.0
+urllib3==1.26.16
+    ```
+
+5. Local env.py file should be configured as on example below:
+
+    ```python
+    import os
+
+    # Env vars
+    os.environ["DATABASE_URL"] = "postgres://yourLinkCopiedFromElephantSQLDashboard"
+    os.environ["SECRET_KEY"] = "YourSecretKey"
+    os.environ["AWS_ACCESS_KEY_ID"] = "YourAwsAccessKeyId"
+    os.environ["AWS_SECRET_ACCESS_KEY"] = "YourAwsSecretAccessKey"
+
+
+6. In order to save django changes in database migration needs to be made.
+
+7. Use terminal commands:
+
+    ```text
+    python3 manage.py makemigrations --dry-run
+    python3 manage.py makemigrations
+    python3 manage.py migrate --plan
+    python3 manage.py migrate
+    ```
+
+8. Create superuser to access admin area using terminal command (email is optional, password won't be visible when typing, confirm password twice):
+
+    ```text
+    python3 manage.py createsuperuser
+    ```
+
+9. App can be run in gitpod enviroment using terminal command:
+
+    ```text
+    python3 manage.py runserver
+    ```
+
+10. Go to Heroku and follow further instructions below.
+
+
+### Deploy on Heroku
+
+## Heroku
+
+1. Navigate to [https://heroku.com/](https://heroku.com/) login to your account and open dashboard. Click button "New" and select "Create new app" button.
+
+2. Enter app name, I used "madisons-patisserie", chose your region and click on "Create app" button.
+
+3. Click on newly created app and go to "Deploy" tab and then to "Deployment method" section. Authorize and connect your GitHub account, then find and select your repository.
+
+4. Go to the "Settings" tab, click on "Reveal Config Vars" and add the following keys and values (all values should be strings without any quotation marks):
+
+    NOTE: DISABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deployment it should be removed.
+
+    | Key                    | Value                                                            |
+    |------------------------|------------------------------------------------------------------|
+    | AWS_ACCESS_KEY_ID      | aws url beginning with aws://                      |
+    | DATABASE_URL           | postgress url beginning with postgress://                        |
+    | DISABLE_COLLECTSTATIC  | 1                                                                |
+    | PORT                   | 8000                                                             |
+    | SECRET_KEY             | YourSecretKey, the same as in env.py                             |
+
+
+5. Return to your Gitpod workspace and navigate to the file `madisons_patisserie.settings.py`. Change allowed hosts including the name of the app that you created in previous steps. In my case, it was 'madisons-patisserie-8790c4325233.herokuapp.com/'. Save the file.
+
+6. Procfile required to run project on Heroku was already created but if you change your app's name please make sure that this change is reflected in Procfile. It can be found in your project's main directory. In my case Procfile looks as below:
+
+    ```python
+    web: gunicorn madisons_patisserie.wsgi:application
+    ```
+
+7. After adding enviromental variables and editing Procfile project is ready for deployment. In Heroku app's dashboard navigate to "Deploy" tab, scroll down to "Manual deploy" section. Select main branch from dropdown menu and click on "Deploy Branch".
+
+8. **Step required for final deployment:** Navigate again to app's settings, reveal config vars and delete DISABLE_COLLECTSTATIC entry if it was set before.
+
+9. After build is done, you should be able to see the button with the link leading to deployed app. In my case [https://madisons-patisserie-8790c4325233.herokuapp.com/](https://madisons-patisserie-8790c4325233.herokuapp.com/).
+
+
+### Fork the repository
+For creating a copy of the repository on your account and change it without affecting the original project, use<b>Fork</b> directly from GitHub:
+- On [My Repository Page](https://github.com/Aylamccarthy/madisons-patisserie), press <i>Fork</i> in the top right of the page
+- A forked version of my project will appear in your repository<br></br>
+
+### Clone the repository
+For creating a clone of the repository on your local machine, use<b>Clone</b>:
+- On [My Repository Page](https://github.com/Aylamccarthy/madisons-patisserie), click the <i>Code</i> green button, right above the code window
+- Chose from <i>HTTPS, SSH and GitClub CLI</i> format and copy (preferably <i>HTTPS</i>)
+- In your <i>IDE</i> open <i>Git Bash</i>
+- Enter the command <code>git clone</code> followed by the copied URL
+- Your clone was created
+<hr>
+
