@@ -196,27 +196,34 @@ All the colours were selected generated from the hero image using Coolors
 ## Business Model
 
 * The business model chosen for this project is <b>Business to Customer</b>, as the main purpose of the website is to deliver final products to customers. This model was implemented using an interactive, attractive and intuitive interface that gives the clients an upgraded experience for shopping.<br><br>
-<img src="">
+<img src="media/b2c_diagram.png" width="60%">
 
-* The store offers a diverse selections of baked products categorised as *All Products*, *Cakes*, *Desserts* and *Everyday Esssentials*. Customers can order any quantity of the products within the limit of available stock.
+* The store offers a diverse selections of baked products categorised as *All Products*, *Cakes*(Cakes are further sub-categorised to drip cakes, buttercream cakes, chocolate cakes and occassion cakes), *Desserts*, *Sweet Treats* and *Everyday Esssentials*. Customers can order any quantity of the products within the limit of available stock.
 
 ## Marketing
 
+### Facebook Page
 * The marketing strategy includes a Facebook business page that is intended to create a good image of the bakeshop by posting news and promotions available. By highly promoting the products and always adding new content, the page will increase its popularity and attract more and more customers to buy from the online store.<br><br>
-<img width="80%" src="">
+<img width="80%" src="media/facebook_screenshot.png">
+
+### Newsletter
+* Newsletter is also utilised as a marketing strategy in an attempt to improve customer engagement further, keeping them up to date and also incentivising them by running promotions on regular basis.<br><br>
+<img width="60%" src="media/newsletter_screenshot.png">
 
 ## Agile Methodology
 This project was developed utilising the Agile Methodogy.<br>
- I prioritized features by labeling them such as "must-have", "could-have", "future enhancement", and "bugs" among others and moved some less critical ones to future development. To guide my development process, I created user stories for both the admin/staff user and guests/clients/customers. These stories helped to define the features and functionalities that were most important to project's target audience.
+ I prioritized features by labeling them such as "must-have", "could-have", "future enhancement", "backlog" and "bugs" among others and moved some less critical ones to future development. To guide my development process, I created user stories for both the admin/staff user and guests/clients/customers. These stories helped to define the features and functionalities that were most important to project's target audience.
 
 As a student solo developer who was learning a lot during development, I faced challenges in estimating the time required for each task and only had a basic concept of what I would be able to create at a given timeframe. Therefore, I kept things simple and focused on achievable goals. Aiming for Minimum Viable Product, or MVP. All the features and functionalities that I wanted to have but I didn't manage to finish because of time constraints were moved to "Future Enhancement". With the goal of implementing them on the projects future release.
 
-To keep track of progress, I used Github Projects(https://github.com/users/Aylamccarthy/projects/5). I used a kanban board (https://github.com/users/Aylamccarthy/projects/5/views/1?layout=board) divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed me to visualize all tasks and prioritize next steps. However, I could not find the "epics" feature in GitHub Projects, only milestones (it provides only [milestones and issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)). Epics are supposed to be larger in scope than milestones, representing a significant amount of work. Milestones, on the other hand, are meant to mark significant points in time in terms of project completion. In this document, I added epics, but on the project board, I used only [milestones]() to stay in order with GitHub's features.
+To keep track of progress, I used Github Projects(https://github.com/users/Aylamccarthy/projects/5). I used a kanban board (https://github.com/users/Aylamccarthy/projects/5/views/1?layout=board) divided into following sections: "to do", "in progress" "done", "backlog", "future enhancements" and "bugs" that allowed me to visualize all tasks and prioritize next steps. However, I could not find the "epics" feature in GitHub Projects, only milestones (it provides only [milestones and issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)). Epics are supposed to be larger in scope than milestones, representing a significant amount of work. Milestones, on the other hand, are meant to mark significant points in time in terms of project completion. In this document, I added epics, but on the project board, I used only [milestones]() to stay in order with GitHub's features.
 
 By using Agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me invaluable insight and lessons that I can apply to future projects.
 
-![agile]()
-![agile-boards](media/pp5_kanban_board.png)
+<img width="80%" src="media/agile_screenshot.png">
+<br> <br>
+<img width="80%" src="media/pp5_kanban_board.png">
+
 
 | Epic | Milestone | User stories |
 |------|-----------|--------------|
@@ -234,9 +241,6 @@ By using Agile methodology, I was able to stay organized and focused on deliveri
 |   | Milestone 12: Refactoring and Final deployment| [#25](https://github.com/Aylamccarthy/madisons-patisserie/issues/25) [#26](https://github.com/Aylamccarthy/madisons-patisserie/issues/26)
 |   
 
-
-<details>
-<summary>Sprints Details</summary>
 
 
 ## Deployment
@@ -353,8 +357,8 @@ urllib3==1.26.16
 
 5. Local env.py file should be configured as on example below:
 
-    ```python
-    import os
+```python
+import os
 
     # Env vars
     os.environ["DATABASE_URL"] = "postgres://yourLinkCopiedFromElephantSQLDashboard"
@@ -401,7 +405,7 @@ urllib3==1.26.16
 
 4. Go to the "Settings" tab, click on "Reveal Config Vars" and add the following keys and values (all values should be strings without any quotation marks):
 
-    NOTE: DISABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deployment it should be removed.
+NOTE: DISABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deployment it should be removed.
 
     | Key                    | Value                                                            |
     |------------------------|------------------------------------------------------------------|
