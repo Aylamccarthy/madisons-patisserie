@@ -58,7 +58,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">
           <div class="container-fluid p-side">
-            <ul class="categories d-block d-lg-flex col-7 pl-lg-0">
+            <ul class="categories d-block d-lg-flex col-8 pl-lg-0">
               <li class="nav-item mb-2 mb-lg-0 mr-3 mt-2 mt-lg-0">
                 <a href="{% url 'home' %}" id="navitem-home">Home</a>
               </li>
@@ -79,15 +79,15 @@
               <li class="nav-item mr-3 mt-2 mt-lg-0">
                 <div class="dropdown">
                   <a class="dropdown-toggle" href="{% url 'products' %}?category=everyday_essentials" data-toggle="dropdown" aria-expanded="false" >
-                    Popular
+                    Everyday Essentials
                   </a>
                   <div class="dropdown-menu dropdown-menu-lg-start">
-                      <a class="dropdown-item" href="{% url 'products' %}?category=everyday_essentials">Everyday Essentials</a>
+                      <a class="dropdown-item" href="{% url 'products' %}?category=Desserts">Desserts</a>
                       <a class="dropdown-item" href="{% url 'products' %}?category=sweet_treats">Sweet Treats</a>
                   </div>
                 </div>
               </li>
-              <div class="d-none d-lg-block col-lg-3 p-0">
+              <div class="d-none d-lg-block col-lg-3 ml-lg-4 p-0">
                 {% include 'includes/search-box.html' %}
               </div>
             </ul>
