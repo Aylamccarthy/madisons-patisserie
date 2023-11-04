@@ -1224,6 +1224,16 @@ select option[value=""] {
 }
 
 /* CONTACT PAGE */
+
+.contact-page {
+    background-image: url(https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/bakeshop_img2.webp);
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: right;
+    height: 90vh;
+    position: relative;
+
+}
 .timetable {
     margin: 0 20px;
     padding: 15px;
