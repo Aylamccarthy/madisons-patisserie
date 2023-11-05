@@ -1235,8 +1235,7 @@ select option[value=""] {
 
 }
 .timetable {
-    margin: 0 20px;
-    padding: 15px;
+    margin: auto;
     border-radius: 20px;
     background-color: rgb(74, 90, 92);
     color: white;
@@ -1251,48 +1250,14 @@ select option[value=""] {
 }
 
 .timetable>div>div:nth-child(1) {
-    margin-bottom: 15px;
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
 }
-.timetable>div>div:nth-child(1)>span::after {
-    position: absolute;
-    padding-left: .25ch;
-    content: " . . "
-        ". .. . . . "
-        ". . .  . . "
-        ". . .. . . "
-        ". . .  . . "
-        ". .  . . . "
-        ". . . . .  ";
-    text-align: right;
-} 
 
 #map{
-    height: 200px;
-    width: 50%;
-}
-
-.contact h3 {
-    margin-top: 30px;
-}
-
-.min-h-100 {
-    min-height: 100vh;
-}
-
-.sp-between {
-    margin-top: 40px;
-    justify-content: space-between;
-}
-
-.a-start {
-    align-items: flex-start;
-}
-
-.f-column {
-    flex-direction: column;
+    height: 327px;
+    width: 95%;
 }
 
 /* --------------------------------- DEVICES WITH HOVER MECHANISM ------------------------------- */

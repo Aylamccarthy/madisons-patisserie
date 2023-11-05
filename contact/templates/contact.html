@@ -1,88 +1,60 @@
 {% extends "base.html" %} 
 {% load static %} 
+
 {% block content %}
 <div class="col-lg-12 contact-page">
-    <h1 class="mb-3 text-center">Welcome!</h1>
-            <div class="flex contact-responsive">
-                <div class="col-6 col-lg-4">
-                    <!-- Opening and Closing times -->
-                    <div class=" flex f-column a-start timetable">
-                        <h4>Cork Cafe Shop Opening Hours</h4>
-                        <div class="flex sp-between">
-                            <div class="col flex">
-                                <span><b>Monday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>09:00-17:00</span>
-                            </div>
-                        </div>                  
-                        <div class="flex">
-                            <div class="col flex">
-                                <span><b>Tuesday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>09:00-17:00</span>
-                            </div>
-                        </div>  <div class="flex">
-                            <div class="col flex">
-                                <span><b>Wednesday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>09:00-17:00</span>
-                            </div>
-                        </div>  <div class="flex">
-                            <div class="col flex">
-                                <span><b>Thursday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>09:00-17:00</span>
-                            </div>
-                        </div>  <div class="flex">
-                            <div class="col flex">
-                                <span><b>Friday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>09:00-17:00</span>
-                            </div>
-                        </div>  <div class="flex">
-                            <div class="col flex">
-                                <span><b>Saturday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>10:00-17:00</span>
-                            </div>
-                        </div>  <div class="flex">
-                            <div class="col flex">
-                                <span><b>Sunday</b></span>
-                            </div>
-                            <div class="flex">
-                                <span>10:00-17:00</span>
-                            </div>
-                        </div>  
+    <div class="container">
+        <h1 class="text-center">Welcome!</h1>
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- Opening and Closing times -->
+                <div class="timetable mb-4">
+                    <!-- Opening hours table here -->
+                    <h4 class="text-center">Cork Cafe Shop Opening Hours</h4>
+                    <div>
+                        <span><b>Monday..........09:00-17:00</b></span>
                     </div>
-                </div>
-                <br>
-                <!-- Google map -->
-                <div class="col-12 col-lg-6 map-container">
-                    <div id="map" alt="google map"></div>
-                </div>
-            </div><br>
-            <!-- Contact details -->
-            <div>
-                <h5>You can find us on:</h5>
-                    <p class=""><b>32 St. Patrick's Quay, Cork, Ireland</b></p>
-                <h5>Phone number:</h5>
-                    <p class=""><b>353871376895</b></p>
-                    <p class=""><b>0871376899</b></p>
-                <h5>Email:</h5>
-                    <p class=""><b>madisons_patisserie@yahoo.com</b></p>
-                <h5>Visit us on Facebook:</h5>
-                    <p class=""><a href="https://www.facebook.com/profile.php?id=61553025716191" target="_blank" rel="noopener" aria-label="Link to facebook page"></i>Madison's Patisserie</a></b></p>
-            
-            </div><br>
+                    <div>
+                        <span><b>Tuesday..........09:00-17:00</b></span>
+                    </div>
+                    <div>
+                        <span><b>Wednesday..........09:00-17:00</b></span>
+                    </div>
+                    <div>
+                        <span><b>Thursday..........09:00-17:00</b></span>
+                    </div>
+                    <div>
+                        <span><b>Friday..........09:00-17:00</b></span>
+                    </div>
+                    <div>
+                        <span><b>Saturday..........09:00-17:00</b></span>
+                    </div>
+                    <div>
+                        <span><b>Sunday..........09:00-17:00</b></span>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Google map -->
+        <div class="col-lg-8">
+            <div id="map" class="map-container"></div>
         </div>
     </div>
+
+    <!-- Contact details -->
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="timetable">
+                <!-- Opening hours table here -->
+                <h6><b>You can find us on:</b></h6>
+                <p>32 St. Patrick's Quay, Cork, Ireland</p>
+                <p>Phone number: 353871376895/0871376899 </p>
+                <p>Email: madisons_patisserie@yahoo.com</p>
+            </div>
+        </div>
+   
+    </div>
+    
 </div>
 
 {% endblock %}
-
