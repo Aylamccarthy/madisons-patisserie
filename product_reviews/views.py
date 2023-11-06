@@ -38,7 +38,7 @@ class AddReview(LoginRequiredMixin, UserPassesTestMixin, View):
                 else:
                     rate_value = 1
                 text = review_form.cleaned_data["review_text"]
-                user = request.user
+                user = request.user.email
                 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 review = ReviewModel(
                     rate=rate_value,
@@ -50,7 +50,7 @@ class AddReview(LoginRequiredMixin, UserPassesTestMixin, View):
                 )
                 review.save()
                 messages.success(
-                    request, "Your review was successfully" + "added to the list"
+                    request, "Your review was successfully " + " added to the list"
                 )
                 # UPDATE PRODUCT RATE VALUE WITH AVERAGE MEAN OF CORESPONDING REVIEWS RATE VALUES
                 product_rates = ReviewModel.objects.filter(product=product)
