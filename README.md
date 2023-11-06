@@ -357,12 +357,24 @@ The form for editing the review already contains the corresponding message value
 
 #### Wishlist
 * On the *Product Details* page there is an interactive feature that is only available for logged-in users that are not staff members. A user has the possibility to add a product to the wishlist through a form that uses a heart icon as a button. The heart shape defines the state of the product in the wishlist database. This feature is also accessible on the *Bag* page.<br><br>
-<img src="media/add_wishlist.png" width="30%">
+<img src="media/add_wishlist.png" width="30%"><br><br>
 <img src="media/remove_wishlist.png" width="30%"><br><br>
 
 * In the *Wishlist* page there are listed all the favourite items of the user with a design similar to the one created for the *Products* pages. A filtering and sorting section is also available and every element is linked to a *Product Details* page.<br>
 An additional feature would be that every item includes a representation of the number of times it has been added to the wishlist by all the users.<br><br>
-<img src="media/wishlist.png" width="80%"><br><br>
+<img src="media/wishlist.png" width="90%"><br><br>
+
+#### Bag
+* A feature for adding a product to the shopping bag has been created and included in the *Products*, *Product Details* and *Wishlist* pages. This is a form for updating the products existing in the shopping bag and also their quantity.
+* In the *Bag* page there's a list of the added items with details about quantity and price. Any item can be removed by clicking on the bin icon and also the quantity can be updated.<br><br>
+<img src="media/bag_list.png"><br><br>
+
+* A section for applying a voucher code has been implemented. Whenever a user registers on the website, an email with a 20% discount voucher code is sent automatically to the user via email. The code can be used in the shopping bag for a 20% discount. The voucher can be applied and also removed before proceeding to checkout. The code can be used only be used once by the account holder.<br>
+When the order total cost doesn't reach the value specified (€50) on the website for *free delivery*, a message will be displayed to inform the user about the remaining value to be added to be able to avail of free delivery service (calculated as 10% from the order total).<br><br>
+<img src="media/voucher.png" width="80%"><br><br>
+<img src="media/confirm_voucher_toast.png" width="40%"><br><br>
+<img src="media/voucher_email.png" width="40%"><br><br>
+<img src="media/add_voucher.png" width="40%"><br><br>
 
 
 

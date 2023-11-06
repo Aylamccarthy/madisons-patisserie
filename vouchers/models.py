@@ -21,7 +21,7 @@ class Voucher(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=False, blank=False)
     percentage = models.PositiveIntegerField(
-        default=15, null=False, blank=False)
+        default=20, null=False, blank=False)
     voucher_code = models.CharField(
         max_length=254, null=False, blank=False, unique=True
     )
