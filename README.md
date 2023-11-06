@@ -203,7 +203,7 @@ All the colours were selected generated from the hero image using Coolors
 ## Marketing
 
 ### Facebook Page
-* The marketing strategy includes a Facebook business page that is intended to create a good image of the bakeshop by posting news and promotions available. By highly promoting the products and always adding new content, the page will increase its popularity and attract more and more customers to buy from the online store.<br><br>
+* The marketing strategy includes a Facebook business page that is intended to create a good image of the bakeshop by posting news and promotions available. By highly promoting the products and always adding new content, the page will increase its popularity and attract more and more customers to buy from the online store. The page can be accessed at [this link](https://www.facebook.com/profile.php?id=61553025716191).<br><br><br><br>
 <img width="80%" src="media/facebook_screenshot.png">
 
 ### Newsletter
@@ -218,7 +218,7 @@ As a student solo developer who was learning a lot during development, I faced c
 
 To keep track of progress, I used Github Projects(https://github.com/users/Aylamccarthy/projects/5). I used a kanban board (https://github.com/users/Aylamccarthy/projects/5/views/1?layout=board) divided into following sections: "to do", "in progress" "done", "backlog", "future enhancements" and "bugs" that allowed me to visualize all tasks and prioritize next steps. However, I could not find the "epics" feature in GitHub Projects, only milestones (it provides only [milestones and issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)). Epics are supposed to be larger in scope than milestones, representing a significant amount of work. Milestones, on the other hand, are meant to mark significant points in time in terms of project completion. In this document, I added epics, but on the project board, I used only [milestones]() to stay in order with GitHub's features.
 
-By using Agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me invaluable insight and lessons that I can apply to future projects.
+By using Agile methodology, I was able to stay organized, work efficiently and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me invaluable insight and lessons that I can apply to future projects.
 
 <img width="80%" src="media/agile_screenshot.png">
 <br> <br>
@@ -321,7 +321,7 @@ Note: Repository was created using Code Institute template: [https://github.com/
 
 4. Go to workspace terminal and install all requirements using command: "pip install -r requirements.txt". All te packages will be installed. requirements.txt content:
 
-```python
+```text
 asgiref==3.7.2
 black==23.9.1
 boto3==1.28.50
@@ -353,7 +353,7 @@ s3transfer==0.6.2
 sqlparse==0.4.4
 stripe==7.0.0
 urllib3==1.26.16
-    ```
+```
 
 5. Local env.py file should be configured as on example below:
 
@@ -365,7 +365,7 @@ import os
     os.environ["SECRET_KEY"] = "YourSecretKey"
     os.environ["AWS_ACCESS_KEY_ID"] = "YourAwsAccessKeyId"
     os.environ["AWS_SECRET_ACCESS_KEY"] = "YourAwsSecretAccessKey"
-
+```
 
 6. In order to save django changes in database migration needs to be made.
 
