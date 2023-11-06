@@ -38,7 +38,7 @@ class AddReview(LoginRequiredMixin, UserPassesTestMixin, View):
                 else:
                     rate_value = 1
                 text = review_form.cleaned_data["review_text"]
-                user = request.user.email
+                user = request.user
                 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 review = ReviewModel(
                     rate=rate_value,
