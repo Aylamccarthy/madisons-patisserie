@@ -186,13 +186,6 @@ All the colours were selected generated from the hero image using Coolors
 **Logo:** *Yesteryear, cursive*<br>
 **Custom error page:** *Josefin Sans, sans-serif*
 
-#### Visual Effects
-* **Box shadows** <br>
-
-* **Hover effects**<br>
-
-* **Animation**<br>
-
 ## Business Model
 
 * The business model chosen for this project is <b>Business to Customer</b>, as the main purpose of the website is to deliver final products to customers. This model was implemented using an interactive, attractive and intuitive interface that gives the clients an upgraded experience for shopping.<br><br>
@@ -239,7 +232,97 @@ By using Agile methodology, I was able to stay organized, work efficiently and f
 |   |Milestone 10:Admin Manage Orders| [#21](https://github.com/Aylamccarthy/madisons-patisserie/issues/21) [#22](https://github.com/Aylamccarthy/madisons-patisserie/issues/22) [#23](https://github.com/Aylamccarthy/madisons-patisserie/issues/23)
 | Epic 5: COMPREHENSIVE TESTING and PROJECT WRAP UP| Milestone 11: Comprehensive Testing and Code Validations| [#8](https://github.com/Aylamccarthy/madisons-patisserie/issues/8) [#24](https://github.com/Aylamccarthy/madisons-patisserie/issues/24)
 |   | Milestone 12: Refactoring and Final deployment| [#25](https://github.com/Aylamccarthy/madisons-patisserie/issues/25) [#26](https://github.com/Aylamccarthy/madisons-patisserie/issues/26)
-|   
+|  
+
+<details>
+<summary><strong>Sprints Details</strong></summary>
+
+* **Sprint 1 - SETUP**<br>
+    -Setup Django<br>
+    -Deploy on heroku<br><br>
+* **Sprint 2 - VIEWING AND NAVIGATION**<br>
+    -Add website name, logo, slogan and description<br>
+    -Choose colours, fonts and decorative images <br>
+    -Create a navigation menu<br>
+    -Implement the search feature<br>
+    -Add footer with social media links
+    <br><br>
+* **Sprint 3 - USER REGISTRATION/AUTENTHICATION + NEWSLETTER**<br>
+    -Implement the *Register* page using the django-allauth module<br>
+    -Implement the *Login* page using django-allauth module<br>
+    -Implement *Logout* modal using django-allauth module<br><br>
+    -Implement email confirmation using django-allauth module<br>
+    -Implement password reset using django-allauth module<br>
+    -Add a form for the users to subscribe to the newsletter
+    <br><br>
+* **Sprint 4 - PRODUCTS**<br>
+    -Create *Products* pages, with all items or grouped by category<br>
+    -Create a list of products<br> 
+    -Implement filtering and sorting features<br>
+    -Implement a feature for adding products to the shopping bag<br>
+    -Create *Product Details* page with full specifications<br>
+    -Add a feature for adding products to the shopping bag from the *Details* page<br>
+    -Implement feature for admin to delete product<br>
+    -Implement features for admin to add/update product<br>
+    -Add validation for add/update product forms
+    <br><br>
+* **Sprint 5 - REVIEWS**<br>
+    -Implement a form for adding and updating reviews on the *Product Details* page<br>
+    -Add a section that displays all the reviews for the product<br>
+    -Implement feature for product's general rating
+    <br><br>
+* **Sprint 6 - WISHLIST**<br>
+    -Add a feature for adding/removing products from the wishlist in the *Product Details* page<br>
+    -Create a page to display all the products added to the wishlist<br>
+    -Add a feature for adding products to the shopping bag<br>
+    -Add filtering and sorting feature<br>
+    -Add a feature for calculating how many times a product has been added to the wishlist by all the users
+    <br><br>
+* **Sprint 7 - BAG**<br>
+    -Create a *Bag* page that includes a list with all the items added to the shopping bag<br>
+    -Add a feature that allows the user to add/remove a product from the wishlist inside the *Shopping Bag* page<br>
+    -Implement a feature for removing a product from the shopping bag<br>
+    -Add a section with price details<br>
+    -Implement a feature that allows the user to edit the quantity of a product
+    <br><br>
+* **Sprint 8 - CHECKOUT**<br>
+    -Create a *CHECKOUT* page that includes a summary of the items added in the shopping bag and price details<br>
+    -Add a form for personal, delivery and payment details<br>
+    -Add form validation<br>
+    -Create *CHECKOUT SUCCESS* page that displays full specifications of the order
+    <br><br>
+* **Sprint 9 - USER PROFILE**<br>
+    -Create user *Profile* page<br>
+    -Add a form for delivery details<br>
+    -Add validation for the form<br
+    -Add a section with orders' history<br>
+    -Add a page that displays full specifications for any order
+    <br><br>
+* **Sprint 10 - ADMIN MANAGE ORDERS AND CONTACT PAGE**<br>
+    -Create a *CONTACT* page<br>
+    -Create a *MANAGE ORDERS* page to display all orders for today<br>
+    -Implement filtering by date form<br>
+    -Add a page that displays full specifications for any order
+    <br><br>
+* **Sprint 11 - VOUCHERS AND FAQs**<br>
+    -Implement a feature for sending an email with a 15% discount code to the user that registers on the website<br>
+    -Add voucher form in the *Bag* page<br>
+    -Add a *Faqs* page <br>
+    -Add form validation
+    <br><br>
+* **Sprint 12 - TESTING**<br>
+    -Create unit tests for Home App<br>
+    -Create unit tests for Products App<br>
+    -Create unit tests for Product Reviews App<br>
+    -Create unit tests for Wishlist App<br>
+    -Create unit tests for Bag App<br>
+    -Create unit tests for Checkout App<br>
+    -Create unit tests for Profiles App<br>
+    -Create unit tests for Vouchers App<br>
+    -Create unit tests for contacts App<br>
+    -Create unit tests for Faqs App<br>
+    -Create unit tests for Newsletter App<br>
+</details><br><br>
 
 
 
