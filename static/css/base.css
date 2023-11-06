@@ -461,13 +461,14 @@ body {
 /* --------------------------------------- HEADER STYLING ------------------------------------------- */
 
 .logo {
-    font-family: 'Yesteryear';
+    font-family: 'Great Vibes';
     color: white;
 }
 
 .logo h2 {
     color: white;
     margin-bottom: 0;
+    font-weight: 900;
 }
 
 .navbar {
