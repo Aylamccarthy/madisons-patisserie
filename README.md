@@ -325,6 +325,46 @@ By using Agile methodology, I was able to stay organized, work efficiently and f
 </details><br><br>
 
 
+## Features
+### Existing Features<hr>
+#### Products
+Every user can access the page with the product catalogue. The items are listed attractively and their design is adapted to all devices.
+
+* On every page with a catalogue of products, there is a section for filtering and sorting.<br>
+    The filters can be selected from a dropdown with all the values existing in the list of items displayed. When a user selects a filter, its value is added to a list of *active filters* and the list updates accordingly. Any active filter can be removed and the list will return to its initial state.<br><br>
+    <img src="media/product_filter.png"><br><br>
+
+    The sorting feature is available for the user by selecting a value from the available options that will update the products' list accordingly.<br><br>
+    <img src="media/product_sorting.png" width="40%"><br><br>
+
+* All the products are listed as hoverable elements which include relevant information for the users. The items with low stock have a banner to announce the user about their availability.<br><br>
+<img src="media/all_products.png"><br><br>
+
+* Every products has a *details page* that includes full specifications.<br><br>
+<img src="media/product_details.png" width="70%"><br><br>
+
+#### Product Reviews
+* On the *Product Details* page there is a list with all the reviews posted on the website and it is visible to all types of users. All the reviews have the same design and type of content. Important details are displayed such as *Name*, *Date and time*, *Stars rating* and the *Message* posted.<br><br>
+<img src="media/review.png" width="60%"><br><br>
+
+* When a user is authenticated and he never posted a review, a form is provided for leaving a message and a star rating.<br><br>
+<img src="media/add_review.png" width="40%"><br><br>
+
+* For authenticated users that already posted a review, the page displays the values of their review and the possibility to update it.<br><br>
+The form for editing the review already contains the corresponding message value and the star ratings in the initial state.<br><br>
+<img src="media/submit_review.png" width="40%"><br><br>
+<img src="media/update_review.png" width="40%"><br><br>
+
+#### Wishlist
+* On the *Product Details* page there is an interactive feature that is only available for logged-in users that are not staff members. A user has the possibility to add a product to the wishlist through a form that uses a heart icon as a button. The heart shape defines the state of the product in the wishlist database. This feature is also accessible on the *Bag* page.<br><br>
+<img src="media/add_wishlist.png" width="30%">
+<img src="media/remove_wishlist.png" width="30%"><br><br>
+
+* In the *Wishlist* page there are listed all the favourite items of the user with a design similar to the one created for the *Products* pages. A filtering and sorting section is also available and every element is linked to a *Product Details* page.<br>
+An additional feature would be that every item includes a representation of the number of times it has been added to the wishlist by all the users.<br><br>
+<img src="media/wishlist.png" width="80%"><br><br>
+
+
 
 ## Deployment
 
