@@ -1256,10 +1256,9 @@ select option[value=""] {
 }
 
 #map{
-    height: 327px;
-    width: 95%;
+    height: 250px;
+    width: 97%;
 }
-
 /* --------------------------------- DEVICES WITH HOVER MECHANISM ------------------------------- */
 @media (hover: hover) {
     .no-hover-rating {

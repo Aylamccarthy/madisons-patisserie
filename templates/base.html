@@ -87,7 +87,13 @@
                   </div>
                 </div>
               </li>
-              <div class="d-none d-lg-block col-lg-3 ml-lg-4 p-0">
+              <li class="nav-item mr-3 mt-2 mt-lg-0">
+                <a href="{% url 'contact' %}" id="navitem-products">Contact</a>
+              </li>
+              <li class="nav-item mr-3 mt-2 mt-lg-0">
+                <a href="{% url 'faq_list' %}" id="navitem-products">FAQs</a>
+              </li>
+              <div class="d-none d-lg-block col-lg-3 ml-lg-4 p-0 mr-3">
                 {% include 'includes/search-box.html' %}
               </div>
             </ul>
