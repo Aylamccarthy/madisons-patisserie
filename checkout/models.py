@@ -12,6 +12,7 @@ from django.conf import settings
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 from products.models import Product
 from profiles.models import UserProfile
 import datetime
@@ -19,14 +20,15 @@ import datetime
 
 class Order(models.Model):
     now = datetime.datetime.now()
+
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user = models.ForeignKey(
-        UserProfile, on_delete=models.SET_NULL, null=True, blank=True
-    )
+        UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
-    phone_number = PhoneNumberField(max_length=20, null=False, blank=False)
-    country = CountryField(blank_label="Country *", null=False, blank=False)
+    phone_number = PhoneNumberField(max_length=20, null=False,
+                                    blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
@@ -34,20 +36,17 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
     delivery_cost = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, default=0
-    )
+        max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
-    )
+        max_digits=10, decimal_places=2, null=False, default=0)
     discount = models.PositiveIntegerField(default=0, null=True, blank=True)
     discount_value = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
-    )
+        max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
-    )
-    original_bag = models.TextField(null=False, blank=False, default="")
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
+        max_digits=10, decimal_places=2, null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
@@ -60,16 +59,29 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = (
-            self.lineitems.aggregate(Sum("quantity_price"))["quantity_price__sum"] or 0
-        )
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = (
+        self.order_total = self.lineitems.aggregate(
+            Sum('quantity_price'))['quantity_price__sum'] or 0
+
+        if self.discount != 0:
+            # CALCULATE DISCOUNT VALUE, ORDER_TOTAL, ORDER DELIVERY
+            # AND GRAND TOTAL
+            self.discount_value = self.order_total * self.discount / 100
+            if (self.order_total - self.discount_value) <\
+                    settings.FREE_DELIVERY_THRESHOLD:
+                self.delivery_cost = (self.order_total - self.discount_value) \
+                    * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            else:
+                self.delivery_cost = 0
+            self.grand_total = (
+                self.order_total - self.discount_value) + self.delivery_cost
+        elif self.order_total < settings.FREE_DELIVERY_THRESHOLD:
+            self.delivery_cost =\
                 self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-            )
+            self.grand_total = self.order_total + self.delivery_cost
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+            self.grand_total = self.order_total + self.delivery_cost
+
         self.save()
 
     def save(self, *args, **kwargs):
@@ -87,19 +99,14 @@ class Order(models.Model):
 
 class OrderLine(models.Model):
     order = models.ForeignKey(
-        Order,
-        null=False,
-        blank=False,
-        on_delete=models.CASCADE,
-        related_name="lineitems",
-    )
+        Order, null=False, blank=False, on_delete=models.CASCADE,
+        related_name='lineitems')
     product = models.ForeignKey(
-        Product, null=False, blank=False, on_delete=models.CASCADE
-    )
+        Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     quantity_price = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False
-    )
+        max_digits=6, decimal_places=2, null=False, blank=False,
+        editable=False)
 
     def save(self, *args, **kwargs):
         """
@@ -110,4 +117,4 @@ class OrderLine(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"SKU {self.product.sku} on order {self.order.order_number}"
+        return f'SKU {self.product.sku} on order {self.order.order_number}'

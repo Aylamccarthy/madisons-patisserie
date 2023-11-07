@@ -65,7 +65,7 @@ class OrderForm(forms.ModelForm):
             self._errors["county"] = self.error_class(
                 ['Invalid format. Only letters and spaces accepted'])
         else:
-            if str(county).lower() != 'dublin':
+            if str(county).lower() != 'cork':
                 self._errors["county"] = self.error_class(
                     ['Deliveries only for county Cork at the moment'])
             else:

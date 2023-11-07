@@ -1,3 +1,10 @@
+
+"""
+Checkout App - Webhooks
+----------------
+Webhooks for Checkout App.
+"""
+
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST

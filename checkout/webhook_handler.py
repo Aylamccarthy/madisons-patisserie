@@ -1,7 +1,7 @@
 """
 Checkout App - Webhook
 ----------------
-Views for Checkout App.
+Webhook Handlers for Checkout App.
 """
 from django.http import HttpResponse
 from django.core.mail import send_mail
