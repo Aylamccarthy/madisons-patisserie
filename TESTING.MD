@@ -1,3 +1,59 @@
+
+#### Links
+
+* Ensure the external links to social media present in the footer open up in new tabs.
+
+## Automated View Testing
+### Test Overview
+
+* **Home App**<br>
+Tests applied for user stories: **#1, #2 #7**<br>
+<img src="media/test_home.png"><br><br>
+
+* **Products App**<br>
+Tests applied for user stories: **#10, #11, #12**<br>
+<img src="media/test_products.png"><br><br>
+
+* **Bag App**<br>
+Tests applied for user stories: **#15, #16**<br>
+<img src="media/test_bag.png"><br><br>
+
+* **Checkout App**<br>
+Tests applied for user stories: **#17, #18, #22**<br>
+<img src="media/test_checkout.png"><br><br>
+
+* **Product Reviews App**<br>
+Tests applied for user stories: **#13, #11**<br>
+<img src="media/test_product_reviews.png"><br><br>
+
+* **Wishlist App**<br>
+Tests applied for user stories: **#19, #14**<br>
+<img src="media/test_wishlist.png"><br><br>
+
+* **Profiles App**<br>
+Tests applied for user stories: **#19, #20, #21**<br>
+<img src="media/test_profiles.png"><br><br>
+
+* **Vouchers App**<br>
+Tests applied for user stories: **#22**<br>
+<img src="media/test_vouchers.png"><br><br>
+
+* **Newsletter App**<br>
+Tests applied for user stories: **#8**<br>
+<img src="media/test_newsletter.png"><br><br>
+
+### Test Coverage
+For generating a report with the coverage of the automated tests, [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) module was used.<br>
+Full coverage results:<br><br>
+<img width="80%" src="media/coverage_report.png"><br><br>
+<img src="media/coverage_report2.png"><br><br>
+
+
+
+
+
+
+
 ## BUGS
 ### Solved
 * ** Duplicate key error. 
