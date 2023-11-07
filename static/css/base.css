@@ -755,12 +755,6 @@ i {
 }
 
 /* Chrome, Safari, Edge, Opera */
-.product-count input::-webkit-outer-spin-button,
-.product-count input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
-}
-
 .product-count:not(.bag-count) button:hover {
     background-color: #c8c8c8b3;
 }
@@ -957,9 +951,7 @@ i {
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    
 }
 
 .custom-error {
@@ -1096,7 +1088,7 @@ select option[value=""] {
 }
 
 .loading-spinner {
-    color: official;
+    color: gray;
     display: inline-block;
     position: relative;
     width: 80px;

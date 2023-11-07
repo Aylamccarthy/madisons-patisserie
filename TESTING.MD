@@ -48,6 +48,45 @@ Full coverage results:<br><br>
 <img width="80%" src="media/coverage_report.png"><br><br>
 <img src="media/coverage_report2.png"><br><br>
 
+## Browser Testing
+The website was tested on different browser to ensure all features work accordingly.
+* Chrome
+* Edge
+* Safary
+* Opera
+* Firefox
+
+## Code Validation
+### HTML
+
+The html code of the website was validated using [W3 Markup Validator](https://validator.w3.org/).<br>
+At the time of deployment the validation have the following outcome:<br><br>
+
+<img src="media" width="40%"><br><br>
+
+The following pages have been tested:
+* Home
+* Products
+* Product details
+* Bag
+* Checkout
+* Checkout Success
+* User Profile
+* Admin Orders
+* Wishlist
+* FAQs
+* Contact
+* Login/Register
+* 403/404/500 custom pages
+
+### CSS
+
+The CSS code was validated using [W3 Jigsaw Validator](https://jigsaw.w3.org/css-validator/)<br>
+At the time of deployment the validation for *base.css* has the following outcome:<br><br>
+
+<img src="media/pp5_css_validation.png" width="60%"><br><br>
+
+
 
 
 
