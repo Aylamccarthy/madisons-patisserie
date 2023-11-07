@@ -1,4 +1,3 @@
-
 """
 Checkout App - Webhooks
 ----------------

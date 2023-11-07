@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('vouchers', '0001_initial'),
+        ("vouchers", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='voucher',
-            name='percentage',
+            model_name="voucher",
+            name="percentage",
             field=models.PositiveIntegerField(default=20),
         ),
     ]

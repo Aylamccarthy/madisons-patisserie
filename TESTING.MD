@@ -99,6 +99,13 @@ At the time of deployment the validation for *script.js* and *stripe_elements.js
 <img src="media/js_validation_stripe.png" width="40%"><br><br>
 </details>
 
+* The warnings listed are caused by the EventListeners added to elements in a loop.<br>
+I tried to solve the issue but no successful method has been found, so I chose to ignore the warning as it is not affecting the way my code works in any way.
+
+### Python
+The python code was tested using [Code Institute python linter](https://pep8ci.herokuapp.com/) online validator.<br>
+At the time of deployment the python code validation has the following outcome:<br><br>
+
 
 
 

@@ -5,20 +5,29 @@ import django_resized.forms
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0002_alter_product_stock'),
+        ("products", "0002_alter_product_stock"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='image',
-            field=django_resized.forms.ResizedImageField(blank=True, crop=None, force_format='WEBP', keep_meta=True, null=True, quality=75, scale=None, size=[400, None], upload_to='media/'),
+            model_name="product",
+            name="image",
+            field=django_resized.forms.ResizedImageField(
+                blank=True,
+                crop=None,
+                force_format="WEBP",
+                keep_meta=True,
+                null=True,
+                quality=75,
+                scale=None,
+                size=[400, None],
+                upload_to="media/",
+            ),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='stock',
+            model_name="product",
+            name="stock",
             field=models.PositiveIntegerField(),
         ),
     ]

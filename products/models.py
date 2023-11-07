@@ -40,7 +40,13 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image = ResizedImageField(
-        size=[400, None], quality=75, upload_to='media/', force_format='WEBP',null=True, blank=True)
+        size=[400, None],
+        quality=75,
+        upload_to="media/",
+        force_format="WEBP",
+        null=True,
+        blank=True,
+    )
     stock = models.PositiveIntegerField(null=False, blank=False)
 
     def __str__(self):
