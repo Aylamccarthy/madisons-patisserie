@@ -84,7 +84,21 @@ The following pages have been tested:
 The CSS code was validated using [W3 Jigsaw Validator](https://jigsaw.w3.org/css-validator/)<br>
 At the time of deployment the validation for *base.css* has the following outcome:<br><br>
 
-<img src="media/pp5_css_validation.png" width="60%"><br><br>
+<img src="media/pp5_css_valid.png" width="60%"><br><br>
+
+### Javascript
+
+The Javascript code was validated using using [JsHint](https://jshint.com/)<br>
+At the time of deployment the validation for *script.js* and *stripe_elements.js* have the following outcome:<br>
+<details>
+<summary>script.js</summary>
+<img src="media/js_validation.png" width="40%"><br><br>
+</details>
+<details>
+<summary>stripe_elements.js</summary>
+<img src="media/js_validation_stripe.png" width="40%"><br><br>
+</details>
+
 
 
 
