@@ -1,5 +1,5 @@
 # Madison's Patisserie - Online Bakeshop
-<img src="" ><br>
+<img src="media/pp5_mockup.png" ><br>
 <hr>
 
 <h3 align="center">Full-Stack Project- E-Commerce(HTML5, CSS3, Bootstrap, Django, Python, JavaScript, jQuery, PostgreSQL, AWS, Heroku)</h3>
