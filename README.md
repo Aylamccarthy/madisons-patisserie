@@ -394,7 +394,8 @@ The *User Profile* page gives the user access to individual and private features
 <img src="media/manage_orders.png" width="60%"><br><br>
 <img src="media/update_product.png" width="30%"><br><br>
 
-
+## Testing
+The comprehensive testing documentation can be found here [TESTING.MD](TESTING.MD)
 
 ## Deployment
 
