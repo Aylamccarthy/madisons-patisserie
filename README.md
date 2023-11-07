@@ -376,6 +376,24 @@ When the order total cost doesn't reach the value specified (€50) on the websi
 <img src="media/voucher_email.png" width="40%"><br><br>
 <img src="media/add_voucher.png" width="40%"><br><br>
 
+#### Checkout
+* The *Checkout* page represents the final step in completing the order.<br>
+A form for personal, delivery and payment details is displayed for the user to fill in with valid data. As the delivery is available only for Cork - Ireland, the fields *Country, County and City* are filled by default with values and can't be edited by the user from the interface. Additionally, a validation has been implemented to not allow other values to be submitted. The form has validation for the phone number field as well to match an Ireland format. The payment input has its own Stripe-implemented validation.<br><br>
+<img src="media/checkout.png" width="80%"><br><br>
+* An order summary is displayed with details about the products and cost.
+* After the order is completed, the user is sent to a *Checkout Success * page with full specifications and details.
+
+#### User Profile
+The *User Profile* page gives the user access to individual and private features.<br>
+* The page includes a form for adding or updating the delivery details. These details are saved in the database and whenever the user is logged in and wants to make an order, the values will be automatically set in the checkout form. <br><br>
+<img src="media/delivery_details.png" width="40%"><br><br>
+
+* Another important feature is the **Orders history** which is represented by a table with all the orders created by the user. Any order element has a details page that can be accessed by clicking on the order number value.<br><br>
+<img src="media/add_product.png" width="30%"><br><br>
+<img src="media/edit_delete_product.png" width="40%"><br><br>
+<img src="media/manage_orders.png" width="60%"><br><br>
+<img src="media/update_product.png" width="30%"><br><br>
+
 
 
 ## Deployment
