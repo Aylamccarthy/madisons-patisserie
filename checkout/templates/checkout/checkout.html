@@ -2,7 +2,6 @@
 {% load static %}
 {% load mathfilters %}
 {% block content %}
-
 <div class="main-container col-lg-11 mx-auto pt-3 pb-3 mt-2 mt-lg-4 mb-4 bg-white">
     <h1 class="mb-3 mb-lg-4 text-center">Checkout</h1>
     <div class="pt-lg-3">
@@ -23,57 +22,69 @@
                                             {{ order_form.full_name  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.full_name.errors}}</span>
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Email</span>
                                             {{ order_form.email  }}
                                         </label>
-                                    </div>                                    
+                                    </div>   
+                                    <span class="mb-2">{{order_form.email.errors}}</span>                                 
                                 </fieldset>
                                 <fieldset class="rounded mb-4">
                                     <legend class="fieldset-label pl-2 small"><b>Delivery</b></legend>
+                                    <small class="text-muted font-size-smaller text-left">* Only phone numbers available in Ireland</small>
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Phone number</span>
                                             {{ order_form.phone_number  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.phone_number.errors}}</span>
+                                    <small class="text-muted font-size-smaller text-left">* Delivery only in Cork, Ireland</small>
+
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Country</span>
                                             {{ order_form.country  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.country.errors}}</span>
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>County</span>
                                             {{ order_form.county  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.county.errors}}</span>
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Town or City</span>
                                             {{ order_form.town_or_city  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.town_or_city.errors}}</span>
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Street Aaddress 1</span>
                                             {{ order_form.street_address1  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.street_address1.phone_number.errors}}</span>
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Street Address 2</span>
                                             {{ order_form.street_address2  }}
                                         </label>
-                                    </div>                                    
+                                    </div>     
+                                    <span class="mb-2">{{order_form.street_address2.errors}}</span>                               
                                     <div class="w-100 mb-2">
                                         <label class="w-100">
                                             <span hidden>Postcode</span>
                                             {{ order_form.postcode  }}
                                         </label>
                                     </div>
+                                    <span class="mb-2">{{order_form.postcode.errors}}</span>
                                     {% if user.is_authenticated %}
                                     <div class="d-flex">
                                         <input class="mr-2 ml-0" type="checkbox" id="id-save-info" name="save-info" checked>
@@ -89,54 +100,54 @@
                                 </fieldset>
                                 <fieldset>
                                     <legend class="fieldset-label pl-2 small"><b>Payment</b></legend>
-                                     <!-- STRIPE CARD -->
+                                    <!-- STRIPE CARD -->
                                     <div class="mb-3" id="card-element"></div>
                                     <!-- CARD ERRORS -->
-                                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                                     <!-- PASS THE CLIENT SECRET TO THE VIEW FOR GETTING THE PAYMENT INTENT-->
+                                    <div class="mb-3 font-size-smaller errorlist" id="card-errors" role="alert"></div>
+                                    <!-- PASS THE CLIENT SECRET TO THE VIEW FOR GETTING THE PAYMENT INTENT-->
                                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                                 </fieldset>
                                 <!-- CARD CHARGING AMOUNT -->
-                                <p class="small my-0 mb-4">
+                                <p class="my-0 mb-4">
                                     <span class="icon">
                                         <i class="fas fa-exclamation-circle"></i>
                                     </span>
-                                    <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                                    <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
                                 </p>
                                 <!-- BACK TO BAG BUTTON -->
-                                <div class="col-12 col-xl-8 p-0 d-flex flex-column align-items-center flex-lg-row mx-auto justify-content-around">
+                                <div class="col-12 col-xl-10 p-0 d-flex flex-column align-items-center flex-lg-row mx-auto justify-content-around">
                                     <button type="submit" class="button purple-btn small-btn rounded-0 mb-3 mb-lg-0">Complete order</button>
                                     <a class="button gray-btn small-btn rounded-0" href="{% url 'bag' %}">Back to shopping bag</a>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-10 col-lg-6 mb-4 mb-lg-0">
+                        <div class="col-md-10 col-lg-6 mb-5 mb-lg-0">
                             <h6 class="mb-3"><b>Order Summary</b></h6>
-                             <!-- LIST OF ORDER PRODUCTS -->
-                            <div class="border p-3 p-lg-2 mb-2 scroll-h">
+                            <!-- OLIST OF ORDER PRODUCTS -->
+                            <div class="border p-2 mb-2 scroll-h">
                                 <table>
                                     <tr>
-                                        <th class="col-1 pl-1 pb-2 text-center text-muted font-size-smaller">Quantity</th>
-                                        <th class="col-9 p-0 pb-2 text-center text-muted font-size-smaller">Item</th>
-                                        <th class="col-2 p-0 pb-2 text-center text-muted font-size-smaller">Price</th>
+                                        <th class="col-2 pl-0 pb-2 text-muted text-md-center font-size-smaller">Quantity</th>
+                                        <th class="col-8 p-0 pr-2 pb-2 text-muted font-size-smaller">Item</th>
+                                        <th class="col-2 p-0 pb-2 text-muted text-md-center font-size-smaller">Price</th>
                                     </tr>
                                     {% for item in bag_items %}
                                         <tr class="border-bottom">
-                                            <td class="col-1 pl-1 pb-3 pb-lg-2 text-center text-muted">
+                                            <td class="col-2 pl-0 pb-2 text-center text-muted">
                                                 <p class="m-0 font-size-larger">{{item.quantity}} x </p>
                                             </td>
-                                            <td class="col-9 p-0 pb-3 pb-lg-2 pr-1 pr-lg-0 text-left text-muted">
+                                            <td class="col-8 p-0 pr-2 pb-2 text-left text-muted">
                                                 <div class="d-flex align-items-center">
                                                     {% if item.product.image %}
-                                                    <img class="d-none d-md-block col-2 p-0 img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                                        <img class="d-none d-md-block col-2 p-0 img-fluid" src="{{ item.product.image.url }}" alt="{{ product.style }} wine {{ item.product.name }}">
                                                     {% else %}
-                                                    <img class="d-none d-md-block col-2 p-0 img-fluid" src="{{ MEDIA_URL }}no-image.png" alt="{{ item.product.name }}">
+                                                        <img class="d-none d-md-block col-2 p-0 img-fluid" src="{{ MEDIA_URL }}no-image.webp" alt="{{ product.style }} wine {{ item.product.name }}">
                                                     {% endif %}
                                                     <p class="d-none d-lg-block col-10 m-0 font-size-smaller"><b>{{item.product.name}}</b></p>
                                                     <p class="d-lg-none p-0 m-0"><b>{{item.product.name}}</b></p>
                                                 </div>
                                             </td>
-                                            <td class="col-2 p-0 pb-3 pb-lg-2 text-center text-muted">
+                                            <td class="col-2 p-0 pb-2 text-md-center text-muted">
                                                 <p class="m-0">€{{item.subtotal}}</p>
                                             </td>
                                         </tr>                                

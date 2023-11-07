@@ -35,8 +35,8 @@ class OrderForm(forms.ModelForm):
             'county': 'County, State or Locality',
         }
 
-        self.fields['county'].widget.attrs['readonly'] = True
-        self.fields['town_or_city'].widget.attrs['readonly'] = True
+        self.fields['county'].widget.attrs
+        self.fields['town_or_city'].widget.attrs
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
