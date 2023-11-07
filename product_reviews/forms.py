@@ -33,7 +33,8 @@ class UpdateReviewForm(forms.ModelForm):
     """Form for update review"""
 
     rate = forms.IntegerField(
-        widget=forms.NumberInput(attrs={"id": "updateRateValue", "type": "hidden"})
+        widget=forms.NumberInput(
+            attrs={"id": "updateRateValue", "type": "hidden"})
     )
     review_text = forms.CharField(
         widget=forms.Textarea(attrs={"id": "updateReviewText", "rows": "6"}),

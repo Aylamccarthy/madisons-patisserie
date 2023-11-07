@@ -20,8 +20,10 @@ class Review(models.Model):
     rate = models.PositiveSmallIntegerField()
     review_text = models.TextField()
     now = datetime.datetime.now()
-    date_created_on = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
-    date_updated_on = models.DateTimeField(default=now.strftime("%Y-%m-%d %H:%M:%S"))
+    date_created_on = models.DateTimeField(
+        default=now.strftime("%Y-%m-%d %H:%M:%S"))
+    date_updated_on = models.DateTimeField(
+        default=now.strftime("%Y-%m-%d %H:%M:%S"))
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
 
@@ -40,6 +42,7 @@ class Review(models.Model):
 
         for product in Product.objects.all():
             product_rates = Review.objects.filter(product=product)
-            product_rates_mean = product_rates.aggregate(Avg("rate"))["rate__avg"]
+            product_rates_mean = product_rates.aggregate(
+                Avg("rate"))["rate__avg"]
             product.rating = product_rates_mean
             product.save(update_fields=["rating"])

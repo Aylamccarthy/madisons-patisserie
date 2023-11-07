@@ -52,7 +52,8 @@ class Profile(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         return not self.request.user.is_superuser
 
 
-class ProfileDeliveryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class ProfileDeliveryUpdate(
+        LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """A view for updating delivery details for current user"""
 
     template_name = "profiles/profile.html"
@@ -62,7 +63,8 @@ class ProfileDeliveryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
         profile = get_object_or_404(UserProfile, user=user_pk)
         orders = Order.objects.filter(user=profile)
         if request.method == "POST":
-            delivery_details_form = UserProfileForm(request.POST, instance=profile)
+            delivery_details_form = UserProfileForm(
+                    request.POST, instance=profile)
             if delivery_details_form.is_valid():
                 # Set IE as default country value
                 profile.default_country = "IE"
@@ -76,7 +78,8 @@ class ProfileDeliveryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
                 HttpResponseRedirect(reverse_lazy("profile"))
             else:
                 # If form is not valid pass the form with errors to context
-                delivery_details_form = UserProfileForm(request.POST, instance=profile)
+                delivery_details_form = UserProfileForm(
+                        request.POST, instance=profile)
                 template = "profiles/profile.html"
                 context = {
                     "delivery_details_form": delivery_details_form,
@@ -144,11 +147,14 @@ class AdminOrdersList(LoginRequiredMixin, UserPassesTestMixin, ListView):
                 if orders_date:
                     orders_date = orders_date
                 if orders_date:
-                    query = Order.objects.filter(date=orders_date).order_by("-date")
+                    query = Order.objects.filter(
+                            date=orders_date).order_by("-date")
                 else:
                     orders_date = today
-                query = Order.objects.filter(date__date=orders_date).order_by("-date")
-                context = {"date_form": date_form, "date": orders_date, "orders": query}
+                query = Order.objects.filter(
+                        date__date=orders_date).order_by("-date")
+                context = {"date_form": date_form,
+                           "date": orders_date, "orders": query}
 
         return render(request, "profiles/admin_orders.html", context)
 

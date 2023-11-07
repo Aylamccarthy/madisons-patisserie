@@ -18,15 +18,18 @@ import humanhash
 
 
 class Voucher(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
-    percentage = models.PositiveIntegerField(default=20, null=False, blank=False)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=False, blank=False)
+    percentage = models.PositiveIntegerField(
+        default=20, null=False, blank=False)
     voucher_code = models.CharField(
         max_length=254, null=False, blank=False, unique=True
     )
 
 
 @receiver(email_confirmed)
-def send_discount_voucher_on_email_confirmed_(request, email_address, **kwargs):
+def send_discount_voucher_on_email_confirmed_(
+        request, email_address, **kwargs):
     """Send email with a discount voucher when the user confirms his email.
     Create a voucher instance"""
     user = User.objects.get(email=email_address.email)
@@ -40,7 +43,8 @@ def send_discount_voucher_on_email_confirmed_(request, email_address, **kwargs):
     voucher.save()
 
     customer_email = email_address.email
-    subject = render_to_string("vouchers/discount_emails/discount_email_subject.txt")
+    subject = render_to_string(
+        "vouchers/discount_emails/discount_email_subject.txt")
     body = render_to_string(
         "vouchers/discount_emails/discount_email_body.html",
         {

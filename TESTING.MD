@@ -104,10 +104,94 @@ I tried to solve the issue but no successful method has been found, so I chose t
 
 ### Python
 The python code was tested using [Code Institute python linter](https://pep8ci.herokuapp.com/) online validator.<br>
-At the time of deployment the python code validation has the following outcome:<br><br>
+At the time of deployment the python code validation have the following outcomes:<br><br>
+
+<details>
+<summary>Main App</summary>
+<img src="media/context_processor.png" width="70%"><br><br>
+<img src="media/main_url.png" width="70%"><br><br>
+<img src="media/settings.py.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Bag App</summary>
+<img src="media/bag_context.png" width="70%"><br><br>
+<img src="media/bag_test.png" width="70%"><br><br>
+<img src="media/bag_url.png" width="70%"><br><br>
+<img src="media/bag_views.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Checkout App</summary>
+<img src="media/checkout_app1.png" width="70%"><br><br>
+<img src="media/checkout_app2.png" width="70%"><br><br>
+<img src="media/checkout_app3.png" width="70%"><br><br>
+<img src="media/checkout_app4.png" width="70%"><br><br>
+<img src="media/checkout_app5.png" width="70%"><br><br>
+<img src="media/checkout_app6.png" width="70%"><br><br>
+<img src="media/checkout_app7.png" width="70%"><br><br>
+<img src="media/checkout_app8.png" width="70%"><br><br>
+<img src="media/checkout_app9.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Home App</summary>
+<img src="" width="30%"><br><br>
+</details>
+<details>
+<summary>Contact App</summary>
+<img src="media/contact_app1.png" width="70%"><br><br>
+<img src="media/contact__app2.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Newsletter App</summary>
+<img src="media/newsletter_app1.png" width="70%"><br><br>
+<img src="media/newsletter_app2.png" width="70%"><br><br>
+<img src="media/newsletter_app3.png" width="70%"><br><br>
+<img src="media/newsletter_app4.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Product Reviews App</summary>
+<img src="media/review_app1.png" width="70%"><br><br>
+<img src="media/review_app2.png" width="70%"><br><br>
+<img src="media/reviews_app3.png" width="70%"><br><br>
+<img src="media/reviews_app4.png" width="70%"><br><br>
+<img src="media/reviews_app5.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Products App</summary>
+<img src="media/products_app1.png" width="70%"><br><br>
+<img src="media/products_app2.png" width="70%"><br><br>
+<img src="media/products_app3.png" width="70%"><br><br>
+<img src="media/products_app4.png" width="70%"><br><br>
+<img src="media/products_app5.png" width="70%"><br><br>
+<img src="media/products_app6.png" width="70%"><br><br>
+<img src="media/products_app7.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Profiles App</summary>
+<img src="media/profiles_app1.png" width="70%"><br><br>
+<img src="media/profiles_app2.png" width="70%"><br><br>
+<img src="media/profiles_app3.png" width="70%"><br><br>
+<img src="media/profiles_app4.png" width="70%"><br><br>
+<img src="media/profiles_app6.png" width="70%"><br><br>
 
 
-
+</details>
+<details>
+<summary>Voucher App</summary>
+<img src="media/vouchers_app1.png" width="70%"><br><br>
+<img src="media/vouchers_app2.png" width="70%"><br><br>
+<img src="media/vouchers_app3.png" width="70%"><br><br>
+<img src="media/vouchers_app4.png" width="70%"><br><br>
+<img src="media/vouchers_app5.png" width="70%"><br><br>
+</details>
+<details>
+<summary>Wishlist App</summary>
+<img src="media/wishlist_app1.png" width="70%"><br><br>
+<img src="media/wishlist_app2.png" width="70%"><br><br>
+<img src="media/wishlist_app3.png" width="70%"><br><br>
+<img src="media/wishlist_app4.png" width="70%"><br><br>
+<img src="media/wishlist_app5.png" width="70%"><br><br>
+<img src="media/wishlist_app6.png" width="70%"><br><br>
+</details>
 
 
 

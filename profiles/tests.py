@@ -112,7 +112,8 @@ class TestViews(TestCase):
         # Get checkout success page where the user
         # profile will be attached to order
         response = self.client.get(
-            reverse("checkout_success", kwargs={"order_number": order.order_number})
+            reverse("checkout_success",
+                    kwargs={"order_number": order.order_number})
         )
         self.assertTrue(response.status_code, 200)
 
@@ -142,7 +143,8 @@ class TestViews(TestCase):
         }
 
         self.client.post(
-            reverse("profile_delivery_update", kwargs={"user_pk": self.user.pk}),
+            reverse("profile_delivery_update",
+                    kwargs={"user_pk": self.user.pk}),
             delivery,
         )
 
@@ -186,11 +188,13 @@ class TestViews(TestCase):
         # profile will be attached to order
         order = Order.objects.first()
         response = self.client.get(
-            reverse("checkout_success", kwargs={"order_number": order.order_number})
+            reverse("checkout_success",
+                    kwargs={"order_number": order.order_number})
         )
 
         response = self.client.get(
-            reverse("order_details", kwargs={"order_number": order.order_number})
+            reverse("order_details",
+                    kwargs={"order_number": order.order_number})
         )
         self.assertTrue(response.status_code, 200)
 
@@ -268,7 +272,8 @@ class TestViews(TestCase):
         # Get checkout success page where the user
         # profile will be attached to order
         response = self.client.get(
-            reverse("checkout_success", kwargs={"order_number": order.order_number})
+            reverse("checkout_success",
+                    kwargs={"order_number": order.order_number})
         )
         self.assertTrue(response.status_code, 200)
 
@@ -324,7 +329,8 @@ class TestViews(TestCase):
         # profile will be attached to order
         order = Order.objects.first()
         response = self.client.get(
-            reverse("checkout_success", kwargs={"order_number": order.order_number})
+            reverse("checkout_success",
+                    kwargs={"order_number": order.order_number})
         )
 
         # Set user as staff
@@ -333,7 +339,8 @@ class TestViews(TestCase):
         self.user.save()
 
         response = self.client.get(
-            reverse("admin_order_details", kwargs={"order_number": order.order_number})
+            reverse("admin_order_details"
+                    kwargs={"order_number": order.order_number})
         )
         self.assertTrue(response.status_code, 200)
 
@@ -378,7 +385,8 @@ class TestViews(TestCase):
         # Get checkout success page where the user
         # profile will be attached to order
         response = self.client.get(
-            reverse("checkout_success", kwargs={"order_number": order.order_number})
+            reverse("checkout_success",
+                    kwargs={"order_number": order.order_number})
         )
         self.assertTrue(response.status_code, 200)
 

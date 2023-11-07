@@ -65,7 +65,8 @@ class Checkout(UserPassesTestMixin, TemplateView):
         stripe_secret_key = settings.STRIPE_SECRET_KEY
         bag = request.session.get("bag", {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment")
             return redirect(reverse("products"))
 
         current_bag = bag_contents(request)
@@ -133,7 +134,8 @@ class Checkout(UserPassesTestMixin, TemplateView):
         stripe_secret_key = settings.STRIPE_SECRET_KEY
         bag = request.session.get("bag", {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment")
             return redirect(reverse("products"))
 
         current_bag = bag_contents(request)
@@ -203,7 +205,8 @@ class Checkout(UserPassesTestMixin, TemplateView):
 
             # set save_info session variable
             request.session["save_info"] = "save-info" in request.POST
-            return redirect(reverse("checkout_success", args=[order.order_number]))
+            return redirect(
+                reverse("checkout_success", args=[order.order_number]))
         else:
             # If form is not valid pass the form with errors and strype
             # secrets to context
@@ -254,7 +257,8 @@ class CheckoutSuccess(UserPassesTestMixin, View):
                     "default_street_address2": order.street_address2,
                     "default_county": order.county,
                 }
-                user_profile_form = UserProfileForm(profile_data, instance=profile)
+                user_profile_form = UserProfileForm(
+                    profile_data, instance=profile)
                 if user_profile_form.is_valid():
                     user_profile_form.save()
 

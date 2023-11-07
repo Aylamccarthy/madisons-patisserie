@@ -34,7 +34,8 @@ class WishList(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get(self, request):
         wishlist = Product.objects.filter(
-            pk__in=WishlistLine.objects.filter(user=self.request.user).values_list(
+            pk__in=WishlistLine.objects.filter(
+                    user=self.request.user).values_list(
                 "product"
             )
         )
@@ -47,7 +48,8 @@ class WishList(LoginRequiredMixin, UserPassesTestMixin, ListView):
         # GET EVERY PRODUCT COUNT OF APPEARENCE IN WISHLISTLINE DATABASE
         wishlist_product_count = []
         products = Product.objects.filter(
-            pk__in=WishlistLine.objects.filter(user=self.request.user).values_list(
+            pk__in=WishlistLine.objects.filter(
+                user=self.request.user).values_list(
                 "product"
             )
         )
@@ -55,7 +57,8 @@ class WishList(LoginRequiredMixin, UserPassesTestMixin, ListView):
             wishlist_product_count.append(
                 {
                     "id": product.pk,
-                    "count": WishlistLine.objects.filter(product=product).count(),
+                    "count": WishlistLine.objects.filter(
+                            product=product).count(),
                 }
             )
 
@@ -85,7 +88,8 @@ class WishList(LoginRequiredMixin, UserPassesTestMixin, ListView):
         for key, value in request.GET.items():
             if key in filter_options:
                 if key == "category":
-                    filter_clauses[key] = get_object_or_404(Category, name=value)
+                    filter_clauses[key] = get_object_or_404(
+                            Category, name=value)
                 elif key == "type" or key == "name":
                     filter_clauses[key + "__contains"] = value
                 else:
@@ -110,7 +114,8 @@ class WishList(LoginRequiredMixin, UserPassesTestMixin, ListView):
         if "q" in request.GET:
             query = request.GET["q"]
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse("products"))
 
             queries = (
@@ -218,7 +223,8 @@ class AddProductToWishList(UserPassesTestMixin, View):
         return not self.request.user.is_superuser
 
 
-class RemoveProductFromWishList(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class RemoveProductFromWishList(
+        LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     A view that deletes a WishlistLine entry from the database.
     The action is performed only if the authenticated user
