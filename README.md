@@ -405,23 +405,25 @@ Each order item has a details page that can be accessed by clicking on the order
 #### Admin
 The admin account was created as a superuser account from the terminal and also has access to the admin panel.<br>
 * There is a page created especifically created for staff members to keep better track of all the orders placed on the website.<br>
-The orders are displayed in a custom-designed table, grouped by day and ordered by time. The page renders by default the orders for the current day. Every order has a delete button that triggers a confirmation modal and gives access to a full details page by clicking on the order_number value <br>
-A form is provided for filtering the orders by date for a better user experience.<br><br>
-<img src="media/admin_table.png"><br><br>
-
-* An admin user have access to features for *adding a new product*, *edit a product's details* and *delete product*. The last two implementations are available on the *Product Details* page and only for staff accounts.<br><br>
-<img src="media/add_admin.png" width="50%"><br><br>
-<img src="media/admin_edit.png" width="50%"><br><br>
-
-<img src="media/add_product.png" width="30%"><br><br>
-<img src="media/edit_delete_product.png" width="60%"><br><br>
-<img src="media/manage_orders.png" width="60%"><br><br>
-<img src="media/admin_manageorders.png" width="60%"><br><br>
-<img src="media/update_product.png" width="30%"><br><br>
 <img src="media/admin_orderdetails.png" width="60%"><br><br>
+The orders are displayed in a custom-designed table, grouped by day and ordered by time. The page renders by default the orders for the current day. 
+
+* A form is provided for filtering the orders by date for a better user experience.<br><br>
+<img src="media/manage_orders.png" width="60%"><br><br>
+
+* Every order has a delete button that triggers a confirmation modal and gives access to a full details page by clicking on the order_number value <br><br>
+<img src="media/admin_manageorders.png" width="60%"><br><br>
+
+* An admin user have access to features for *adding a new product*, *edit a product's details* and *delete product*. 
+<img src="media/edit_delete_product.png" width="60%"><br><br>
+
+* The last two implementations are available on the *Product Details* page and only for staff accounts.<br><br>
+<img src="media/add_product.png" width="30%"><br><br>
+<img src="media/update_product.png" width="30%"><br><br>
+
 
 #### Contact
-The *Contact* page gives the users all the relevant information about the bakeshop's contact details, opening hours and location.<br><br>
+The *Contact* page was created with the aim of providing the users all the relevant information about the bakeshop's contact details, opening hours and location without needing to contact the bakeshop.<br><br>
 <img src="media/pp5_contactpage.png" width="80%"><br><br>
 
 #### FAQs Page
