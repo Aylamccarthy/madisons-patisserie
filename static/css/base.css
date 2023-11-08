@@ -1252,6 +1252,17 @@ select option[value=""] {
     height: 250px;
     width: 97%;
 }
+
+/* ABOUT PAGE */
+.about-page {
+    background-image: url(https://madisons-patisserie.s3.eu-west-1.amazonaws.com/media/mom_daughter.webp);
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: right;
+    height: 100vh;
+    position: relative;
+
+}
 /* --------------------------------- DEVICES WITH HOVER MECHANISM ------------------------------- */
 @media (hover: hover) {
     .no-hover-rating {

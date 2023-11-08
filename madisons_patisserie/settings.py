@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "8000-aylamccarth-madisonspat-mbuzoi12mib.ws-eu105.gitpod.io",
+    "8000-aylamccarth-madisonspat-mbuzoi12mib.ws-eu106.gitpod.io",
     "madisons-patisserie-8790c4325233.herokuapp.com",
     "localhost",
 ]
@@ -69,7 +69,6 @@ INSTALLED_APPS = [
     "mathfilters",
     "storages",
     "phonenumber_field",
-    # "url_tools",
 ]
 
 MIDDLEWARE = [

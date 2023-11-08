@@ -1,24 +1,27 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="col-lg-12 contact-page">
-    <div class="col-lg-12 container">
-        <div class="row">
-            <div class="col-lg-4">
-                <!-- About us text -->
-                <div class="timetable mb-2 mt-2">
-                    <h5 class="text-center">About us</h5>
-                    <div class="text-center">
+<div class="col-12 container-fluid bg-succes">
+    <!-- ABOUT US INFO CONTAINER -->
+<div>
+    <div class="main-container col-lg-12 mx-auto pt-3 pb-4">
+      <h3 class="mb-2 text-center decorated col-11 col-md-4 mx-auto"><span><strong>About Us</strong></span></h3>
+      <div class="pt-lg-3">
+        <div class="col-12 mb-4 mb-lg-3">
+            <div class="col-12 col-md-10 col-lg-12 col-xl-10 p-0 mx-auto">
+                <div class="d-lg-flex justify-content-between text-left mx-auto home-container">
+                  <div class="col-12 col-md-10 col-lg-6 p-0 mb-3 mx-auto m-lg-0">
+                    <div class="text-left">
                         <p>
-                            Welcome to <em>Madison's Patisserie</em>, where love, passion, 
+                            Welcome to <strong>Madison's Patisserie</strong>, where love, passion, 
                             and creativity blend seamlessly to create the most delectable 
                             baked treats for you and your family. We are more than just a
                             bakeshop; we are a family-owned establishment deeply rooted in 
                             the heart of Cork.
                         </p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-left">
                         <p>
                             <strong>Our Story</strong><br>
                             Our story started 8years ago when Ayla - the founder and owner of Madison's
@@ -28,16 +31,7 @@
                             a beloved bakeshop known for its mouthwatering pastries, cakes, and confections.
                         </p>
                     </div>
-                    <div class="text-center">
-                        <p>
-                            <strong>Our Legacy</strong><br>
-                            Baking is more than just a profession for us; it's a cherished family tradition. 
-                            Passed down from generation to generation, our recipes are a testament to the love 
-                            and dedication of our family. Each bite of our treats carries the essence of our
-                             heritage, making every customer a part of our extended family.
-                        </p>
-                    </div>
-                    <div class="text-center">
+                    <div class="text-left">
                         <p>
                             <strong>Our Philosophy</strong><br>
                             At Madison's, we believe in the power of simple, 
@@ -48,32 +42,24 @@
                             craft each item, infusing them with a touch of homemade warmth.
                         </p>
                     </div>
-                    <div class="text-center">
-                        <p>
-                            <strong>Community Engagement</strong><br>
-                            Being a family-owned bakeshop, we understand the importance of community. 
-                            We actively participate in local events, sponsor school programs, and contribute 
-                            to charitable causes within Cork. Our goal is to not only serve delightful treats 
-                            but also to be a positive force within our community.
-                        </p>
-                    </div>
-                    <div class="text-center">
+                    <div class="text-left">
                         <p>
                             <strong>Our Commitment</strong><br>
                             Customer satisfaction is at the core of our values. We strive to create an inviting 
                             atmosphere where you can indulge in the sweet pleasures of life. Whether you're celebrating 
                             a milestone, sharing a moment with loved ones, or simply craving a delightful dessert,
                             Madison's is the place where memories are made sweeter. 
-                            Thank you for being a part of our story. Join us on this delectable journey, and let's 
-                            continue to spread joy, one bite at a time.
+                            Thank you for being a part of our story. Join us on this delectable journey, and let's continue to spread joy, one bite at a time.
                         </p>
                     </div>
-                   
+                  </div>
+                  <div class="col-12 col-md-10 col-lg-6 p-o mb-3 mx-auto m-lg-0">
+                    <img class="img-fluid img-shadow" src="{{ MEDIA_URL }}mom_daughter.webp" height="auto" width="auto" alt="Bakeshop image">
+                  </div>
+                  
                 </div>
             </div>
         </div>
-    </div>
-    
-
-
+      </div>
+</div>
 {% endblock %}
