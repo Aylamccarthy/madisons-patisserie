@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "profiles",
     "product_reviews",
     "faqs",
+    "about",
     "contact",
     # Other
     "mathfilters",
