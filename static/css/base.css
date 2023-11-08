@@ -358,7 +358,6 @@ select:focus {
     left: 100%;
 }
 
-
 /* MAILCHIMP NEWSLETTER */
 #mc_embed_signup{
     background:transparent;
@@ -368,7 +367,6 @@ select:focus {
 #mc_embed_signup .helper_text{
     background-color: transparent;
 }
-
 
 /* FORM ERRORS STYLING */
 .errorlist{
@@ -455,8 +453,6 @@ body {
     min-height: 100%;
     opacity: 0;
 }
-
-
 
 /* --------------------------------------- HEADER STYLING ------------------------------------------- */
 
@@ -557,7 +553,6 @@ body {
     border-bottom: 2px solid #e8d7e6d4 !important;
 }
 
-
 @keyframes autoplay {
     0% {
         visibility: visible
@@ -624,9 +619,7 @@ footer .success-message {
 
 footer .errorlist {
     color: #ff4456;
-    margin-top: 0;
-    
-    
+    margin-top: 0; 
 }
 
 footer > div > div > div:nth-child(1) form p{
@@ -647,12 +640,10 @@ footer > div > div > div:nth-child(1) form .messages{
     height: 20px;
 }
 
-
 /* ICON STYLING */
 i {
     font-size: 20px;
 }
-
 
 /* ADD-CONTAINER STYLING */
 .add-container { 
@@ -666,7 +657,6 @@ i {
     padding: 0px 3px 1px 3px;
     color: wheat;
 }
-
 
 .add-container .add {
     width: 100%;
@@ -852,7 +842,6 @@ i {
     box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px;
 }
 
-
 /* TOASTS STYLING */
 
 .message-container {
@@ -951,6 +940,9 @@ i {
     position: absolute;
     left: 50%;
     top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     
 }
 
@@ -1466,7 +1458,7 @@ select option[value=""] {
         position: initial;
         float: unset;
         background-color: transparent;
-        color: white;
+        color: rgb(44, 43, 43);
         border: none;
 
     }
