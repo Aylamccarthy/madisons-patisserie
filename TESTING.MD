@@ -132,10 +132,6 @@ At the time of deployment the python code validation have the following outcomes
 <img src="media/checkout_app9.png" width="70%"><br><br>
 </details>
 <details>
-<summary>Home App</summary>
-<img src="" width="30%"><br><br>
-</details>
-<details>
 <summary>Contact App</summary>
 <img src="media/contact_app1.png" width="70%"><br><br>
 <img src="media/contact__app2.png" width="70%"><br><br>

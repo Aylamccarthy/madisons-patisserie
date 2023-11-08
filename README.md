@@ -89,6 +89,14 @@ This site was created respecting the Five Planes Of Website Design:<br>
 |                                       || US -As an admin, I want to see full details of every order placed on the website|
 |**NEWSLETTER**                         |  ||
 |                                       || US - As a user, I want to be able to subscribe to a newsletter, so I can always be up to date with the latest promotions|
+|                                       || US - As an admin, I can keep track of all our subscribers, and utilise it to keep our customers be up to date with the latest promotions, thereby using it as a marketing tool to increase revenue.|
+|**CONTACT**                |  ||
+|                                       || US - As a user, I can easily navigate to the website's contact page.|
+|                                       || US -As a user, I can find all the bakeshop's location, opening hours and contact number and email address|
+|                                       || US -As a user, I can use the google map to locate the bakeshop's exact location.|
+|**FAQs PAGE**                |  ||
+|                                       || US - As a user, I can easily navigate to the website's FAQs page.|
+|                                       || US -As a user, I can get all the answers to frequently asked questions about the bakeshop and their products without needing to contact them.|
 
 
 **Project Goal:**<br>
@@ -191,12 +199,13 @@ All the colours were selected generated from the hero image using Coolors
 * The business model chosen for this project is <b>Business to Customer</b>, as the main purpose of the website is to deliver final products to customers. This model was implemented using an interactive, attractive and intuitive interface that gives the clients an upgraded experience for shopping.<br><br>
 <img src="media/b2c_diagram.png" width="60%">
 
-* The store offers a diverse selections of baked products categorised as *All Products*, *Cakes*(Cakes are further sub-categorised to drip cakes, buttercream cakes, chocolate cakes and occassion cakes), *Desserts*, *Sweet Treats* and *Everyday Esssentials*. Customers can order any quantity of the products within the limit of available stock.
+* The online bakeshop offers a diverse selections of baked products categorised as *All Products*, *Cakes*(Cakes are further sub-categorised to drip cakes, buttercream cakes, chocolate cakes and occassion cakes), *Desserts*, *Sweet Treats* and *Everyday Esssentials*. Customers can order any quantity of the products within the limit of available stock.
+* The bakeshop also have a Cork Bakeshop Cafe, where customers/clients can relax and enjoy their favourite sweet treats with a cold or hot beverage of their choice. They also have an option to purchase all their favourites as the cafe stock all the bakeshop products on site. 
 
 ## Marketing
 
 ### Facebook Page
-* The marketing strategy includes a Facebook business page that is intended to create a good image of the bakeshop by posting news and promotions available. By highly promoting the products and always adding new content, the page will increase its popularity and attract more and more customers to buy from the online store. The page can be accessed at [this link](https://www.facebook.com/profile.php?id=61553025716191).<br><br><br><br>
+* The marketing strategy includes a Facebook business page that is intended to create a good image of the bakeshop by posting news and promotions available. By highly promoting the products and always adding new content, the page will increase its popularity and attract more and more customers to buy from the online store. The page can be accessed at [this link](https://www.facebook.com/profile.php?id=61553025716191).<br><br><br>
 <img width="80%" src="media/facebook_screenshot.png">
 
 ### Newsletter
@@ -379,7 +388,7 @@ When the order total cost doesn't reach the value specified (€50) on the websi
 #### Checkout
 * The *Checkout* page represents the final step in completing the order.<br>
 A form for personal, delivery and payment details is displayed for the user to fill in with valid data. As the delivery is available only for Cork - Ireland, the fields *Country, County and City* are filled by default with values and can't be edited by the user from the interface. Additionally, a validation has been implemented to not allow other values to be submitted. The form has validation for the phone number field as well to match an Ireland format. The payment input has its own Stripe-implemented validation.<br><br>
-<img src="media/checkout.png" width="80%"><br><br>
+<img src="media/checkout_page.png" width="80%"><br><br>
 * An order summary is displayed with details about the products and cost.
 * After the order is completed, the user is sent to a *Checkout Success * page with full specifications and details.
 
@@ -388,12 +397,36 @@ The *User Profile* page gives the user access to individual and private features
 * The page includes a form for adding or updating the delivery details. These details are saved in the database and whenever the user is logged in and wants to make an order, the values will be automatically set in the checkout form. <br><br>
 <img src="media/delivery_details.png" width="40%"><br><br>
 
-* Another important feature is the **Orders history** which is represented by a table with all the orders created by the user. Any order element has a details page that can be accessed by clicking on the order number value.<br><br>
-<img src="media/add_product.png" width="30%"><br><br>
-<img src="media/edit_delete_product.png" width="40%"><br><br>
-<img src="media/manage_orders.png" width="60%"><br><br>
-<img src="media/update_product.png" width="30%"><br><br>
+* Another important feature is the **Orders history** which is represented by a table with all the orders made by the user. <br><br>
+<img src="media/profile_orderhistory.png" width="40%"><br><br>
+Each order item has a details page that can be accessed by clicking on the order number value.<br><br>
+<img src="media/order_details.png" width="50%"><br><br>
 
+#### Admin
+The admin account was created as a superuser account from the terminal and also has access to the admin panel.<br>
+* There is a page created especifically created for staff members to keep better track of all the orders placed on the website.<br>
+The orders are displayed in a custom-designed table, grouped by day and ordered by time. The page renders by default the orders for the current day. Every order has a delete button that triggers a confirmation modal and gives access to a full details page by clicking on the order_number value <br>
+A form is provided for filtering the orders by date for a better user experience.<br><br>
+<img src="media/admin_table.png"><br><br>
+
+* An admin user have access to features for *adding a new product*, *edit a product's details* and *delete product*. The last two implementations are available on the *Product Details* page and only for staff accounts.<br><br>
+<img src="media/add_admin.png" width="50%"><br><br>
+<img src="media/admin_edit.png" width="50%"><br><br>
+
+<img src="media/add_product.png" width="30%"><br><br>
+<img src="media/edit_delete_product.png" width="60%"><br><br>
+<img src="media/manage_orders.png" width="60%"><br><br>
+<img src="media/admin_manageorders.png" width="60%"><br><br>
+<img src="media/update_product.png" width="30%"><br><br>
+<img src="media/admin_orderdetails.png" width="60%"><br><br>
+
+#### Contact
+The *Contact* page gives the users all the relevant information about the bakeshop's contact details, opening hours and location.<br><br>
+<img src="media/pp5_contactpage.png" width="80%"><br><br>
+
+#### FAQs Page
+The *FAQs* page was created with the aim of providing the users all the relevant information  and answers to all their frequently asked questions without needing to contact the bakeshop.<br><br>
+<img src="media/faqs.png" width="80%"><br><br>
 ## Testing
 The comprehensive testing documentation can be found here [TESTING.MD](TESTING.MD)
 
