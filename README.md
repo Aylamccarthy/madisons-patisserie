@@ -429,6 +429,108 @@ The *Contact* page was created with the aim of providing the users all the relev
 #### FAQs Page
 The *FAQs* page was created with the aim of providing the users all the relevant information  and answers to all their frequently asked questions without needing to contact the bakeshop.<br><br>
 <img src="media/faqs.png" width="80%"><br><br>
+
+### Future Feature Considerations<hr>
+
+* Because of increasing demand for bespoke wedding cakes, the bakeshop will implement a dedicated page specifically for wedding cakes and wedding related products. This feature will include a gallery of all the wedding cakes, customer testimonials, and a request a quote/call back form that the customers can fill out and send. This feature was planned to be implemented for this project but couldn't be done because of time constraints. It is also visible on the *Github Project* kanban board where iit is labelled as *could have* and *enhancement*.
+* Implementing a chat feature for communication between customers and staff members. This would be useful for any client that has an issue on the website and also will create a better and faster way of finding solutions. 
+
+* Creating a feature for easily sending email advertisement to the customers. This would be a default template form to be filled and the email will be automatically sent to the customers. 
+
+* Expanding the voucher feature by implementing a points reward system for loyal customers that shop frequently from the website. The customer will be rewarded points for every purchase, which they can convert into a voucher that can be redeem with their purchases.
+
+## Responsive Layout and Design
+The project design has been adapted to all types of devices using Bootstrap predefined breakpoints. For intermediate devices where the design didn't fit accordingly, custom breakpoints were used.
+
+**Breakpoints:**
+
+    - max-width:380px(extra small devices)
+    - max-width:768px(small devices)
+    - max-width:992px(medium devices)
+    - min-width:1024px and max-width: 1024px(IpadPro)
+    - max-width:1200px(large devices)
+
+**Tested devices:**
+
+    - Moto G4 
+    - iPhone SE 
+    - iPhone XR 
+    - iPhone 11 
+    - iPhone 13
+    - iPhone 5/SE 
+    - iPhone 6/7/8 
+    - Ipad
+    - Ipad Air 
+    - Ipad Mini
+    - Ipad Pro 
+    - Pixel 5 
+    - Surface Duo 
+    - Surface Pro 7 
+    - Nest Hub 
+    - Nest Hub Max
+    - Samsung Galaxy S20 Ultra 
+    - Samsung Galaxy S8 
+    - Galaxy Note 2 
+    - Galaxy Tab S4
+    - Asus Vivobook
+
+## Tools Used
+
+[GitHub](https://github.com/) - used for hosting the source code of the program<br>
+[Gitpod](https://gitpod.io/workspaces) - for project development and testing the code<br>
+[Heroku](https://dashboard.heroku.com/) - used for deploying the project<br>
+[Balsamiq](https://balsamiq.com/wireframes/) - for creating the wireframes<br>
+[LucidChart](https://www.lucidchart.com/) - used for creating the Flowchart and Database relational schema<br>
+[Favicon.io](https://favicon.io/) - used for generating the website favicon<br>
+[Diffchecker](https://www.diffchecker.com/) - used for comparing the code<br>
+[TinyPNG](https://tinypng.com/) - for compressing the images<br>
+[Grammarly](https://app.grammarly.com/) - for correcting text content<br>
+[Font Awesome](https://fontawesome.com/) - for creating atractive UX with icons<br>
+[Bootstrap5](https://getbootstrap.com/) - for adding predifined styled elements and creating responsiveness<br>
+[Google Fonts](https://fonts.google.com/) - for typography<br>
+[JsHint](https://jshint.com/) - used for validating the javascript code<br>
+[CI Phython Linter](https://pep8ci.herokuapp.com/) - used for validating the python code<br>
+[HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
+[CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
+[Chrome Del Tools](https://developer.chrome.com/docs/devtools/) - for continious debugging during the project development<br>
+[W.A.V.E.](https://wave.webaim.org/) - for testing accessibility<br>
+[AWS](https://aws.amazon.com/) - for storing media and static data<br>
+[ElephantSql](https://www.elephantsql.com/) - for hosting the PostgresSql database migrated from Heroku
+[pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) - for converting the images to webp format.
+LightHouse - for testing performance<br>
+Gmail - for sending emails using the SMTP server
+
+### Python packages
+
+* django 
+* django-allauth
+* dj-database-url 
+* psycopg2-binary 
+* gunicorn 
+* heroku 
+* django-heroku 
+* boto3 
+* django-storages 
+* pylint 
+* pylint-django 
+* pillow 
+* django-url-tools 
+* django-url-tools-py3 
+* humanhash3 
+* django-countries 
+* stripe 
+* django-mathfilters 
+* django-phonenumber-field
+* django-coverage 
+* coverage 
+* pycodestyle 
+* django-url-tools 
+* django-url-tools-py3 
+* django-resized
+* flake8 
+
+
+
 ## Testing
 The comprehensive testing documentation can be found here [TESTING.MD](TESTING.MD)
 
@@ -632,5 +734,27 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 - In your <i>IDE</i> open <i>Git Bash</i>
 - Enter the command <code>git clone</code> followed by the copied URL
 - Your clone was created
+<hr>
+
+## Credits
+### Content
+* The content of the website is fictive but was loosely based on the project owner's personal experience. 
+
+### Media
+* All products images used on the site were taken from 
+* [Google](https://www.google.com/)
+* [pexels](https://www.pexels.com/)
+* [pixabay](https://www.pixabay.com/)
+
+### Code
+* The whole project was built utilising Code Institute's LMS. More specifically the 'Boutique-ado, 'Hello Django' and 'I think Therefore I Blog' walkthrough projects.
+* The code for creating a custom user model was taken and adapted from [here](https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/)
+* The validation for the booking form was inspired from [here](https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/)
+* Daisy McGirr Django Youtube Tutorials (https://www.youtube.com/watch?v=dCvkAVN5uas&list=PLXuTq6OsqZjYSa-lrjd5wMGl23zpnhvln)
+
+## Acknowledgements
+- Code Institute for all the materials and support offered.<br>
+- My mentor Gareth McGirr for all the advice and support and his willingness to help me as much as possible with the problems encountered during the development of the project.<br>
+- Slack community for unparalled motivation, help and support.<br>
 <hr>
 
