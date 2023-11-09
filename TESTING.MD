@@ -358,7 +358,7 @@ The website was tested on different browser to ensure all features work accordin
 The html code of the website was validated using [W3 Markup Validator](https://validator.w3.org/).<br>
 At the time of deployment the validation have the following outcome:<br><br>
 
-<img src="media" width="40%"><br><br>
+<img src="media/pp5_html_validation.png" width="60%"><br><br>
 
 The following pages have been tested:
 * Home
@@ -372,6 +372,7 @@ The following pages have been tested:
 * Wishlist
 * FAQs
 * Contact
+* About
 * Login/Register
 * 403/404/500 custom pages
 
