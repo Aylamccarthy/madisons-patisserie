@@ -25,7 +25,7 @@ Madison's Patisserie is an e-commerce website created for a fictive bakeshop loc
 The users are given the possibility to see every product's details, create a wishlist, add items to the shopping bag, purchase with an online payment and access orders' history. Also, the staff members have permission for controlling the data using specially designed features.<br>
 The website was developed using Python(Django), HTML, CSS and JavaScript. The data was stored in a PostgreSQL database using ElephantSql for manipulation.
 <br><br>
-The fully deployed project can be accessed at [this link]().<br><br>
+The fully deployed project can be accessed at [this link](https://madisons-patisserie-8790c4325233.herokuapp.com/).<br><br>
 
 ## UX
 This site was created respecting the Five Planes Of Website Design:<br>
