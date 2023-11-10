@@ -717,6 +717,20 @@ The accesibility of the website was tested with [Wave](https://wave.webaim.org/)
 <img src="media/wave_contact.png" width="30%"><br><br>
 </details><br>
 
+### Performance
+The performance of the website was tested with [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+
+**Lighthouse reports:**<br>
+
+ The following updates have been made for improving the performance score:
+ * Compressed images with [Tiny PNG](https://tinypng.com/)
+ * Converted images to <em>webp</em> format
+ * Resized images [picresize](https://picresize.com/)
+
+ After these updates were made, the score improved but the lowest score remains <b>67</b> for desktop and <b>64</b> for mobile.
+ <!-- The main issue is the server response time for which I couldn't find a solution.<br><br -->
+ <img src="media/low_score.png" width="60%"><br><br>
+
 
 
 
@@ -737,3 +751,10 @@ The accesibility of the website was tested with [Wave](https://wave.webaim.org/)
 
 
 ### Unsolved
+
+* **Pagination**
+    I have tried to implement pagination for the Products page using the class-based view <code>ListView</code> by setting the <code>paginate_by</code> value. The implementation didn't succeed as it seems that the view's feature doesn't work properly with filtered querysets. An alternative way of doing the pagination would be by using javascript but I didn't consider it as being completely necessary and I left it for future implementations because of time constraints.
+
+* **Google Map**
+    The google map script is  showing an error on the console.   Bjut
+Back to [README.MD](README.MD)<br>
