@@ -486,6 +486,36 @@ At the time of deployment the python code validation have the following outcomes
 <img src="media/wishlist_app6.png" width="70%"><br><br>
 </details>
 
+### Accesibility 
+The accesibility of the website was tested with [Wave](https://wave.webaim.org/)
+
+**Wave results:**<br>
+<details>
+<summary>Home page</summary>
+<img src="media/wave_home.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Products page</summary>
+<img src="media/wave_products.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Login page</summary>
+<img src="media/wave_signin.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Register page</summary>
+<img src="media/wave_register.png" width="30%"><br><br>
+</details>
+<details>
+<summary>About page</summary>
+<img src="media/wave_about.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Contact page</summary>
+<img src="media/wave_contact.png" width="30%"><br><br>
+</details><br>
+
+
 
 
 
