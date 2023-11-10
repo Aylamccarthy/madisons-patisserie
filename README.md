@@ -160,33 +160,33 @@ The structure of the website is divided into multiple pages and the content is d
 - The **Checkout page** includes an order summary and a form for personal, delivery and payment details;<br>
 - The **Checkout success** page displays full specification for the successful order;<br>
 - The **Orders** page gives access only to staff members and displays all the bookings registered, grouped and filtered by day.<br>
-- The **Admin order details** page gives access only to staff members to full specifications for any order.<br>
+- The **Admin order details** page gives access only to staff members to full specifications for any order.<br><br>
 
-* FLOWCHARTS<br>
-The Flowchart for my program was created using <b>LucidChart</b> and it visually represents how the system works.<br>
-[![N|Solid]()]()<br><br>
+**FLOWCHARTS**<br>
+The Flowchart for my program was created using <b>LucidChart</b> to help me keep track and visually see how the system works. Due to the nature of development, and room for creativity, the final website has minor 
+deviations from this flowchart. To be specific, the addition of three more features: "About", "Faqs" and "Contact".<br><br>
+<img src="media/flowchart.webp" ><br>
 
 ### Skeleton<hr>
 **Wireframes**<br>
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed [here]<br>
 
 **Database**<br>
-The project uses the PostgreSQL relational database for storing the data.<br>
+The project uses the PostgreSQL relational database for storing the data.
+Due to the nature of development, and room for creativity, the final website has minor 
+deviations from this schema. To be specific, the addition of three more features: "About", "Faqs" and "Contact".<br>
 
 <details>
-  <summary>Initial Schema</summary>
-<img src="" ><br>
+  <summary> Schema</summary>
+<img src="media/diagram.webp" ><br>
 </details>
 
-<details>
-  <summary>Final Schema</summary>
-<img src=""><br>
-</details><br>
+
 
 ### Surface<hr>
 #### Color Scheme
 All the colours were selected generated from the hero image using Coolors
-<img src="media/colorpalette.png"><br>
+<img src="media/colorpalette.png" width="60%"><br>
 
 #### Fonts
 * The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):<br>
