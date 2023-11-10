@@ -282,6 +282,8 @@ select:focus {
     background-color: skyblue;
     border: 1px solid #7c004f;
     box-shadow: rgb(255 255 255 / 12%) 0px 2px 4px 0px, #ffffff 0px 1px 17px 0px;
+    color: white;
+    transition: all 0.2s ease-out;
 } 
 
 .purple-btn a{
@@ -1459,13 +1461,15 @@ select option[value=""] {
         position: initial;
         float: unset;
         background-color: transparent;
-        color: rgb(44, 43, 43);
+        color: white;
         border: none;
 
     }
 
     .dropdown-btn{
-        padding-left: 0;
+        background-color: transparent;
+        border: none;
+        color: white;
     }
 
     .categories a, .categories .dropdown-btn {
