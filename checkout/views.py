@@ -96,21 +96,9 @@ class Checkout(UserPassesTestMixin, TemplateView):
                     }
                 )
             except UserProfile.DoesNotExist:
-                order_form = OrderForm(
-                    initial={
-                        "country": "IE",
-                        "town_or_city": "Cork",
-                        "county": "Cork",
-                    }
-                )
+                order_form = OrderForm()
         else:
-            order_form = OrderForm(
-                initial={
-                    "country": "IE",
-                    "town_or_city": "Cork",
-                    "county": "Cork",
-                }
-            )
+            order_form = OrderForm()
 
         if not stripe_public_key:
             messages.warning(

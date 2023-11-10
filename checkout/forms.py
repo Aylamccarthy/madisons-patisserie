@@ -5,11 +5,9 @@ Forms for Checkout App.
 """
 from django import forms
 from .models import Order
-from phonenumber_field.formfields import PhoneNumberField
 
 
 class OrderForm(forms.ModelForm):
-    phone_number = PhoneNumberField(region="IE")
 
     class Meta:
         model = Order
@@ -54,42 +52,3 @@ class OrderForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].label = False
-
-    def clean(self):
-        cleaned_data = super().clean()
-        name = cleaned_data.get("full_name")
-        country = cleaned_data.get("country")
-        county = cleaned_data.get("county")
-        town_or_city = cleaned_data.get("town_or_city")
-
-        if not all(x.isalpha() or x.isspace() for x in name):
-            self._errors["full_name"] = self.error_class(
-                ["Invalid format. Only letters and spaces accepted"]
-            )
-        if country != "IE":
-            self._errors["country"] = self.error_class(
-                ["Deliveries only for country Ireland at the moment"]
-            )
-        if not all(x.isalpha() or x.isspace() for x in county):
-            self._errors["county"] = self.error_class(
-                ["Invalid format. Only letters and spaces accepted"]
-            )
-        else:
-            if str(county).lower() != "cork":
-                self._errors["county"] = self.error_class(
-                    ["Deliveries only for county Cork at the moment"]
-                )
-            else:
-                cleaned_data["county"] = "Cork"
-
-        if not all(x.isalpha() or x.isspace() for x in town_or_city):
-            self._errors["town_or_city"] = self.error_class(["The format is invalid"])
-        else:
-            if str(town_or_city).lower() != "cork":
-                self._errors["town_or_city"] = self.error_class(
-                    ["Deliveries only for Cork city at the moment"]
-                )
-            else:
-                cleaned_data["town_or_city"] = "Cork"
-
-        return cleaned_data
