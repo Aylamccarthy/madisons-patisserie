@@ -165,11 +165,35 @@ The structure of the website is divided into multiple pages and the content is d
 **FLOWCHARTS**<br>
 The Flowchart for my program was created using <b>LucidChart</b> to help me keep track and visually see how the system works. Due to the nature of development, and room for creativity, the final website has minor 
 deviations from this flowchart. To be specific, the addition of three more features: "About", "Faqs" and "Contact".<br><br>
-<img src="media/flowchart.webp" ><br>
+<img src="media/flowchart.webp" ><br><br>
 
 ### Skeleton<hr>
 **Wireframes**<br>
-The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed [here]<br>
+The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool. 
+
+<details>
+  <summary>Home</summary><br>
+  Desktop<br>
+<img src="media/wireframe_home_desktop.png" ><br>
+  Mobile<br>
+<img src="media/wireframe_home_mobile.png" ><br>
+</details>
+<details>
+  <summary> Products Page</summary><br>
+  Desktop<br>
+<img src="media/wireframe_products_desktop.png" ><br>
+ Mobile<br>
+<img src="media/wireframe_products_mobile.png" ><br>
+</details>
+<details>
+  <summary> About us Page</summary><br>
+  Desktop<br>
+<img src="media/wireframe_aboutus_desktop.png" ><br>
+ Mobile<br>
+<img src="media/wireframe_about_us.png" ><br>
+</details>
+<br><br>
+
 
 **Database**<br>
 The project uses the PostgreSQL relational database for storing the data.

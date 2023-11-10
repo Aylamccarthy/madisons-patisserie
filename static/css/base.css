@@ -282,11 +282,11 @@ select:focus {
     background-color: skyblue;
     border: 1px solid #7c004f;
     box-shadow: rgb(255 255 255 / 12%) 0px 2px 4px 0px, #ffffff 0px 1px 17px 0px;
-    color: white;
+    color: black;
     transition: all 0.2s ease-out;
 } 
 
-.purple-btn a{
+.purple-btn a {
     color: black;
 }
 
