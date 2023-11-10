@@ -1,5 +1,5 @@
 """
-Checkout App - Webhook
+Checkout App - Webhook Handlers
 ----------------
 Webhook Handlers for Checkout App.
 """

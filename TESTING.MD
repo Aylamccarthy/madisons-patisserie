@@ -293,6 +293,208 @@ All the user stories were tested manually comprehensively, including all the rep
 
     *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
 * **Outcome:** Pass
+#### 5D: US - As a logged-in user, I want to be able to add products to the shopping bag from the Wishlist page
+* **Acceptance Criteria:** A logged-in user should be able to select the quantity value and add any product to the shopping bag from the Wishlist page.
+* **Summary:**<br>
+   - There is a container with input for quantity and an <em>Add to bag</em> button on every element listed on Wishlist page;<br>
+   - There is a container with input for quantity and an <em>Add to bag</em> button on every product detail page;<br>
+   - The quantity input has validation that doesn't allow the user to insert and submit a value greater than the stock value or smaller than 1; <br>
+   - When a product is added to the shopping bag an alert is triggered with the success message "Added ... to your bag"<br>
+   - When the same product is added to the shopping bag, only the quantity value is updated and an alert is triggered with the success message "Updated ... quantity to ...".<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+
+#### 5E: US - As a user, I want to see how many times a product has been added to the Wishlist by all the users
+* **Acceptance Criteria:** A user should see the number of times a product has been added to the Wishlist by all the users for creating a better idea of its popularity
+* **Summary:**<br>
+    - On the wishlist page, every product element has a section that includes a heart icon and a value representing the number of times the product has been added to the Wishlist by all the users; <br><br>
+
+    *By testing this feature, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+### EPIC - BAG
+#### 6A: US - As a user, I want to see all the products I added to the shopping bag
+* **Acceptance Criteria:** A user should be able to access a page with all the products added to the shopping bag.
+* **Summary:**<br>
+    - There is a <em>Shopping bag</em> page with a table that contains every product added to the bag in the selected quantity;<br>
+    - The table list reflects the actual state of the added products.<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 6B: US - As a user, I want to be able to add/remove from the wishlist any product from the shopping bag
+* **Acceptance Criteria:** A user should be able to add/remove a product from the wishlist through an implemented feature.
+* **Summary:**<br>
+   - On the <em>Shopping bag</em> page, for every product in the table there is a wishlist feature visible only to users that are authenticated and not staff members, considering that this feature wouldn't make sense for admins;<br>
+    - To add a product object to the wishlist, a form is displayed with an empty heart icon that acts like a button, and a suggestive message, "Add to wishlist", that indicates to the user what is its purpose;<br>
+    - When the user clicks on the button, the change is visible immediately, as the heart icon changes its shape into a filled heart, and the message is now "Remove from Wishlist";<br>
+    - The change is also reflected in the Wishlist page where the list of products includes only the ones that are currently in the wishlist database;<br>
+    - By clicking on the filled heart, the form comes back to its initial state, and the wine is removed from the list.<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 6C: US - As a user, I want to see all the details about the price for the order
+* **Acceptance Criteria:** A user should be able to see a section with price details for the items added to the shopping bag.
+* **Summary:**<br>
+   - On the <em>Shopping bag</em> page, for every product in the table, the price per item and the total price is displayed;<br>
+   - There is also an <em>Order Summary</em> section with full specifications about the total and grand total price, and also the part of it calculated for delivery;<br> 
+   - The value from <em>Order Summary</em> section updates according to the shopping bag list of products and quantity update.<br><br> 
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** 
+#### 6D: US - As a user, I want to be able to remove a product from the shopping bag
+* **Acceptance Criteria:** A user should be able to delete any product from the shopping bag through an implemented feature.
+* **Summary:**<br>
+   - On the <em>Shopping bag</em> page, for every product in the table there is a feature for deleting the product that is represented by a bin icon;<br>
+   - When the users click on the bin icon, a modal is triggered asking for confirmation of deletion, this being implemented as part of defensive programming;<br>
+   - After the deletion, the product is removed from the bag.<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:**
+#### 6E: US - As a user, I want to be able to edit the quantity of the products
+* **Acceptance Criteria:** A user should be able to update the quantity for any product from the shopping bag through an implemented feature.
+* **Summary:**<br>
+    - On the <em>Shopping bag</em> page, for every product in the table there is a feature for updating the quantity;<br>
+    - The feature includes an input with addition and subtraction buttons that can be used to set the value for the quantity;<br>
+    - The <em>Update quantity</em> button submit action sets the input value as the quantity value and also updates the price details.<br><br>
+   
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:**
+#### 6F: US - As a user, I want that all the discounts announced on the website to be applied properly
+* **Acceptance Criteria:** A user should get a 20% discount voucher on registration, as it is announced on the website.
+* **Summary:**<br>
+    - When a user confirms his account he gets an email with a unique 20% discount code;<br><br>  
+   
+    *By testing this feature, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:**
+#### 6G: US - As a user, I want to be able to add my vouchers to the order
+* **Acceptance Criteria:** A user should be able to apply his voucher through an implemented feature. 
+* **Summary:**<br>
+   - On the <em>Shopping bag</em> page, there is a section with a feature for adding a voucher code;<br>
+   - The feature includes a form with only an input for the voucher code;<br>
+   - When the voucher code is submitted an element appears as an active voucher and also the discount is reflected in the order summary section;<br>
+   - The voucher can be removed by deleting the active voucher element and the price details will come back to the initial state;<br>
+   - When the order is completed with the voucher code active, the code will be removed from the database so it can't be used twice.<br><br>
+   
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:**
+### EPIC - CHECKOUT
+#### 7A: US - As a logged-in user, I want to be able to see and edit my default delivery details for the order
+* **Acceptance Criteria:** A logged-in user should be able to see and update his delivery details if they were registered before.
+* **Summary:**<br>
+    - On the <em>Checkout</em> page there is a form section with fields for delivery information;<br>
+    - The form section for delivery details is prefilled with data corresponding to the authenticated user if it exists;<br>
+    - If the checkbox with the text <em>Save delivery details to my profile</em> is checked, the profile will be updated with the delivery data from the form on submit;<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 7B: US- As a user, I want to see the order summary with all the price details
+* **Acceptance Criteria:** A logged-in user should be able to see a section with price details for the items added to the checkout.
+* **Summary:**<br>
+    - On the <em>Checkout</em> page, there is a table with every product added to checkout;<br>
+    - On the <em>Checkout</em> page, for every product in the table, the price per item is displayed;<br>
+    - There is also an <em>Order Summary</em> section with full specifications about the total price, grand total price, discount and also delivery cost;<br> <br>
+    
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 7C: US - As a user, I want to be able to add my delivery details for the order
+* **Acceptance Criteria:** A guest user should be able to add his delivery details for the order.
+* **Summary:**<br>
+    - On the <em>Checkout</em> page there is a form section with fields for delivery information;<br>
+    - The form can be filled by the user, considering that the fields for <em>Country</em>, <em>County</em> and <em>City</em> are set by default to <q>Ireland</q><q>Cork</q><q>Cork</q> as the shop only delivers to Cork city;<br>
+    - If the checkbox with the text <em>Save delivery details to my profile</em> is checked, the profile will be updated with the delivery data from the form on submit;<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 7D: US - As a user, I want to be able to introduce my card details for payment
+* **Acceptance Criteria:** A user should be able to add his payment details in order to complete the order
+* **Summary:**<br>
+    - On the <em>Checkout</em> page there is a form section with fields for payment information;<br>
+    - The form can be filled by the user with the card details;<br>
+    - The card input has validation that doesn't accept invalid card details.<br><br>
+    
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+### EPIC - USER PROFILE
+#### 8A: US - As a logged-in user, I want to be able to see and edit my delivery details
+* **Acceptance Criteria:** A logged-in user should be able to add his delivery details to the profile page.
+* **Summary:**<br>  
+    - On the <em>Profile</em> page, there is a form with fields for delivery details;<br>
+    - The fields for <em>Country</em>, <em>County</em> and <em>City</em> are set by default to <q>Ireland</q><q>Cork</q><q>Cork</q> as the shop only delivers to Cork city;<br>
+    - The form has validation that forces the user to insert only phone numbers with the format available in Ireland;<br>
+    - When the user adds or updates the delivery values in the <em>Profile</em> page, the form from the<em>Checkout</em> page is prefilled with the updated data.<br><br> 
+    
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 8B: US - As a logged-in user, I want to be able to see my orders history
+* **Acceptance Criteria:** A logged-in user should be able to see a list of the orders he has made.
+    - On the <em>Profile</em> page, there is a table that includes a list of all the orders made by the authenticated user;<br>
+    - Every order element displayed in the table contains information about the order number, date, quantity and total price.<br><br>
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 8C: US - As a logged-in user, I want to see the full details for every order I placed on the website
+* **Acceptance Criteria:** A logged-in user should be able to see a page with full specifications for every order he has made.
+* **Summary:**<br> 
+   - Every order_number value corresponding to the order elements in the table is a link that redirects the user to a details page for the order;<br>
+   - The page contains all the details of the order.<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+### EPIC - ADMIN MANAGE ORDERS
+#### 9A: US - As an admin, I want to be able to see all the orders placed on the website grouped by date
+* **Acceptance Criteria:** An admin user should be able to see a list with all the existing orders. 
+* **Summary:**<br>  
+    - On the <em>Orders</em> page, there is a table that includes a list of all the orders made by all the users;<br>
+    - Every order element displayed in the table contains information about order number, date, quantity and total price;<br>
+    - The orders are initially displayed for the current day for a better user experience.<br><br>
+
+     *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 9B: US -As an admin, I want to be able to filter the orders by date
+* **Acceptance Criteria:** An admin user should be able to filter the orders by date.
+    - Considering that the page displays by default only the orders for the current day, there is a form that is used for filtering the data by date;<br>
+    - On submitting the form the orders for the selected date appear with the informative text displaying the date and number of orders;<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+#### 9C: US -As an admin, I want to see full details of every order placed on the website 
+* **Acceptance Criteria:** An admin user should be able to see a page with full specifications for any order.
+* **Summary:**<br>  An admin user should be able to see a page with full specifications for every order existent.
+   - Every order_number value corresponding to the order elements in the table is a link that redirects the admin to a details page for the order;<br>
+   - The page contains all the details of the order.<br><br>
+
+    *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+### EPIC - NEWSLETTER
+#### 10A: US - As a user, I want to be able to subscribe to a newsletter, so I can always be up to date with the latest promotions
+* **Acceptance Criteria:** A user should be able to register his email to newsletter for getting informed about the latest promotions
+* **Summary:**<br>  
+    - There is a form available in the footer of every page where the user can register his email;<br>
+    - The form has validation that doesn't let the user register the same email twice.<br><br>
+
+     *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+
+### Aditional Manual Testing
+#### Error Handling
+
+* Ensure that **403 HTTP** errors display custom 403.html.
+    - **Stress Test:** Input a route in the URL for accessing another user content
+* Ensure that **404 HTTP** errors display the custom 404.html.
+    - **Stress Test:** Input a random route in the URL that can't be found in the declared paths of the project
+* Ensure that **500 HTTP** errors display the custom 500.html.
+    - **Stress Test:** Set debug to false and try to access a path that has been breaked intentionally.
+
+
+#### Interface Interaction
+
+* Ensure all interactive elements respond appropriately:
+    - **Desktop:**
+        - All navbar elements correctly respond to hovering.
+        - All buttons correctly respond to hovering.
+        - All authentication links correctly respond to hovering
+    - **Mobile:**
+        - All navbar elements correctly respond to touch.
+        - All buttons correctly respond to touch.
+        - All authentication links correctly respond to touch
 
 
 #### Links
