@@ -319,7 +319,7 @@ By using Agile methodology, I was able to stay organized, work efficiently and f
     -Add a *Faqs* page <br>
     -Add form validation
     <br><br>
-* **Sprint 12 - TESTING**<br>
+* **Sprint 12 - ABOUT PAGE & TESTING**<br>
     -Create unit tests for Home App<br>
     -Create unit tests for Products App<br>
     -Create unit tests for Product Reviews App<br>
@@ -528,6 +528,7 @@ Gmail - for sending emails using the SMTP server
 * django-url-tools-py3 
 * django-resized
 * flake8 
+* black
 
 
 
@@ -741,15 +742,18 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 * The content of the website is fictive but was loosely based on the project owner's personal experience. 
 
 ### Media
-* All products images used on the site were taken from 
+ All products images used on the site were taken from:
 * [Google](https://www.google.com/)
 * [pexels](https://www.pexels.com/)
 * [pixabay](https://www.pixabay.com/)
+* [pixelied](https://pixelied.com/convert/png-converter/png-to-webp)- for converting images to webp format.
+* [picresize](https://picresize.com/)- for resizing images.
+
 
 ### Code
 * The whole project was built utilising Code Institute's LMS. More specifically the 'Boutique-ado, 'Hello Django' and 'I think Therefore I Blog' walkthrough projects.
 * The code for creating a custom user model was taken and adapted from [here](https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/)
-* The validation for the booking form was inspired from [here](https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/)
+* The validation for the checkout form was inspired from [here](https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/)
 * Daisy McGirr Django Youtube Tutorials (https://www.youtube.com/watch?v=dCvkAVN5uas&list=PLXuTq6OsqZjYSa-lrjd5wMGl23zpnhvln)
 
 ## Acknowledgements
