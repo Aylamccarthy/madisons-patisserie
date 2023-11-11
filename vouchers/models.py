@@ -39,7 +39,7 @@ def send_discount_voucher_on_email_confirmed_(
     while len(Voucher.objects.filter(voucher_code=voucher_code)) != 0:
         code = uuid.uuid4().hex
         voucher_code = humanhash.humanize(str(code))
-    voucher = Voucher(user=user, percentage=15, voucher_code=voucher_code)
+    voucher = Voucher(user=user, percentage=20, voucher_code=voucher_code)
     voucher.save()
 
     customer_email = email_address.email
