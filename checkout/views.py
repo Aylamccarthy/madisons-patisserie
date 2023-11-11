@@ -196,7 +196,7 @@ class Checkout(UserPassesTestMixin, TemplateView):
             return redirect(
                 reverse("checkout_success", args=[order.order_number]))
         else:
-            # If form is not valid pass the form with errors and strype
+            # If form is not valid pass the form with errors and stripe
             # secrets to context
             order_form = OrderForm(request.POST, form_data)
             template = "checkout/checkout.html"
