@@ -39,6 +39,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [customer_email],
+            html_message=body,
         )
 
     def handle_event(self, event):
