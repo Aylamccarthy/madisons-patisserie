@@ -230,11 +230,42 @@ All the colours were selected generated from the hero image using Coolors
 
 ### Facebook Page
 * The marketing strategy includes a Facebook business page that is intended to create a good image of the bakeshop by posting news and promotions available. By highly promoting the products and always adding new content, the page will increase its popularity and attract more and more customers to buy from the online store. The page can be accessed at [this link](https://www.facebook.com/profile.php?id=61553025716191).<br><br><br>
+*Note, this link may be broken as facebook regularly deletes inactive business pages.
 <img width="80%" src="media/facebook_screenshot.png">
 
 ### Newsletter
 * Newsletter is also utilised as a marketing strategy in an attempt to improve customer engagement further, keeping them up to date and also incentivising them by running promotions on regular basis.<br><br>
 <img width="60%" src="media/newsletter_screenshot.png">
+
+## Search Engine Optimisation
+
+I have created a robots.txt file to help aid search engines locate the site. To keep user's information safe, any pages that could contain sensitive information has been disallowed in the robots.txt.
+
+The purpose of the About Us page was not so much designed in mind to inform the user, but more so to have an opportunity to use some keywords, and link the user to any other relevant website, all to help boost the site's ranking in search engine results.
+
+The initial keywords and phrases I came up with were:<br>
+### Short Tail Keywords
+ * Cakes Cork
+ * cork bakeshop
+ * sweet treats
+ * desserts
+ * wedding cakes
+ * occasion cakes
+ * birthday cakes
+ * pies
+ * doughnuts
+ * drip cakes
+ * chocolate cakes
+ * elegant cakes
+ * christening cake <br>
+
+### Long Tail Keywords
+ * scrumptious cakes
+ * shop cakes online
+ * cake delivery in cork
+ * custom-made cakes
+
+[Back to top ⇧](#overview)
 
 ## Agile Methodology
 This project was developed utilising the Agile Methodogy.<br>
@@ -415,6 +446,38 @@ A form for personal, delivery and payment details is displayed for the user to f
 * An order summary is displayed with details about the products and cost.
 * After the order is completed, the user is sent to a *Checkout Success * page with full specifications and details.
 
+#### Payment
+* Underneath the delivery details is the card payment box which is run by Stripe.
+* Only numbers can be entered into the card payment box. Incorrect card numbers will automatically show an 
+  invalid card number error.
+* The site can be tested by using the dummy card number 4242 4242 4242 4242 with the expiry date 04/24 and the CVC code 242.
+* At the end of the section is a button to complete the order or to return back to the bag. There is also a warning message informing the user of how much their card is about to be charged.<br><br>
+<img src="media/stripe_payment.png" width="60%"><br><br>
+
+#### Loading Spinner
+* Upon clicking the complete order button, as long as the form is valid, a loading spinner will render until the information is processed completely.<br><br>
+<img src="media/loading_spinner.png" width="40%"><br><br>
+
+[Back to top ⇧](#overview)
+#### Webhooks
+* Using the Stripe website, webhooks have been set up to confirm an order goes through after payment.
+* Once an order is placed, a webhook will search the database to confirm the order exists. If it cannot find the  original order, it will create one using the information provided by the user in the original instance.<br><br>
+<img src="media/webhook.png" width="40%"><br><br>
+
+#### About Us
+* The about us page features an image of the fictional founder of Madison's Patisserie and her daughter.<br><br>
+<img src="media/aboutus_image.png" width="40%"><br><br>
+
+* On the left hand side of the image are some fictional information of how Madison's Patisserie came to be. This was used to create an opportunity to use keywords related to the site's business to help boost search ratings.<br><br>
+<img src="media/aboutus_info.png" width="40%"><br><br>
+
+#### Contact
+* The contact page has the image of the fictional cafe of the bakeshop. The contact info has all the relevant information such as address, telephone number and email address.
+* It also contains the cafe's  opening hours as well as google map that has the marker set to the fictional address of the bakeshop's cafe.
+* The *Contact* page was created with the aim of providing the users all the relevant information about the bakeshop's contact details, opening hours and location without needing to contact the bakeshop.<br><br>
+<img src="media/contact.webp" width="80%"><br><br>
+
+
 #### User Profile
 The *User Profile* page gives the user access to individual and private features.<br>
 * The page includes a form for adding or updating the delivery details. These details are saved in the database and whenever the user is logged in and wants to make an order, the values will be automatically set in the checkout form. <br><br>
@@ -444,14 +507,14 @@ The orders are displayed in a custom-designed table, grouped by day and ordered 
 <img src="media/add_product.png" width="30%"><br><br>
 <img src="media/update_product.png" width="30%"><br><br>
 
-
-#### Contact
-The *Contact* page was created with the aim of providing the users all the relevant information about the bakeshop's contact details, opening hours and location without needing to contact the bakeshop.<br><br>
-<img src="media/pp5_contactpage.png" width="80%"><br><br>
-
 #### FAQs Page
 The *FAQs* page was created with the aim of providing the users all the relevant information  and answers to all their frequently asked questions without needing to contact the bakeshop.<br><br>
 <img src="media/faqs.png" width="80%"><br><br>
+
+#### Toasts
+* Toasts appear in the top right-hand corner of the display informing the user of any actions they have performed.
+* The top part of the toast box will change colour depending on whether the message is portraying a successful action, general info, warning, or an error.<br><br>
+<img src="media/toasts.png" width="40%"><br><br>
 
 ### Future Feature Considerations<hr>
 
@@ -553,7 +616,7 @@ Gmail - for sending emails using the SMTP server
 * flake8 
 * black
 
-
+[Back to top ⇧](#overview)
 
 ## Testing
 The comprehensive testing documentation can be found here [TESTING.MD](TESTING.MD)
