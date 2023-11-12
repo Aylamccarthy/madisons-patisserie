@@ -1,22 +1,22 @@
 {% load mathfilters %}
 
-<h4>Order Confirmation</h4>
+Order Confirmation
 
-<p>Hi {{ order.full_name }}</p>
-<p>This is a confirmation of your order at Madison's Patisserie. See order details below:</p>
-<p>Order Number: <b>{{ order.order_number }}</b></p>
-<p>Order Date: <b>{{ order.date }}</b></p>
-<p>Order Total: <b>{{ order.order_total }}</b></p>
+Hi {{ order.full_name }}
+This is a confirmation of your order at Madison's Patisserie. See order details below:
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+Order Total: <b>{{ order.order_total }}
 
 {% if order.discount != 0 %}
-<p>Discount: <b>{{ order.discount_value|floatformat:2 }}</b></p>
-<p>Subtotal after discount: <b>{{ order.order_total|sub:order.discount_value|floatformat:2 }}</b></p>
+Discount: {{ order.discount_value|floatformat:2 }}
+Subtotal after discount: {{ order.order_total|sub:order.discount_value|floatformat:2 }}
 {% endif %}
 
-<p>Delivery: <b>{{ order.delivery_cost }}</b></p>
-<p>Grand Total: <b>{{ order.grand_total }}</b></p>
-<p>Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country.name }}.</p>
-<p>If you have any questions, feel free to contact us at {{ contact_email }}.</p>
-<br>
-<p>Sincerely,</p>
-<p>Madison's Patisserie</p>
+Delivery: {{ order.delivery_cost }}
+Grand Total: {{ order.grand_total }}
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country.name }}.
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Sincerely,
+Madison's Patisserie
