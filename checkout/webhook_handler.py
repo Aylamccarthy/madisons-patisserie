@@ -34,13 +34,11 @@ class StripeWH_Handler:
             "checkout/confirmation_emails/confirmation_email_body.html",
             {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
-
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [customer_email],
-            html_message=body,
         )
 
     def handle_event(self, event):
