@@ -871,6 +871,8 @@ I also honestly didn't know how to rectify the SEO error I am getting. Please se
 * **Update delivery details returns a 500error**
     The logged in user cannot updated his delivery details, and returns a  NameError: name 'template' is not defined on the terminal. Due to time constraint, I was unable to fix this bug on time.
 
+* **Update delivery details returns a 500error**
+    Filter by 'ratings'  return a 500error.
 
 * **Pagination**
     I have tried to implement pagination for the Products page using the class-based view <code>ListView</code> by setting the <code>paginate_by</code> value. The implementation didn't succeed as it seems that the view's feature doesn't work properly with filtered querysets. An alternative way of doing the pagination would be by using javascript but I didn't consider it as being completely necessary and I left it for future implementations because of time constraints.
