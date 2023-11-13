@@ -1461,7 +1461,7 @@ select option[value=""] {
         position: initial;
         float: unset;
         background-color: transparent;
-        color: white;
+        color: black;
         border: none;
 
     }
@@ -1469,7 +1469,7 @@ select option[value=""] {
     .dropdown-btn{
         background-color: transparent;
         border: none;
-        color: white;
+        color: black;
     }
 
     .categories a, .categories .dropdown-btn {
