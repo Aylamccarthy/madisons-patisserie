@@ -375,6 +375,7 @@ By using Agile methodology, I was able to stay organized, work efficiently and f
     -Add form validation
     <br><br>
 * **Sprint 12 - ABOUT PAGE & TESTING**<br>
+    -Add an *About Us* page
     -Create unit tests for Home App<br>
     -Create unit tests for Products App<br>
     -Create unit tests for Product Reviews App<br>

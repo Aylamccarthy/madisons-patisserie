@@ -752,7 +752,7 @@ The contact page result is showing one error about the map image missing alterna
 <details>
 <summary>Bag Page</summary>
 <img src="media/wave_bag.png" width="30%"><br><br>
-</details><br>
+</details>
 <details>
 <summary>Admin Page</summary>
 <img src="media/wave_admin_orders.png" width="30%"><br><br>
@@ -848,8 +848,8 @@ I also honestly didn't know how to rectify the SEO error I am getting. Please se
 </details>
 
 
-
 ## BUGS
+I encountered countless bugs during the whole building process of this project. So much so, that I often forget to list them down here and just get my head stuck in solving them. But the ones listed below were the ones that really challenged my tenacity and patience.
 ### Solved
 * **Duplicate key error**
      When I added the unique attribute on sku and code fields (to ensure that all the products skus and codes are unique and therefore will prevent error of duplication for future data entries), I got the duplicate key error. I found this bug significantly challenging as I have never encountered it from previous problem. And also because this is my first experience implementing fixtures file on a project, this bug had been so challenging but at the same time a great learning experience.
