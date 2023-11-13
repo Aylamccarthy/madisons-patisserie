@@ -38,17 +38,14 @@ class SubscribeToNewsletter(CreateView):
                     extra_tags="form_success",
                 )
                 return HttpResponseRedirect(
-                    request.POST.get(
-                        "newsletter_submit_btn", "") + "#newsletter"
+                    request.POST.get("newsletter_submit_btn", "") + "#newsletter"
                 )
             else:
                 messages.error(
-                    request, subscribe_form.errors["email"],
-                    extra_tags="form_errors"
+                    request, subscribe_form.errors["email"], extra_tags="form_errors"
                 )
                 return HttpResponseRedirect(
-                    request.POST.get(
-                        "newsletter_submit_btn", "") + "#newsletter"
+                    request.POST.get("newsletter_submit_btn", "") + "#newsletter"
                 )
             #  return HttpResponse(
             # subscribe_form.errors.as_json(),

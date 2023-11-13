@@ -1,4 +1,3 @@
-
 """
 Vouchers App - Views
 ----------------
@@ -30,8 +29,7 @@ class UpdateDiscountBag(View):
             if voucher_form.is_valid():
                 voucher_code = voucher_form.cleaned_data["voucher_code"]
                 if voucher_code != "":
-                    if not Voucher.objects.filter(
-                            voucher_code=voucher_code).exists():
+                    if not Voucher.objects.filter(voucher_code=voucher_code).exists():
                         request.session["discount"] = None
                         request.session["voucher_id"] = None
                         messages.error(
@@ -41,8 +39,7 @@ class UpdateDiscountBag(View):
                             extra_tags="safe",
                         )
                     else:
-                        voucher = Voucher.objects.get(
-                            voucher_code=voucher_code)
+                        voucher = Voucher.objects.get(voucher_code=voucher_code)
                         discount = voucher.percentage
                         request.session["discount"] = discount
                         request.session["voucher_id"] = voucher.id

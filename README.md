@@ -808,7 +808,6 @@ NOTE: DISABLE_COLLECTSTATIC variable should be set to "1" for initial deployment
 
 9. After build is done, you should be able to see the button with the link leading to deployed app. In my case [https://madisons-patisserie-8790c4325233.herokuapp.com/](https://madisons-patisserie-8790c4325233.herokuapp.com/).
 
-
 [Back to top ⇧](#overview)
 
 ### AWS
@@ -1027,8 +1026,10 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 ## Acknowledgements
 - Code Institute for all the materials and support offered.<br>
-- My mentor Gareth McGirr for all the advice and support and his willingness to help me as much as possible with the problems encountered during the development of the project.<br>
+- My mentor Gareth McGirr for all the advice and support and always went above and beyond to help me as much as possible with the problems encountered during the development of the project.<br>
 - Slack community for unparalled motivation, help and support.<br>
+- To Slack community-study-group huddle with Daisy and Gareth McGirr, thank you so much for all your invaluable help and guidance. Much appreciated, more than you'll ever know .<br>
+
 <hr>
 
 [Back to top ⇧](#overview)

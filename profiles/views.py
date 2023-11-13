@@ -1,4 +1,3 @@
-
 """
 Profiles App - Views
 ----------------
@@ -32,12 +31,12 @@ class Profile(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         profile = get_object_or_404(UserProfile, user=request.user)
         # Set initial values
         form = UserProfileForm(instance=profile)
-        orders = Order.objects.filter(user=profile).order_by('-date')
+        orders = Order.objects.filter(user=profile).order_by("-date")
 
-        template = 'profiles/profile.html'
+        template = "profiles/profile.html"
         context = {
-            'delivery_details_form': form,
-            'orders': orders,
+            "delivery_details_form": form,
+            "orders": orders,
         }
 
         return render(request, template, context)
@@ -46,80 +45,79 @@ class Profile(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         return not self.request.user.is_superuser
 
 
-class ProfileDeliveryUpdate(LoginRequiredMixin, UserPassesTestMixin,
-                            UpdateView):
+class ProfileDeliveryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """A view for updating delivery details for current user"""
+
     template_name = "profiles/profile.html"
     model = UserProfile
 
     def post(self, request, user_pk):
         profile = get_object_or_404(UserProfile, user=user_pk)
         orders = Order.objects.filter(user=profile)
-        if request.method == 'POST':
-            delivery_details_form = UserProfileForm(
-                request.POST, instance=profile)
-            messages.error(request, 'There was an error with your form. \
-            Please double check your information.')
+        if request.method == "POST":
+            delivery_details_form = UserProfileForm(request.POST, instance=profile)
+            messages.error(
+                request,
+                "There was an error with your form. \
+            Please double check your information.",
+            )
             return render(request, template, context)
-        elif request.method == 'GET':
-            delivery_details_form = UserProfileForm(
-                instance=profile)
+        elif request.method == "GET":
+            delivery_details_form = UserProfileForm(instance=profile)
 
-        return HttpResponseRedirect(reverse_lazy('profile'))
+        return HttpResponseRedirect(reverse_lazy("profile"))
 
     def test_func(self):
-        user = User.objects.get(pk=self.kwargs['user_pk'])
+        user = User.objects.get(pk=self.kwargs["user_pk"])
         return self.request.user == user
 
 
 class OrderDetails(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """A view for rendering order details page"""
+
     template_name = "checkout/checkout_success.html"
 
     def get(self, request, order_number):
         order = get_object_or_404(Order, order_number=order_number)
 
-        template = 'checkout/checkout_success.html'
+        template = "checkout/checkout_success.html"
         context = {
-            'order': order,
-            'from_profile': True,
+            "order": order,
+            "from_profile": True,
         }
 
         return render(request, template, context)
 
     def test_func(self):
-        order = Order.objects.get(order_number=self.kwargs['order_number'])
+        order = Order.objects.get(order_number=self.kwargs["order_number"])
         user_not_admin = not self.request.user.is_superuser
         return user_not_admin and order.user.user == self.request.user
 
 
 class AdminOrdersList(LoginRequiredMixin, UserPassesTestMixin, ListView):
     """A view for rendering orders filtered by date"""
+
     model = Order
     template_name = "profiles/admin_orders.html"
     context_object_name = "orders"
 
     def get(self, request):
-        if request.method == 'GET':
+        if request.method == "GET":
             today = date.today()
             date_form = DateOrdersForm(data=request.GET)
             if date_form.is_valid():
                 # if form is valid filter orders by date field value
-                orders_date = date_form.cleaned_data['date']
+                orders_date = date_form.cleaned_data["date"]
                 if orders_date:
                     orders_date = orders_date
                 if orders_date:
-                    query = Order.objects.filter(
-                        date=orders_date).order_by('-date')
+                    query = Order.objects.filter(date=orders_date).order_by("-date")
                 else:
                     orders_date = today
-                query = Order.objects.filter(
-                    date__date=orders_date).order_by('-date')
-                context = {'date_form': date_form,
-                           'date': orders_date,
-                           'orders': query}
+                query = Order.objects.filter(date__date=orders_date).order_by("-date")
+                context = {"date_form": date_form, "date": orders_date, "orders": query}
 
-        return render(request, 'profiles/admin_orders.html', context)
+        return render(request, "profiles/admin_orders.html", context)
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -127,9 +125,10 @@ class AdminOrdersList(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 class AdminDeleteOrder(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """A view for removing order object"""
+
     model = Order
     template_name = "profiles/admin_orders.html"
-    success_url = reverse_lazy('admin_manage_orders')
+    success_url = reverse_lazy("admin_manage_orders")
     success_message = "Order was successfully deleted."
 
     def delete(self, request, *args, **kwargs):
@@ -140,9 +139,12 @@ class AdminDeleteOrder(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         """Create success url to keep current date filtering"""
         orders_date = self.get_object().date
         csrf = base64.b64encode(os.urandom(64))
-        return '/profile/manage_orders/?csrfmiddlewaretoken=' +\
-               csrf.decode("utf-8") + '&date=' + \
-               orders_date.strftime("%Y-%m-%d")
+        return (
+            "/profile/manage_orders/?csrfmiddlewaretoken="
+            + csrf.decode("utf-8")
+            + "&date="
+            + orders_date.strftime("%Y-%m-%d")
+        )
 
     def test_func(self):
         return self.request.user.is_superuser
@@ -150,15 +152,16 @@ class AdminDeleteOrder(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class AdminOrderDetails(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """A view for rendering order details page"""
+
     template_name = "checkout/checkout_success.html"
 
     def get(self, request, order_number):
         order = get_object_or_404(Order, order_number=order_number)
 
-        template = 'checkout/checkout_success.html'
+        template = "checkout/checkout_success.html"
         context = {
-            'order': order,
-            'from_admin': True,
+            "order": order,
+            "from_admin": True,
         }
 
         return render(request, template, context)

@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0008_alter_order_date'),
+        ("checkout", "0008_alter_order_date"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='date',
-            field=models.DateTimeField(default='2023-11-10 12:00:16'),
+            model_name="order",
+            name="date",
+            field=models.DateTimeField(default="2023-11-10 12:00:16"),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='phone_number',
+            model_name="order",
+            name="phone_number",
             field=models.CharField(max_length=20),
         ),
     ]

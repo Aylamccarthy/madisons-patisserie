@@ -75,13 +75,11 @@ class TestViews(TestCase):
         # Test if the redirect location matches the value from view
         self.assertEqual(
             response["location"],
-            "/products/product_details/" + str(
-                self.product.id) + "/#reviewsSection",
+            "/products/product_details/" + str(self.product.id) + "/#reviewsSection",
         )
 
         response = self.client.get(
-            "/products/product_details/" + str(
-                    self.product.id) + "/#reviewsSection"
+            "/products/product_details/" + str(self.product.id) + "/#reviewsSection"
         )
 
         self.assertEqual(response.status_code, 200)
@@ -94,8 +92,7 @@ class TestViews(TestCase):
         self.assertEqual(len(response.context["review_list"]), 1)
         # Test if the review object was created for the current user and
         # the product passed as argument
-        self.assertEqual(
-                response.context["review_list"][0].product, self.product)
+        self.assertEqual(response.context["review_list"][0].product, self.product)
         self.assertEqual(response.context["review_list"][0].author, self.user)
         self.assertEqual(response.context["review_list"][0].rate, 5)
         self.assertEqual(
@@ -103,8 +100,7 @@ class TestViews(TestCase):
         )
 
         # Test if current review context contains the correct review
-        self.assertEqual(
-            response.context["current_review"].product, self.product)
+        self.assertEqual(response.context["current_review"].product, self.product)
         self.assertEqual(response.context["current_review"].author, self.user)
 
     def test_add_product_review_neauthenticated_redirects(self):
@@ -174,8 +170,7 @@ class TestViews(TestCase):
 
         # Open product details page
         response = self.client.get(
-            "/products/product_details/" + str(
-                self.product.id) + "/#reviewsSection"
+            "/products/product_details/" + str(self.product.id) + "/#reviewsSection"
         )
         self.assertEqual(response.status_code, 200)
 
@@ -214,18 +209,15 @@ class TestViews(TestCase):
         # Test if the redirect location matches the value from view
         self.assertEqual(
             response["location"],
-            "/products/product_details/" + str(
-                self.product.id) + "/#reviewsSection",
+            "/products/product_details/" + str(self.product.id) + "/#reviewsSection",
         )
 
         # Open product details page
         response = self.client.get(
-            "/products/product_details/" + str(
-                self.product.id) + "/#reviewsSection"
+            "/products/product_details/" + str(self.product.id) + "/#reviewsSection"
         )
         self.assertEqual(response.status_code, 200)
 
         # Test if the values for current review were updated
         self.assertEqual(response.context["review_list"][0].rate, 1)
-        self.assertEqual(
-            response.context["review_list"][0].review_text, "Not so good")
+        self.assertEqual(response.context["review_list"][0].review_text, "Not so good")
