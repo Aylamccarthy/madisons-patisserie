@@ -742,13 +742,34 @@ The accesibility of the website was tested with [Wave](https://wave.webaim.org/)
 </details>
 <details>
 <summary>Contact page</summary>
+The contact page result is showing one error about the map image missing alternative text. I tried to fix it but was unsuccessful.
 <img src="media/wave_contact.png" width="30%"><br><br>
+</details>
+<details>
+<summary>FAQs Page</summary>
+<img src="media/wave_faqs.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Bag Page</summary>
+<img src="media/wave_bag.png" width="30%"><br><br>
 </details><br>
+<details>
+<summary>Admin Page</summary>
+<img src="media/wave_admin_orders.png" width="30%"><br><br>
+</details><br>
+
+
 
 ### Performance
 The performance of the website was tested with [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
 
 **Lighthouse reports:**<br>
+The lighthouse report scores are lower than I expected. I made every effort to increase these scores, but I am still not satisfied with the final outcome. But due to time constraints I was not able to rectify all the errors that are causing poor performance.
+
+I also honestly didn't know how to rectify the SEO error I am getting. Please see screenshots. I consulted with my mentor and he wasn't sure either what was causing this. 
+<!-- The main issues for which I couldn't find a solution.<br><br -->
+ <img src="media/lighthouse_error1.png" width="40%"><br><br>
+  <img src="media/lighthouse_error2.png" width="40%"><br><br>
 
  The following updates have been made for improving the performance score:
  * Compressed images with [Tiny PNG](https://tinypng.com/)
@@ -756,26 +777,94 @@ The performance of the website was tested with [Google Lighthouse](https://devel
  * Resized images [picresize](https://picresize.com/)
 
  After these updates were made, the score improved but the lowest score remains <b>67</b> for desktop and <b>64</b> for mobile.
- <!-- The main issue is the server response time for which I couldn't find a solution.<br><br -->
- <img src="media/low_score.png" width="60%"><br><br>
+ 
 
+#### Desktop
+<details>
+<summary>Home Page</summary>
+<img src="media/lighthouse_desktop_home.png" width="30%"><br><br>
+</details>
+<details>
+<summary>About Page</summary>
+<img src="media/lighthouse_desktop_about.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Products Page</summary>
+<img src="media/lighthouse_desktop_products.png" width="30%"><br><br>
+</details>
+<details>
+<summary>contact Page</summary>
+<img src="media/lighthouse_desktop_contact.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Faqs Page</summary>
+<img src="media/lighthouse_desktop_faqs.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Bag Page</summary>
+<img src="media/lighthouse_desktop_bag.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Login/Register Page</summary>
+<img src="media/lighthouse_desktop_login.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Admin Manage Order Page</summary>
+<img src="media/lighthouse_desktop_orderadmin.png" width="30%"><br><br>
+</details>
 
-
-
+#### Mobile
+<details>
+<summary>Home Page</summary>
+<img src="media/lighthouse_mobile_home.png" width="30%"><br><br>
+</details>
+<details>
+<summary>About Page</summary>
+<img src="media/lighthouse_mobile_about.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Products Page</summary>
+<img src="media/lighthouse_mobile_products.png" width="30%"><br><br>
+</details>
+<details>
+<summary>contact Page</summary>
+<img src="media/lighthouse_mobile_contact.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Faqs Page</summary>
+<img src="media/lighthouse_mobile_faqs.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Bag Page</summary>
+<img src="media/lighthouse_mobile_bag.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Login/Register Page</summary>
+<img src="media/lighthouse_mobile_login.png" width="30%"><br><br>
+</details>
+<details>
+<summary>Admin Manage Order Page</summary>
+<img src="media/lighthouse_mobile_orderadmin.png" width="30%"><br><br>
+</details>
 
 
 
 ## BUGS
 ### Solved
-* ** Duplicate key error. 
+* **Duplicate key error**
      When I added the unique attribute on sku and code fields (to ensure that all the products skus and codes are unique and therefore will prevent error of duplication for future data entries), I got the duplicate key error. I found this bug significantly challenging as I have never encountered it from previous problem. And also because this is my first experience implementing fixtures file on a project, this bug had been so challenging but at the same time a great learning experience.
      Solution:
      After research and tutor and mentor consultation, I reset my database. Make migrations again. Create a new superuser. And reload data again.
 
-* ** Stripe Element not working as expected.
+* **Stripe Element not working as expected**
      When I implemented stripe payments and try to check that everything works, I could only go as far as 'Complete Order' but it wouldn't bring me to success checkout page as expected.
      Solution:
      It turns out that I am using the slim version of JQuery which doesn't support fadeToggle. By switching to normal minified version, the issue was fixed.
+
+* **Confirmation email not being sent to the user**
+    This bug had been so challenging for me, I thought for the longest time debugging that the error must be coming from the webhook handlers. But after mentor consultation and a bit of guidance form Daisy McGirr, it turned out that format of the confirmation email was what was causing the problem. 
+    Solution:
+    By switching the format to txt.file instead of an html.file, the issue has been resolved.
 
 
 ### Unsolved
@@ -784,5 +873,9 @@ The performance of the website was tested with [Google Lighthouse](https://devel
     I have tried to implement pagination for the Products page using the class-based view <code>ListView</code> by setting the <code>paginate_by</code> value. The implementation didn't succeed as it seems that the view's feature doesn't work properly with filtered querysets. An alternative way of doing the pagination would be by using javascript but I didn't consider it as being completely necessary and I left it for future implementations because of time constraints.
 
 * **Google Map**
-    The google map script is  showing an error on the console.   Bjut
+    The google map script is  showing an error on the console. But it is working as expected. 
+
+* **Lighthouse Reports**
+    The lighthouse reports are significantly lower than expected, and I honestly do not know how to fix the SEO error I am getting.
+
 Back to [README.MD](README.MD)<br>

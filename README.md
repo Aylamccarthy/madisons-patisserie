@@ -239,7 +239,7 @@ All the colours were selected generated from the hero image using Coolors
 
 ## Search Engine Optimisation
 
-I have created a robots.txt file to help aid search engines locate the site. To keep user's information safe, any pages that could contain sensitive information has been disallowed in the robots.txt.
+I have created a sitemap and robots.txt file to help aid search engines locate the site. To keep user's information safe, any pages that could contain sensitive information has been disallowed in the robots.txt.
 
 The purpose of the About Us page was not so much designed in mind to inform the user, but more so to have an opportunity to use some keywords, and link the user to any other relevant website, all to help boost the site's ranking in search engine results.
 
