@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-4 col-xl-2 pr-0 sort-select-container w-50 p-0">
                     <!-- Sorting -->
-                    <select id="sort-selector">
+                    <select id="sort-selector" aria-label="sort-selector">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -37,8 +37,8 @@
             </div>
             <hr class="d-none d-lg-block mb-1 mt-0">
             <!-- Filters -->
-            <div class="navbar navbar-expand-lg navbar-light pl-0">
-                <button class="d-lg-none button rounded-0 purple-btn small-btn" type="button" data-toggle="collapse" data-target="#navbarTogglerFilters" aria-controls="navbarTogglerFilters" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar navbar-expand-lg navbar-light bg-skyblue pl-0">
+                <button class="d-lg-none rounded-0 purple-btn text-yellow" type="button" data-toggle="collapse" data-target="#navbarTogglerFilters" aria-controls="navbarTogglerFilters" aria-expanded="false" aria-label="Toggle navigation">
                   Filter
                 </button>
                 <div class="collapse navbar-collapse d-lg-flex flex-row align-items-start" id="navbarTogglerFilters">
@@ -47,10 +47,10 @@
                         {% if not current_category %}
                         <li class="col-md-3 col-xl-2 p-0 nav-item mt-2 mt-lg-0 mr-4 mb-2">
                             <div class="dropdown">
-                                <a href="" class="d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-btn w-100 d-flex justify-content-between text-uppercase" data-toggle="dropdown" aria-expanded="false">
                                     <span>Category</span>
                                     <span class="dropdown-toggle"></span>
-                                </a>
+                                </button>
                                 <div class="dropdown-menu dropdown-menu-lg-start">
                                     {% for category in categories %}
                                     <a class="dropdown-item" href="{{current_url}}category={{category|urlencode}}">{{category.get_friendly_name}}</a>

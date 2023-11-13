@@ -473,6 +473,34 @@ All the user stories were tested manually comprehensively, including all the rep
      *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
 * **Outcome:** Pass
 
+### EPIC - ABOUT
+#### 10B: US - As a user, I want to be able to see information about the website, including their story, philosophy and commitment
+* **Acceptance Criteria:** A user should be able to see all the relevant information about the website.
+* **Summary:**<br>  
+    - The about page of the website include information about the bakeshop such as how they came to be, their philosophy and commitment;<br><br>
+
+     *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+
+### EPIC - FAQs
+#### 10C: US - As a user, I want to be able to see information about frequently asked questions about the website and their products
+* **Acceptance Criteria:** A user should be able to see frequently asked questions about the website
+* **Summary:**<br>  
+    - The FAQs page of the website contains information about frequently asked questions about the website and their products;<br><br>
+
+     *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+
+### EPIC - CONTACT
+#### 10D: US - As a user, I want to be able to see all the relevant information of the bakeshop's contact.
+* **Acceptance Criteria:** A user should be able to see the bakeshops address, telephone number, email and opening hours
+    - The CONTACT page of the website contains information about the bakeshop's address, including a google map, telephone number, email and opening hours;<br><br>
+
+     *By testing all these features, it can be affirmed that the user story is accomplished.*<br> 
+* **Outcome:** Pass
+
+
+
 ### Aditional Manual Testing
 #### Error Handling
 
